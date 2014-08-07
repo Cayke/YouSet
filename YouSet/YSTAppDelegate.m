@@ -7,6 +7,7 @@
 //
 
 #import "YSTAppDelegate.h"
+#import "YSTMainViewController.h"
 
 @implementation YSTAppDelegate
 
@@ -14,6 +15,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    YSTMainViewController *mvc = [[YSTMainViewController alloc]init];
+    self.window.rootViewController = mvc;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

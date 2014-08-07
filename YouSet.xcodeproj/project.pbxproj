@@ -19,6 +19,8 @@
 		9233825D19941DB800B199A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9233824519941DB800B199A9 /* UIKit.framework */; };
 		9233826519941DB800B199A9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9233826319941DB800B199A9 /* InfoPlist.strings */; };
 		9233826719941DB800B199A9 /* YouSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9233826619941DB800B199A9 /* YouSetTests.m */; };
+		9233827319941F6100B199A9 /* YSTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9233827119941F6100B199A9 /* YSTMainViewController.m */; };
+		9233827419941F6100B199A9 /* YSTMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9233827219941F6100B199A9 /* YSTMainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		9233826219941DB800B199A9 /* YouSetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "YouSetTests-Info.plist"; sourceTree = "<group>"; };
 		9233826419941DB800B199A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9233826619941DB800B199A9 /* YouSetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YouSetTests.m; sourceTree = "<group>"; };
+		9233827019941F6100B199A9 /* YSTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTMainViewController.h; sourceTree = "<group>"; };
+		9233827119941F6100B199A9 /* YSTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTMainViewController.m; sourceTree = "<group>"; };
+		9233827219941F6100B199A9 /* YSTMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTMainViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,9 @@
 			children = (
 				9233825019941DB800B199A9 /* YSTAppDelegate.h */,
 				9233825119941DB800B199A9 /* YSTAppDelegate.m */,
+				9233827019941F6100B199A9 /* YSTMainViewController.h */,
+				9233827119941F6100B199A9 /* YSTMainViewController.m */,
+				9233827219941F6100B199A9 /* YSTMainViewController.xib */,
 				9233825319941DB800B199A9 /* Images.xcassets */,
 				9233824819941DB800B199A9 /* Supporting Files */,
 			);
@@ -222,6 +230,7 @@
 			files = (
 				9233824C19941DB800B199A9 /* InfoPlist.strings in Resources */,
 				9233825419941DB800B199A9 /* Images.xcassets in Resources */,
+				9233827419941F6100B199A9 /* YSTMainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9233824E19941DB800B199A9 /* main.m in Sources */,
+				9233827319941F6100B199A9 /* YSTMainViewController.m in Sources */,
 				9233825219941DB800B199A9 /* YSTAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +448,7 @@
 				9233826C19941DB800B199A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9233826D19941DB800B199A9 /* Build configuration list for PBXNativeTarget "YouSetTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +457,7 @@
 				9233826F19941DB800B199A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
