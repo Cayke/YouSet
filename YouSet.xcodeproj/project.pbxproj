@@ -32,6 +32,10 @@
 		9233828F199421DC00B199A9 /* YSTGroupStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9233828E199421DC00B199A9 /* YSTGroupStore.m */; };
 		923382931994226000B199A9 /* YSTContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923382911994226000B199A9 /* YSTContactsViewController.m */; };
 		923382941994226000B199A9 /* YSTContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923382921994226000B199A9 /* YSTContactsViewController.xib */; };
+		92DAD75519953F980095FFCE /* YSTMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DAD75319953F980095FFCE /* YSTMeViewController.m */; };
+		92DAD75619953F980095FFCE /* YSTMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DAD75419953F980095FFCE /* YSTMeViewController.xib */; };
+		92DAD75A19953FAF0095FFCE /* YSTGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DAD75819953FAF0095FFCE /* YSTGroupsViewController.m */; };
+		92DAD75B19953FAF0095FFCE /* YSTGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DAD75919953FAF0095FFCE /* YSTGroupsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,12 @@
 		923382901994226000B199A9 /* YSTContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTContactsViewController.h; sourceTree = "<group>"; };
 		923382911994226000B199A9 /* YSTContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTContactsViewController.m; sourceTree = "<group>"; };
 		923382921994226000B199A9 /* YSTContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTContactsViewController.xib; sourceTree = "<group>"; };
+		92DAD75219953F980095FFCE /* YSTMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTMeViewController.h; sourceTree = "<group>"; };
+		92DAD75319953F980095FFCE /* YSTMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTMeViewController.m; sourceTree = "<group>"; };
+		92DAD75419953F980095FFCE /* YSTMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTMeViewController.xib; sourceTree = "<group>"; };
+		92DAD75719953FAF0095FFCE /* YSTGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTGroupsViewController.h; sourceTree = "<group>"; };
+		92DAD75819953FAF0095FFCE /* YSTGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTGroupsViewController.m; sourceTree = "<group>"; };
+		92DAD75919953FAF0095FFCE /* YSTGroupsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTGroupsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +159,12 @@
 				9233827019941F6100B199A9 /* YSTMainViewController.h */,
 				9233827119941F6100B199A9 /* YSTMainViewController.m */,
 				9233827219941F6100B199A9 /* YSTMainViewController.xib */,
+				92DAD75719953FAF0095FFCE /* YSTGroupsViewController.h */,
+				92DAD75819953FAF0095FFCE /* YSTGroupsViewController.m */,
+				92DAD75919953FAF0095FFCE /* YSTGroupsViewController.xib */,
+				92DAD75219953F980095FFCE /* YSTMeViewController.h */,
+				92DAD75319953F980095FFCE /* YSTMeViewController.m */,
+				92DAD75419953F980095FFCE /* YSTMeViewController.xib */,
 				923382901994226000B199A9 /* YSTContactsViewController.h */,
 				923382911994226000B199A9 /* YSTContactsViewController.m */,
 				923382921994226000B199A9 /* YSTContactsViewController.xib */,
@@ -281,6 +297,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92DAD75619953F980095FFCE /* YSTMeViewController.xib in Resources */,
+				92DAD75B19953FAF0095FFCE /* YSTGroupsViewController.xib in Resources */,
 				923382941994226000B199A9 /* YSTContactsViewController.xib in Resources */,
 				9233824C19941DB800B199A9 /* InfoPlist.strings in Resources */,
 				9233825419941DB800B199A9 /* Images.xcassets in Resources */,
@@ -310,10 +328,12 @@
 				923382931994226000B199A9 /* YSTContactsViewController.m in Sources */,
 				923382831994219200B199A9 /* YSTUser.m in Sources */,
 				92338286199421A600B199A9 /* YSTUserStore.m in Sources */,
+				92DAD75A19953FAF0095FFCE /* YSTGroupsViewController.m in Sources */,
 				9233828C199421D000B199A9 /* YSTGroup.m in Sources */,
 				9233824E19941DB800B199A9 /* main.m in Sources */,
 				9233828F199421DC00B199A9 /* YSTGroupStore.m in Sources */,
 				9233827319941F6100B199A9 /* YSTMainViewController.m in Sources */,
+				92DAD75519953F980095FFCE /* YSTMeViewController.m in Sources */,
 				923382771994213F00B199A9 /* YSTToDo.m in Sources */,
 				9233825219941DB800B199A9 /* YSTAppDelegate.m in Sources */,
 			);
