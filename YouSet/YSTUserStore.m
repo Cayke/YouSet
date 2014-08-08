@@ -10,4 +10,24 @@
 
 @implementation YSTUserStore
 
+- (id) initPrivate {
+    self = [super init];
+    
+    if (self) {
+        
+    }
+    
+    return self;
+}
+
++(instancetype)sharedUserStore {
+    static YSTUserStore *sharedUserStore = nil;
+    
+    if (!sharedUserStore) {
+        sharedUserStore = [[self alloc] initPrivate];
+    }
+    
+    return sharedUserStore;
+}
+
 @end

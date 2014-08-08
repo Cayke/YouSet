@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+@class YSTUser;
 
 @interface YSTUserStore : NSObject
+
++ (instancetype)sharedUserStore;
+
 
 @end

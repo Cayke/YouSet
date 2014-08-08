@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+@class YSTGroup;
 
 @interface YSTGroupStore : NSObject
+
++ (instancetype)sharedGroupStore;
 
 @end

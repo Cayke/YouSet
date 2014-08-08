@@ -10,4 +10,21 @@
 
 @implementation YSTAssigneeStore
 
+- (id) initPrivate {
+    self = [super init];
+    
+    return self;
+}
+
+
++(instancetype)sharedAssigneeStore {
+    static YSTAssigneeStore *sharedAssigneeStore = nil;
+    
+    if (!sharedAssigneeStore) {
+        sharedAssigneeStore = [[self alloc] initPrivate];
+    }
+    
+    return sharedAssigneeStore;
+}
+
 @end

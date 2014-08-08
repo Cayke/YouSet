@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+@class YSTAssignee;
 
 @interface YSTAssigneeStore : NSObject
+
++ (instancetype)sharedAssigneeStore;
 
 @end

@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface YSTGroup : NSObject
+
+@property (nonatomic) int idGroup;
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *photo;
+@property (nonatomic) NSDate *dateCreated;
+@property (nonatomic) NSArray *members;
+@property (nonatomic) NSArray *toDos;
 
 @end

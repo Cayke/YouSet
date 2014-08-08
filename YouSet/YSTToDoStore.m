@@ -10,4 +10,20 @@
 
 @implementation YSTToDoStore
 
+- (id) initPrivate {
+    self = [super init];
+    
+    return self;
+}
+
+
++(instancetype)sharedToDoStore {
+    static YSTToDoStore *sharedToDoStore = nil;
+    
+    if (!sharedToDoStore) {
+        sharedToDoStore = [[self alloc] initPrivate];
+    }
+    
+    return sharedToDoStore;
+}
 @end

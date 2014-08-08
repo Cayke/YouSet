@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+@class YSTToDo;
 
 @interface YSTToDoStore : NSObject
+
++ (instancetype)sharedToDoStore;
 
 @end

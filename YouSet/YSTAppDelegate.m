@@ -7,16 +7,23 @@
 //
 
 #import "YSTAppDelegate.h"
-#import "YSTMainViewController.h"
-
+#import "YSTMeViewController.h"
+#import "YSTGroupsViewController.h"
+#import "YSTContactsViewController.h"
 @implementation YSTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    YSTMainViewController *mvc = [[YSTMainViewController alloc]init];
-    self.window.rootViewController = mvc;
+    YSTMeViewController *mvc = [[YSTMeViewController alloc]init];
+    YSTGroupsViewController *gvc = [[YSTGroupsViewController alloc]init];
+    YSTContactsViewController *cvc = [[YSTContactsViewController alloc]init];
+    
+    UITabBarController *tbc = [[UITabBarController alloc]init];
+    tbc.viewControllers = [NSArray  arrayWithObjects:mvc,gvc,cvc, nil];
+    self.window.rootViewController = tbc;
+    
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

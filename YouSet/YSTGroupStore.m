@@ -10,4 +10,23 @@
 
 @implementation YSTGroupStore
 
+- (id) initPrivate {
+    self = [super init];
+    
+    if (self) {
+        
+    }
+    
+    return self;
+}
+
++(instancetype)sharedGroupStore {
+    static YSTGroupStore *sharedGroupStore = nil;
+    
+    if (!sharedGroupStore) {
+        sharedGroupStore = [[self alloc] initPrivate];
+    }
+    
+    return sharedGroupStore;
+}
 @end
