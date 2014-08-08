@@ -36,6 +36,12 @@
 		92DAD75619953F980095FFCE /* YSTMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DAD75419953F980095FFCE /* YSTMeViewController.xib */; };
 		92DAD75A19953FAF0095FFCE /* YSTGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DAD75819953FAF0095FFCE /* YSTGroupsViewController.m */; };
 		92DAD75B19953FAF0095FFCE /* YSTGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DAD75919953FAF0095FFCE /* YSTGroupsViewController.xib */; };
+		92DAD75F1995403E0095FFCE /* YSTProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DAD75D1995403E0095FFCE /* YSTProfileViewController.m */; };
+		92DAD7601995403E0095FFCE /* YSTProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DAD75E1995403E0095FFCE /* YSTProfileViewController.xib */; };
+		92DAD76719954F760095FFCE /* YSTCreateGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DAD76519954F760095FFCE /* YSTCreateGroupViewController.m */; };
+		92DAD76819954F760095FFCE /* YSTCreateGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DAD76619954F760095FFCE /* YSTCreateGroupViewController.xib */; };
+		92DAD76C19954F9D0095FFCE /* YSTContactSelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DAD76A19954F9D0095FFCE /* YSTContactSelectedViewController.m */; };
+		92DAD76D19954F9D0095FFCE /* YSTContactSelectedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DAD76B19954F9D0095FFCE /* YSTContactSelectedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +101,15 @@
 		92DAD75719953FAF0095FFCE /* YSTGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTGroupsViewController.h; sourceTree = "<group>"; };
 		92DAD75819953FAF0095FFCE /* YSTGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTGroupsViewController.m; sourceTree = "<group>"; };
 		92DAD75919953FAF0095FFCE /* YSTGroupsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTGroupsViewController.xib; sourceTree = "<group>"; };
+		92DAD75C1995403E0095FFCE /* YSTProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTProfileViewController.h; sourceTree = "<group>"; };
+		92DAD75D1995403E0095FFCE /* YSTProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTProfileViewController.m; sourceTree = "<group>"; };
+		92DAD75E1995403E0095FFCE /* YSTProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTProfileViewController.xib; sourceTree = "<group>"; };
+		92DAD76419954F760095FFCE /* YSTCreateGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTCreateGroupViewController.h; sourceTree = "<group>"; };
+		92DAD76519954F760095FFCE /* YSTCreateGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTCreateGroupViewController.m; sourceTree = "<group>"; };
+		92DAD76619954F760095FFCE /* YSTCreateGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTCreateGroupViewController.xib; sourceTree = "<group>"; };
+		92DAD76919954F9D0095FFCE /* YSTContactSelectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTContactSelectedViewController.h; sourceTree = "<group>"; };
+		92DAD76A19954F9D0095FFCE /* YSTContactSelectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTContactSelectedViewController.m; sourceTree = "<group>"; };
+		92DAD76B19954F9D0095FFCE /* YSTContactSelectedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTContactSelectedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,20 +169,9 @@
 		9233824719941DB800B199A9 /* YouSet */ = {
 			isa = PBXGroup;
 			children = (
+				92DAD76E19954FBC0095FFCE /* views */,
 				9233825019941DB800B199A9 /* YSTAppDelegate.h */,
 				9233825119941DB800B199A9 /* YSTAppDelegate.m */,
-				9233827019941F6100B199A9 /* YSTMainViewController.h */,
-				9233827119941F6100B199A9 /* YSTMainViewController.m */,
-				9233827219941F6100B199A9 /* YSTMainViewController.xib */,
-				92DAD75719953FAF0095FFCE /* YSTGroupsViewController.h */,
-				92DAD75819953FAF0095FFCE /* YSTGroupsViewController.m */,
-				92DAD75919953FAF0095FFCE /* YSTGroupsViewController.xib */,
-				92DAD75219953F980095FFCE /* YSTMeViewController.h */,
-				92DAD75319953F980095FFCE /* YSTMeViewController.m */,
-				92DAD75419953F980095FFCE /* YSTMeViewController.xib */,
-				923382901994226000B199A9 /* YSTContactsViewController.h */,
-				923382911994226000B199A9 /* YSTContactsViewController.m */,
-				923382921994226000B199A9 /* YSTContactsViewController.xib */,
 				923382751994213F00B199A9 /* YSTToDo.h */,
 				923382761994213F00B199A9 /* YSTToDo.m */,
 				923382781994214E00B199A9 /* YSTToDoStore.h */,
@@ -219,6 +223,34 @@
 				9233826319941DB800B199A9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92DAD76E19954FBC0095FFCE /* views */ = {
+			isa = PBXGroup;
+			children = (
+				92DAD76919954F9D0095FFCE /* YSTContactSelectedViewController.h */,
+				92DAD76A19954F9D0095FFCE /* YSTContactSelectedViewController.m */,
+				92DAD76B19954F9D0095FFCE /* YSTContactSelectedViewController.xib */,
+				92DAD76419954F760095FFCE /* YSTCreateGroupViewController.h */,
+				92DAD76519954F760095FFCE /* YSTCreateGroupViewController.m */,
+				92DAD76619954F760095FFCE /* YSTCreateGroupViewController.xib */,
+				92DAD75C1995403E0095FFCE /* YSTProfileViewController.h */,
+				92DAD75D1995403E0095FFCE /* YSTProfileViewController.m */,
+				92DAD75E1995403E0095FFCE /* YSTProfileViewController.xib */,
+				9233827019941F6100B199A9 /* YSTMainViewController.h */,
+				9233827119941F6100B199A9 /* YSTMainViewController.m */,
+				9233827219941F6100B199A9 /* YSTMainViewController.xib */,
+				92DAD75719953FAF0095FFCE /* YSTGroupsViewController.h */,
+				92DAD75819953FAF0095FFCE /* YSTGroupsViewController.m */,
+				92DAD75919953FAF0095FFCE /* YSTGroupsViewController.xib */,
+				92DAD75219953F980095FFCE /* YSTMeViewController.h */,
+				92DAD75319953F980095FFCE /* YSTMeViewController.m */,
+				92DAD75419953F980095FFCE /* YSTMeViewController.xib */,
+				923382901994226000B199A9 /* YSTContactsViewController.h */,
+				923382911994226000B199A9 /* YSTContactsViewController.m */,
+				923382921994226000B199A9 /* YSTContactsViewController.xib */,
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,8 +330,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				92DAD75619953F980095FFCE /* YSTMeViewController.xib in Resources */,
+				92DAD7601995403E0095FFCE /* YSTProfileViewController.xib in Resources */,
+				92DAD76819954F760095FFCE /* YSTCreateGroupViewController.xib in Resources */,
 				92DAD75B19953FAF0095FFCE /* YSTGroupsViewController.xib in Resources */,
 				923382941994226000B199A9 /* YSTContactsViewController.xib in Resources */,
+				92DAD76D19954F9D0095FFCE /* YSTContactSelectedViewController.xib in Resources */,
 				9233824C19941DB800B199A9 /* InfoPlist.strings in Resources */,
 				9233825419941DB800B199A9 /* Images.xcassets in Resources */,
 				9233827419941F6100B199A9 /* YSTMainViewController.xib in Resources */,
@@ -326,14 +361,17 @@
 				9233827A1994214E00B199A9 /* YSTToDoStore.m in Sources */,
 				9233827D1994217C00B199A9 /* YSTAssignee.m in Sources */,
 				923382931994226000B199A9 /* YSTContactsViewController.m in Sources */,
+				92DAD75F1995403E0095FFCE /* YSTProfileViewController.m in Sources */,
 				923382831994219200B199A9 /* YSTUser.m in Sources */,
 				92338286199421A600B199A9 /* YSTUserStore.m in Sources */,
+				92DAD76719954F760095FFCE /* YSTCreateGroupViewController.m in Sources */,
 				92DAD75A19953FAF0095FFCE /* YSTGroupsViewController.m in Sources */,
 				9233828C199421D000B199A9 /* YSTGroup.m in Sources */,
 				9233824E19941DB800B199A9 /* main.m in Sources */,
 				9233828F199421DC00B199A9 /* YSTGroupStore.m in Sources */,
 				9233827319941F6100B199A9 /* YSTMainViewController.m in Sources */,
 				92DAD75519953F980095FFCE /* YSTMeViewController.m in Sources */,
+				92DAD76C19954F9D0095FFCE /* YSTContactSelectedViewController.m in Sources */,
 				923382771994213F00B199A9 /* YSTToDo.m in Sources */,
 				9233825219941DB800B199A9 /* YSTAppDelegate.m in Sources */,
 			);
