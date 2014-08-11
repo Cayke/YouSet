@@ -10,7 +10,7 @@
 
 @interface YSTAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIWindow *window; // lalallala
 
 //WILL NOOB, HELCIO NOOB 2, caique NOOB, hiheldo
 
