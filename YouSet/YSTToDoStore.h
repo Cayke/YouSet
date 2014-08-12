@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YSTToDo.h"
+
 @class YSTToDo;
 
 @interface YSTToDoStore : NSObject
+
+// guardar todos
+@property (nonatomic) NSMutableArray *todos;
 
 + (instancetype)sharedToDoStore;
 

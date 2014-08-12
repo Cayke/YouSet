@@ -15,19 +15,58 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // inicializar programa
+    [self normalInitializateOfYouSet];
+    
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+
+-(void)normalInitializateOfYouSet {
     // Override point for customization after application launch.
     YSTMeViewController *mvc = [[YSTMeViewController alloc]init];
     YSTGroupsViewController *gvc = [[YSTGroupsViewController alloc]init];
     YSTContactsViewController *cvc = [[YSTContactsViewController alloc]init];
     
+    // criar navigations
+    UINavigationController *navMe = [[UINavigationController alloc]initWithRootViewController:mvc];
+    UINavigationController *navGroups = [[UINavigationController alloc]initWithRootViewController:gvc];
+    UINavigationController *navContacts = [[UINavigationController alloc]initWithRootViewController:cvc];
+    
+    // COR AZUL
+    // R: 74
+    // G: 144
+    // B: 226
+    //
+    //divisao padrao para encontrar o valor das cores rgb
+    CGFloat divided = 255.0;
+    
+    //cores para fazer o laranja claro
+    CGFloat red = 74.0/divided;
+    CGFloat green = 144.0/divided;
+    CGFloat blue = 226.0/divided;
+    UIColor *blueColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+    
+    // colorir navigations
+    [[UINavigationBar appearance] setBarStyle: UIBarStyleBlack];
+    [[UINavigationBar appearance] setBarTintColor: blueColor];
+    
+    // colorir tabbar
+    [[UITabBar appearance] setBarStyle: UIBarStyleBlack];
+    [[UITabBar appearance] setBarTintColor: blueColor];
+        
+    // cores para fazer o verde
+    red = 184.0/divided;
+    green = 233.0/divided;
+    blue = 134.0/divided;
+    UIColor *greenColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+    
+    [[UITabBar appearance]setSelectedImageTintColor:greenColor];
+    
     UITabBarController *tbc = [[UITabBarController alloc]init];
-    tbc.viewControllers = [NSArray  arrayWithObjects:mvc,gvc,cvc, nil];
+    tbc.viewControllers = [NSArray  arrayWithObjects:navMe, navGroups, navContacts, nil];
     self.window.rootViewController = tbc;
-    
-    
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

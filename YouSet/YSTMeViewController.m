@@ -7,6 +7,7 @@
 //
 
 #import "YSTMeViewController.h"
+#import "YSTCreateNewTodo.h"
 
 @interface YSTMeViewController ()
 
@@ -27,12 +28,25 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"Eu";
+    
+    UIBarButtonItem *btnAddToDO = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newToDo:)];
+    btnAddToDO.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = btnAddToDO;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)newToDo:(UIBarButtonItem*)bar{
+    NSLog(@"novo ToDo");
+    YSTCreateNewTodo *createNewToDoVC = [[YSTCreateNewTodo alloc]init];
+    UINavigationController *navCreateNewTodo = [[UINavigationController alloc]initWithRootViewController:createNewToDoVC];
+
+    [self presentViewController:navCreateNewTodo animated:YES completion:nil];
 }
 
 @end

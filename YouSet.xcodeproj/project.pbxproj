@@ -34,6 +34,8 @@
 		92B9362619956CA800F26A05 /* YSTGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B9362419956CA800F26A05 /* YSTGroupsViewController.xib */; };
 		92B9362A19956CBC00F26A05 /* YSTContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9362819956CBC00F26A05 /* YSTContactsViewController.m */; };
 		92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B9362919956CBC00F26A05 /* YSTContactsViewController.xib */; };
+		B35D9725199AB308004826D1 /* YSTCreateNewTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */; };
+		B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,9 @@
 		92B9362719956CBC00F26A05 /* YSTContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTContactsViewController.h; sourceTree = "<group>"; };
 		92B9362819956CBC00F26A05 /* YSTContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTContactsViewController.m; sourceTree = "<group>"; };
 		92B9362919956CBC00F26A05 /* YSTContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTContactsViewController.xib; sourceTree = "<group>"; };
+		B35D9722199AB308004826D1 /* YSTCreateNewTodo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTCreateNewTodo.h; sourceTree = "<group>"; };
+		B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTCreateNewTodo.m; sourceTree = "<group>"; };
+		B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTCreateNewTodo.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +216,9 @@
 				92B9361D19956C8D00F26A05 /* YSTMeViewController.h */,
 				92B9361E19956C8D00F26A05 /* YSTMeViewController.m */,
 				92B9361F19956C8D00F26A05 /* YSTMeViewController.xib */,
+				B35D9722199AB308004826D1 /* YSTCreateNewTodo.h */,
+				B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */,
+				B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */,
 				92B9362219956CA800F26A05 /* YSTGroupsViewController.h */,
 				92B9362319956CA800F26A05 /* YSTGroupsViewController.m */,
 				92B9362419956CA800F26A05 /* YSTGroupsViewController.xib */,
@@ -302,6 +310,7 @@
 				92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */,
 				92B9362119956C8D00F26A05 /* YSTMeViewController.xib in Resources */,
 				92B9362619956CA800F26A05 /* YSTGroupsViewController.xib in Resources */,
+				B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +338,7 @@
 				92338286199421A600B199A9 /* YSTUserStore.m in Sources */,
 				92B9362519956CA800F26A05 /* YSTGroupsViewController.m in Sources */,
 				9233828C199421D000B199A9 /* YSTGroup.m in Sources */,
+				B35D9725199AB308004826D1 /* YSTCreateNewTodo.m in Sources */,
 				9233824E19941DB800B199A9 /* main.m in Sources */,
 				9233828F199421DC00B199A9 /* YSTGroupStore.m in Sources */,
 				92B9362019956C8D00F26A05 /* YSTMeViewController.m in Sources */,
