@@ -28,6 +28,8 @@
 		92338289199421C000B199A9 /* YSTConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 92338288199421C000B199A9 /* YSTConnection.m */; };
 		9233828C199421D000B199A9 /* YSTGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9233828B199421D000B199A9 /* YSTGroup.m */; };
 		9233828F199421DC00B199A9 /* YSTGroupStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9233828E199421DC00B199A9 /* YSTGroupStore.m */; };
+		929EDD28199BE99400A909BD /* YSTMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 929EDD26199BE99400A909BD /* YSTMeTableViewCell.m */; };
+		929EDD29199BE99400A909BD /* YSTMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929EDD27199BE99400A909BD /* YSTMeTableViewCell.xib */; };
 		92B9362019956C8D00F26A05 /* YSTMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9361E19956C8D00F26A05 /* YSTMeViewController.m */; };
 		92B9362119956C8D00F26A05 /* YSTMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B9361F19956C8D00F26A05 /* YSTMeViewController.xib */; };
 		92B9362519956CA800F26A05 /* YSTGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9362319956CA800F26A05 /* YSTGroupsViewController.m */; };
@@ -83,6 +85,9 @@
 		9233828B199421D000B199A9 /* YSTGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTGroup.m; sourceTree = "<group>"; };
 		9233828D199421DC00B199A9 /* YSTGroupStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTGroupStore.h; sourceTree = "<group>"; };
 		9233828E199421DC00B199A9 /* YSTGroupStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTGroupStore.m; sourceTree = "<group>"; };
+		929EDD25199BE99400A909BD /* YSTMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTMeTableViewCell.h; sourceTree = "<group>"; };
+		929EDD26199BE99400A909BD /* YSTMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTMeTableViewCell.m; sourceTree = "<group>"; };
+		929EDD27199BE99400A909BD /* YSTMeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTMeTableViewCell.xib; sourceTree = "<group>"; };
 		92B9361D19956C8D00F26A05 /* YSTMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTMeViewController.h; sourceTree = "<group>"; };
 		92B9361E19956C8D00F26A05 /* YSTMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTMeViewController.m; sourceTree = "<group>"; };
 		92B9361F19956C8D00F26A05 /* YSTMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTMeViewController.xib; sourceTree = "<group>"; };
@@ -216,6 +221,9 @@
 				92B9361D19956C8D00F26A05 /* YSTMeViewController.h */,
 				92B9361E19956C8D00F26A05 /* YSTMeViewController.m */,
 				92B9361F19956C8D00F26A05 /* YSTMeViewController.xib */,
+				929EDD25199BE99400A909BD /* YSTMeTableViewCell.h */,
+				929EDD26199BE99400A909BD /* YSTMeTableViewCell.m */,
+				929EDD27199BE99400A909BD /* YSTMeTableViewCell.xib */,
 				B35D9722199AB308004826D1 /* YSTCreateNewTodo.h */,
 				B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */,
 				B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */,
@@ -309,6 +317,7 @@
 				9233825419941DB800B199A9 /* Images.xcassets in Resources */,
 				92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */,
 				92B9362119956C8D00F26A05 /* YSTMeViewController.xib in Resources */,
+				929EDD29199BE99400A909BD /* YSTMeTableViewCell.xib in Resources */,
 				92B9362619956CA800F26A05 /* YSTGroupsViewController.xib in Resources */,
 				B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */,
 			);
@@ -340,6 +349,7 @@
 				9233828C199421D000B199A9 /* YSTGroup.m in Sources */,
 				B35D9725199AB308004826D1 /* YSTCreateNewTodo.m in Sources */,
 				9233824E19941DB800B199A9 /* main.m in Sources */,
+				929EDD28199BE99400A909BD /* YSTMeTableViewCell.m in Sources */,
 				9233828F199421DC00B199A9 /* YSTGroupStore.m in Sources */,
 				92B9362019956C8D00F26A05 /* YSTMeViewController.m in Sources */,
 				923382771994213F00B199A9 /* YSTToDo.m in Sources */,

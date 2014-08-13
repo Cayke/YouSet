@@ -14,8 +14,8 @@
 @interface YSTToDoStore : NSObject
 
 // guardar todos
-@property (nonatomic) NSMutableArray *todos;
+@property (nonatomic) NSMutableArray *toDos;
 
 + (instancetype)sharedToDoStore;
-
++ (NSArray*)meToDos;
 @end

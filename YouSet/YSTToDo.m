@@ -10,4 +10,10 @@
 
 @implementation YSTToDo
 
+-(id)initWithDictionary:(NSDictionary *)dict{
+    _ID = [[dict objectForKey:@"id"]intValue];
+    _todo = [dict objectForKey:@"todo"];
+    return self;
+}
+
 @end

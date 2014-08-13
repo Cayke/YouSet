@@ -7,6 +7,7 @@
 //
 
 #import "YSTToDoStore.h"
+#import "YSTToDo.h"
 
 @implementation YSTToDoStore
 
@@ -19,7 +20,11 @@
 
 - (id) initPrivate {
     self = [super init];
-    _todos = [[NSMutableArray alloc]init];
+    
+    if (self) {
+        self.toDos = [[NSMutableArray alloc]init];
+    }
+    
     return self;
 }
 
@@ -33,4 +38,29 @@
     
     return sharedToDoStore;
 }
+
+
+// apagar depois
+// funcoes para teste
++ (NSArray*)meToDos {
+    NSMutableArray *todos = [[NSMutableArray alloc]init];
+    YSTToDo *toDo;
+    
+    int count = 10;
+    for (int i = 0; i < count; i++) {
+        toDo = [[YSTToDo alloc]init];
+        toDo.ID = i;
+        toDo.todo = [NSString stringWithFormat:@"ToDo number %d",i];
+        toDo.idCreatedBy = 1;
+        toDo.dateCreated = [[NSDate alloc]init];
+        toDo.privacy = 2;
+        
+        [todos addObject:toDo];
+    }
+
+    
+    return [NSArray arrayWithArray:todos];
+}
+
+
 @end
