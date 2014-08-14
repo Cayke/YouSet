@@ -10,4 +10,9 @@
 
 @implementation YSTAssignee
 
+-(void)changeStatus:(YSTToDo *)todo {
+    
+    
+}
+
 @end

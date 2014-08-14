@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YSTAssignee.h"
 @class YSTAssignee;
 @interface YSTToDo : NSObject
 
@@ -21,5 +22,7 @@
 @property (nonatomic) int serverOk;
 
 -(id)initWithDictionary:(NSDictionary*)dict;
+-(void)changeStatusCompleted: (YSTToDo*)todo;
+-(void)changeStatusIncomplete: (YSTToDo*)todo;
 
 @end
