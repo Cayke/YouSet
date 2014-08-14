@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "YSTToDo.h"
+
 @interface YSTAssignee : NSObject
 
 @property (atomic) int ID;
