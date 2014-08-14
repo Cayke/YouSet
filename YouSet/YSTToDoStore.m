@@ -54,7 +54,6 @@
         toDo.idCreatedBy = 1;
         toDo.dateCreated = [[NSDate alloc]init];
         toDo.privacy = 2;
-        toDo.assignee.status = 0;
         
         [todos addObject:toDo];
     }

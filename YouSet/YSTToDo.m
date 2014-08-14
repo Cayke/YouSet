@@ -28,4 +28,9 @@
 - (void)changeStatusIncomplete:(YSTToDo *)todo {
     todo.assignee.status = 0;
 }
+
+-(void)incrementStatus{
+    [_assignee incrementStatus];
+}
+
 @end

@@ -10,9 +10,21 @@
 
 @implementation YSTAssignee
 
--(void)changeStatus:(YSTToDo *)todo {
-    
-    
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _status = 0;
+    }
+    return self;
+}
+
+-(void)incrementStatus{
+    if (_status < 2) {
+        _status++;
+    } else {
+        _status = 0;
+    }
 }
 
 @end

@@ -98,16 +98,11 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     YSTToDo *tappedToDO = [_toDoMeArray objectAtIndex:indexPath.row];
-    [tappedToDO changeStatusCompleted:tappedToDO];
+    
+    [tappedToDO incrementStatus];
     
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     
 }
-
-
-
-
-
-
 
 @end

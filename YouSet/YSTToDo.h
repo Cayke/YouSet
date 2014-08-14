@@ -11,6 +11,12 @@
 @class YSTAssignee;
 @interface YSTToDo : NSObject
 
+////// DEFINIR NUMEROS DOS STATUS
+// 0 incompleto
+// 1 iniciada
+// 2 completo
+
+
 @property (atomic) int ID;
 @property (nonatomic) NSString *todo;
 @property (nonatomic) YSTAssignee *assignee;
@@ -24,5 +30,7 @@
 -(id)initWithDictionary:(NSDictionary*)dict;
 -(void)changeStatusCompleted: (YSTToDo*)todo;
 -(void)changeStatusIncomplete: (YSTToDo*)todo;
+
+-(void)incrementStatus;
 
 @end
