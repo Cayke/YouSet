@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YSTCreateNewTodo : UIViewController
+@interface YSTCreateNewTodo : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *createNewTodoTableView;
 
 @end
