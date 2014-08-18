@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
 
-@interface YSTContactsViewController : UIViewController
+@interface YSTContactsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property(nonatomic) ABAddressBookRef addressBook;
+@property(nonatomic) NSArray *allContacts; //todos os contatos
+@property(nonatomic) NSMutableArray *youSetContacts; //contato que possuem o YouSet
+@property(nonatomic) NSMutableArray *nonYouSetContacts; //contatos que NAO possuem YS
+//@property (nonatomic) BOOL haveAccess;
+
+-(void) usersOfYoutSet;
+
 
 @end

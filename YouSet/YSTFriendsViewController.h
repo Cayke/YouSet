@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface YSTFriendsViewController : UIViewController
+
+-(void) addContact;
 
 @end

@@ -10,6 +10,7 @@
 #import "YSTMeViewController.h"
 #import "YSTGroupsViewController.h"
 #import "YSTContactsViewController.h"
+#import "YSTFriendsViewController.h"
 @implementation YSTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -27,12 +28,12 @@
     // Override point for customization after application launch.
     YSTMeViewController *mvc = [[YSTMeViewController alloc]init];
     YSTGroupsViewController *gvc = [[YSTGroupsViewController alloc]init];
-    YSTContactsViewController *cvc = [[YSTContactsViewController alloc]init];
+    YSTFriendsViewController *fvc = [[YSTFriendsViewController alloc]init];
     
     // criar navigations
     UINavigationController *navMe = [[UINavigationController alloc]initWithRootViewController:mvc];
     UINavigationController *navGroups = [[UINavigationController alloc]initWithRootViewController:gvc];
-    UINavigationController *navContacts = [[UINavigationController alloc]initWithRootViewController:cvc];
+    UINavigationController *navFriends = [[UINavigationController alloc]initWithRootViewController:fvc];
     
     // COR AZUL
     // R: 74
@@ -67,7 +68,7 @@
     
     
     UITabBarController *tbc = [[UITabBarController alloc]init];
-    tbc.viewControllers = [NSArray  arrayWithObjects:navMe, navGroups, navContacts, nil];
+    tbc.viewControllers = [NSArray  arrayWithObjects:navMe, navGroups, navFriends, nil];
     self.window.rootViewController = tbc;
 }
 
