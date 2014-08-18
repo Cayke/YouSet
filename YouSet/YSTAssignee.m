@@ -27,4 +27,8 @@
     }
 }
 
+-(BOOL)isFromUser:(YSTUser *)user{
+    return _idUser == user.ID;
+}
+
 @end

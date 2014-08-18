@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "YSTAssignee.h"
+#import "YSTUser.h"
+
 @interface YSTToDo : NSObject
 
 ////// DEFINIR NUMEROS DOS STATUS
@@ -28,9 +30,11 @@
 @property (nonatomic) int serverOk;
 
 -(id)initWithDictionary:(NSDictionary*)dict;
--(void)changeStatusCompleted: (YSTToDo*)todo;
--(void)changeStatusIncomplete: (YSTToDo*)todo;
 
--(void)incrementStatus;
+// incluir assign na todo
+-(void)includeAssign:(YSTAssignee*)assignee;
+
+// metodo vai incrementar o status do usuario dado
+-(void)incrementStatusOfUser:(YSTUser*)user;
 
 @end
