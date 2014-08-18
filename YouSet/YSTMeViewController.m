@@ -81,11 +81,11 @@
     YSTToDo *thisToDo = [_toDoMeArray objectAtIndex:indexPath.row];
 
     [cell setCellWithTodo:thisToDo];
-    if (thisToDo.assignee.status == 0) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }
+//    if (thisToDo.assignee.status == 0) {
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+//    } else {
+//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//    }
     
     return cell;
 }
@@ -99,7 +99,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     YSTToDo *tappedToDO = [_toDoMeArray objectAtIndex:indexPath.row];
     
-    [tappedToDO incrementStatus];
+  //  [tappedToDO incrementStatus];
     
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     
