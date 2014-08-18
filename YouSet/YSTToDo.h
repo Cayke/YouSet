@@ -10,6 +10,8 @@
 #import "YSTAssignee.h"
 #import "YSTUser.h"
 
+@class YSTAssignee;
+
 @interface YSTToDo : NSObject
 
 ////// DEFINIR NUMEROS DOS STATUS

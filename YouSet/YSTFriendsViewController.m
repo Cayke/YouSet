@@ -7,6 +7,7 @@
 //
 
 #import "YSTFriendsViewController.h"
+#import "YSTContactsViewController.h"
 
 @interface YSTFriendsViewController ()
 
@@ -27,6 +28,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact:)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +38,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) addContact
+{
+    YSTContactsViewController *contacts = [[YSTContactsViewController alloc]init];
+    [self.navigationController pushViewController:contacts animated:YES];
+    
+}
 @end
