@@ -1,18 +1,18 @@
 //
-//  YSTGroupsViewController.m
+//  YSTFriendsViewController.m
 //  YouSet
 //
-//  Created by Willian Pinho on 8/8/14.
+//  Created by Cayke Prudente on 18/08/14.
 //  Copyright (c) 2014 YouSet. All rights reserved.
 //
 
-#import "YSTGroupsViewController.h"
+#import "YSTFriendsViewController.h"
 
-@interface YSTGroupsViewController ()
+@interface YSTFriendsViewController ()
 
 @end
 
-@implementation YSTGroupsViewController
+@implementation YSTFriendsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +27,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"Grupos";
 }
 
 - (void)didReceiveMemoryWarning

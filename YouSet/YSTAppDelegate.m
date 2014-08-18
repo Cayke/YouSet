@@ -42,7 +42,7 @@
     //divisao padrao para encontrar o valor das cores rgb
     CGFloat divided = 255.0;
     
-    //cores para fazer o laranja claro
+    //cores para fazer o azul
     CGFloat red = 74.0/divided;
     CGFloat green = 144.0/divided;
     CGFloat blue = 226.0/divided;
@@ -63,6 +63,8 @@
     UIColor *greenColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
     
     [[UITabBar appearance]setSelectedImageTintColor:greenColor];
+    
+    
     
     UITabBarController *tbc = [[UITabBarController alloc]init];
     tbc.viewControllers = [NSArray  arrayWithObjects:navMe, navGroups, navContacts, nil];
