@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YSTMeViewController : UIViewController
+@interface YSTMeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *meTableView;
+
+@property (strong,nonatomic) NSArray *toDoMeArray;
 
 @end

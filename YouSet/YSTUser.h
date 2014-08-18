@@ -10,7 +10,7 @@
 
 @interface YSTUser : NSObject
 
-@property (atomic) int idUser;
+@property (atomic) int ID;
 @property (nonatomic) NSString *phone;
 @property (nonatomic) NSString *email;
 @property (nonatomic) NSString *name;
@@ -18,5 +18,7 @@
 @property (nonatomic) NSString *photo;
 @property (nonatomic) NSDictionary *following;
 @property (nonatomic) NSDictionary *followers;
+
++(YSTUser*)sharedUser;
 
 @end

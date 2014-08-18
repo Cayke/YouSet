@@ -8,6 +8,9 @@
 
 #import "YSTMeViewController.h"
 #import "YSTCreateNewTodo.h"
+#import "YSTMeTableViewCell.h"
+#import "YSTToDo.h"
+#import "YSTToDoStore.h"
 
 @interface YSTMeViewController ()
 
@@ -20,6 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -28,11 +32,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _toDoMeArray = [YSTToDoStore meToDos];
+    
+     UINib *nib = [UINib nibWithNibName:@"YSTMeTableViewCell" bundle:nil];
+    [self.meTableView registerNib:nib forCellReuseIdentifier:@"YSTMeTableViewCell"];
+    
+    self.meTableView.delegate = self;
+    self.meTableView.dataSource = self;
+    
     self.title = @"Eu";
     
     UIBarButtonItem *btnAddToDO = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newToDo:)];
     btnAddToDO.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = btnAddToDO;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,6 +61,48 @@
     UINavigationController *navCreateNewTodo = [[UINavigationController alloc]initWithRootViewController:createNewToDoVC];
 
     [self presentViewController:navCreateNewTodo animated:YES completion:nil];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_toDoMeArray count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString static *cellIdentifier = @"YSTMeTableViewCell";
+    YSTMeTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+
+    YSTToDo *thisToDo = [_toDoMeArray objectAtIndex:indexPath.row];
+
+    [cell setCellWithTodo:thisToDo];
+    if (thisToDo.assignee.status == 0) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    
+    return cell;
+}
+
+
+
+#pragma mark - Table view delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    YSTToDo *tappedToDO = [_toDoMeArray objectAtIndex:indexPath.row];
+    
+    [tappedToDO incrementStatus];
+    
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
 }
 
 @end

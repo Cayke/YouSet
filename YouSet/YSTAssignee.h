@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YSTToDo.h"
 
 @interface YSTAssignee : NSObject
 
-@property (atomic) int idAssignee;
+@property (atomic) int ID;
 @property (atomic) int idToDo;
 @property (atomic) int idUser;
 @property (atomic) int status;
 
+-(void)incrementStatus;
 
 @end

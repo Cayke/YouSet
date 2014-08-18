@@ -8,14 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "YSTToDo.h"
+#import "YSTConnection.h"
+#import "YSTUser.h"
 
 @class YSTToDo;
 
 @interface YSTToDoStore : NSObject
 
+@property (nonatomic) NSString *path;
+
 // guardar todos
-@property (nonatomic) NSMutableArray *todos;
+@property (nonatomic) NSMutableArray *toDos;
 
 + (instancetype)sharedToDoStore;
++ (NSArray*)meToDos;
+
+-(void)createTodo:(YSTToDo*)todo;
 
 @end
