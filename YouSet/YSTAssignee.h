@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "YSTToDo.h"
+#import "YSTUser.h"
 
 @interface YSTAssignee : NSObject
 
@@ -17,5 +18,7 @@
 @property (atomic) int status;
 
 -(void)incrementStatus;
+
+-(BOOL)isFromUser:(YSTUser*)user;
 
 @end
