@@ -29,7 +29,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact:)];
+    self.title = @"Amigos";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact)];
 }
 
 - (void)didReceiveMemoryWarning
