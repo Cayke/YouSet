@@ -81,12 +81,12 @@
     YSTToDo *thisToDo = [_toDoMeArray objectAtIndex:indexPath.row];
 
     [cell setCellWithTodo:thisToDo];
-//    if (thisToDo.assignee.status == 0) {
+//   if ([thisToDo.assignee objectAtIndex:0].sta  == 0) {
 //        cell.accessoryType = UITableViewCellAccessoryNone;
 //    } else {
 //        cell.accessoryType = UITableViewCellAccessoryCheckmark;
 //    }
-    
+//    
     return cell;
 }
 

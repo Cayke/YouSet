@@ -48,7 +48,7 @@
 + (NSArray*)meToDos {
     NSMutableArray *todos = [[NSMutableArray alloc]init];
     YSTToDo *toDo;
-    
+    YSTAssignee *assignee = [[YSTAssignee alloc]init];
     int count = 10;
     for (int i = 0; i < count; i++) {
         toDo = [[YSTToDo alloc]init];
@@ -57,7 +57,8 @@
         toDo.idCreatedBy = 1;
         toDo.dateCreated = [[NSDate alloc]init];
         toDo.privacy = 2;
-        
+        [toDo includeAssign:assignee];
+        assignee.status = 0;
         [todos addObject:toDo];
     }
 
