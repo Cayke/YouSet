@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "YSTAssignee.h"
-@class YSTAssignee;
 @interface YSTToDo : NSObject
 
 ////// DEFINIR NUMEROS DOS STATUS
@@ -19,7 +18,8 @@
 
 @property (atomic) int ID;
 @property (nonatomic) NSString *todo;
-@property (nonatomic) YSTAssignee *assignee;
+// O NSArray assignee será do tipo YSTAssignee
+@property (nonatomic) NSArray *assignee;
 @property (nonatomic) int idCreatedBy;
 @property (nonatomic) NSDate *dateCreated;
 @property (nonatomic) NSDate *dateFinished;
