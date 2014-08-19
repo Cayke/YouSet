@@ -32,6 +32,13 @@
     self.title = @"Amigos";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact)];
+    
+    
+    //ver se tem amigos ou esta vazio
+    if (_amigos == nil) {
+        UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Atencao" message:@"Voce ainda nao segue ninguem. Para seguir um amigo novo clique no botao + a cima" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alerta show];
+    }
 }
 
 - (void)didReceiveMemoryWarning

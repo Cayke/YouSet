@@ -52,10 +52,14 @@
     // colorir navigations
     [[UINavigationBar appearance] setBarStyle: UIBarStyleBlack];
     [[UINavigationBar appearance] setBarTintColor: blueColor];
+    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
+    
     
     // colorir tabbar
     [[UITabBar appearance] setBarStyle: UIBarStyleBlack];
     [[UITabBar appearance] setBarTintColor: blueColor];
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    
         
     // cores para fazer o verde
     red = 184.0/divided;
