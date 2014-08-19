@@ -11,6 +11,7 @@
 #import "YSTMeTableViewCell.h"
 #import "YSTToDo.h"
 #import "YSTToDoStore.h"
+#import "CPStub.h"
 
 @interface YSTMeViewController ()
 
@@ -32,7 +33,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _toDoMeArray = [YSTToDoStore meToDos];
+    _toDoMeArray = [YSTToDoStore allToDosOfUser];
     
      UINib *nib = [UINib nibWithNibName:@"YSTMeTableViewCell" bundle:nil];
     [self.meTableView registerNib:nib forCellReuseIdentifier:@"YSTMeTableViewCell"];
@@ -48,7 +49,10 @@
     
     
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    _toDoMeArray = [YSTToDoStore sharedToDoStore].toDos;
+    [_meTableView reloadData];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

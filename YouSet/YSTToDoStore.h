@@ -21,8 +21,8 @@
 @property (nonatomic) NSMutableArray *toDos;
 
 + (instancetype)sharedToDoStore;
-+ (NSArray*)meToDos;
 
 -(void)createTodo:(YSTToDo*)todo;
++ (NSArray *)allToDosOfUser;
 
 @end
