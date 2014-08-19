@@ -20,7 +20,22 @@
 {
     self = [super init];
     if (self) {
+        // path
+        _path = [NSString stringWithFormat:@"%@/Documents",NSHomeDirectory()];
+
+        // pegar infos da plist user
+        NSDictionary *userDict = [[NSDictionary alloc]initWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",_path,@"info.plist"]];
         
+        if (userDict) {
+            _logedin = YES;
+            
+            _phone = [userDict objectForKey:@"phone"];
+            _name = [userDict objectForKey:@"name"];
+            _phone = [userDict objectForKey:@"phone"];
+            _email = [userDict objectForKey:@"email"];
+        } else {
+            _logedin = NO;
+        }
     }
     return self;
 }

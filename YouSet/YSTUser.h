@@ -14,10 +14,16 @@
 @property (nonatomic) NSString *phone;
 @property (nonatomic) NSString *email;
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSArray *udid;
 @property (nonatomic) NSString *photo;
+
 @property (nonatomic) NSDictionary *following;
 @property (nonatomic) NSDictionary *followers;
+
+// verifica se o usuario esta logado
+@property (nonatomic) BOOL logedin;
+
+// caminho para inormacoes do usuario
+@property (nonatomic) NSString *path;
 
 +(YSTUser*)sharedUser;
 
