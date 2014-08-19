@@ -45,26 +45,7 @@
 
 // apagar depois
 // funcoes para teste
-+ (NSArray*)meToDos {
-    NSMutableArray *todos = [[NSMutableArray alloc]init];
-    YSTToDo *toDo;
-    YSTAssignee *assignee = [[YSTAssignee alloc]init];
-    int count = 10;
-    for (int i = 0; i < count; i++) {
-        toDo = [[YSTToDo alloc]init];
-        toDo.ID = i;
-        toDo.todo = [NSString stringWithFormat:@"ToDo number %d",i];
-        toDo.idCreatedBy = 1;
-        toDo.dateCreated = [[NSDate alloc]init];
-        toDo.privacy = 2;
-        [toDo includeAssign:assignee];
-        assignee.status = 0;
-        [todos addObject:toDo];
-    }
 
-    
-    return [NSArray arrayWithArray:todos];
-}
 
 -(int)getNewID{
     NSDictionary *info = [[NSDictionary alloc]initWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",_path,@"info.plist"]];
@@ -91,13 +72,37 @@
     // registrar o todo na store
     [_toDos addObject:todo];
     
+    
     // criar o id do todo
     // ** todo **
     NSString *newTodoID = [NSString stringWithFormat:@"%d%d",[YSTUser sharedUser].ID,[self getNewID]];
     todo.ID = [newTodoID intValue];
+
     
     // enviar o todo criado para o servidor
     [[YSTConnection sharedConnection]updateTodo:todo];
 }
+
++ (NSArray *)allToDosOfUser {
+    NSMutableArray *todos = [[NSMutableArray alloc]init];
+    YSTToDo *toDo;
+    YSTAssignee *assignee = [[YSTAssignee alloc]init];
+    int count = 10;
+    for (int i = 0; i < count; i++) {
+        toDo = [[YSTToDo alloc]init];
+        toDo.ID = i;
+        toDo.todo = [NSString stringWithFormat:@"ToDo number %d",i];
+        toDo.idCreatedBy = 1;
+        toDo.dateCreated = [[NSDate alloc]init];
+        toDo.privacy = 2;
+        [toDo includeAssign:assignee];
+        assignee.status = 0;
+        [todos addObject:toDo];
+    }
+    
+    
+    return [NSArray arrayWithArray:todos];
+}
+
 
 @end

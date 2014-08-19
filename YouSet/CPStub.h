@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface CPStub : NSObject
+@property (nonatomic) NSMutableArray *todos;
 
 +(BOOL) isYouSetUser : (NSString *) phone;
 
