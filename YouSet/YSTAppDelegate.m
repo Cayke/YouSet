@@ -11,6 +11,9 @@
 #import "YSTGroupsViewController.h"
 #import "YSTContactsViewController.h"
 #import "YSTFriendsViewController.h"
+#import "YSTLoginViewController.h"
+#import "YSTUser.h"
+
 @implementation YSTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -18,23 +21,28 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // inicializar programa
-    [self normalInitializateOfYouSet];
+    [self setStyles];
+    if ([YSTUser sharedUser].logedin) {
+        [self normalInitializateOfYouSet];
+    } else {
+        [self loginScreen];
+    }
     
     [self.window makeKeyAndVisible];
     return YES;
 }
 
--(void)normalInitializateOfYouSet {
-    // Override point for customization after application launch.
-    YSTMeViewController *mvc = [[YSTMeViewController alloc]init];
-    YSTGroupsViewController *gvc = [[YSTGroupsViewController alloc]init];
-    YSTFriendsViewController *fvc = [[YSTFriendsViewController alloc]init];
+-(void)loginScreen{
+    // login view controller
+    YSTLoginViewController *login = [[YSTLoginViewController alloc]init];
+    login.appDelegate = self;
+    UINavigationController *navLogin = [[UINavigationController alloc]initWithRootViewController:login];
     
-    // criar navigations
-    UINavigationController *navMe = [[UINavigationController alloc]initWithRootViewController:mvc];
-    UINavigationController *navGroups = [[UINavigationController alloc]initWithRootViewController:gvc];
-    UINavigationController *navFriends = [[UINavigationController alloc]initWithRootViewController:fvc];
+    [self.window setRootViewController:navLogin];
     
+}
+
+-(void)setStyles{
     // COR AZUL
     // R: 74
     // G: 144
@@ -56,7 +64,7 @@
     // colorir tabbar
     [[UITabBar appearance] setBarStyle: UIBarStyleBlack];
     [[UITabBar appearance] setBarTintColor: blueColor];
-        
+    
     // cores para fazer o verde
     red = 184.0/divided;
     green = 233.0/divided;
@@ -65,6 +73,18 @@
     
     [[UITabBar appearance]setSelectedImageTintColor:greenColor];
     
+}
+
+-(void)normalInitializateOfYouSet {
+    // Override point for customization after application launch.
+    YSTMeViewController *mvc = [[YSTMeViewController alloc]init];
+    YSTGroupsViewController *gvc = [[YSTGroupsViewController alloc]init];
+    YSTFriendsViewController *fvc = [[YSTFriendsViewController alloc]init];
+    
+    // criar navigations
+    UINavigationController *navMe = [[UINavigationController alloc]initWithRootViewController:mvc];
+    UINavigationController *navGroups = [[UINavigationController alloc]initWithRootViewController:gvc];
+    UINavigationController *navFriends = [[UINavigationController alloc]initWithRootViewController:fvc];
     
     
     UITabBarController *tbc = [[UITabBarController alloc]init];

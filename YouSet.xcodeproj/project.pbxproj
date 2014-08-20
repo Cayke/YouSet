@@ -40,6 +40,9 @@
 		92B9362619956CA800F26A05 /* YSTGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B9362419956CA800F26A05 /* YSTGroupsViewController.xib */; };
 		92B9362A19956CBC00F26A05 /* YSTContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9362819956CBC00F26A05 /* YSTContactsViewController.m */; };
 		92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B9362919956CBC00F26A05 /* YSTContactsViewController.xib */; };
+		B33B0A2A19A50F7600E86BFC /* YSTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33B0A2819A50F7600E86BFC /* YSTLoginViewController.m */; };
+		B33B0A2B19A50F7600E86BFC /* YSTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33B0A2919A50F7600E86BFC /* YSTLoginViewController.xib */; };
+		B33B0A2D19A514E700E86BFC /* YouSet.png in Resources */ = {isa = PBXBuildFile; fileRef = B33B0A2C19A514E700E86BFC /* YouSet.png */; };
 		B35D9725199AB308004826D1 /* YSTCreateNewTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */; };
 		B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */; };
 /* End PBXBuildFile section */
@@ -109,6 +112,10 @@
 		92B9362719956CBC00F26A05 /* YSTContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTContactsViewController.h; sourceTree = "<group>"; };
 		92B9362819956CBC00F26A05 /* YSTContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTContactsViewController.m; sourceTree = "<group>"; };
 		92B9362919956CBC00F26A05 /* YSTContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTContactsViewController.xib; sourceTree = "<group>"; };
+		B33B0A2719A50F7600E86BFC /* YSTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTLoginViewController.h; sourceTree = "<group>"; };
+		B33B0A2819A50F7600E86BFC /* YSTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTLoginViewController.m; sourceTree = "<group>"; };
+		B33B0A2919A50F7600E86BFC /* YSTLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTLoginViewController.xib; sourceTree = "<group>"; };
+		B33B0A2C19A514E700E86BFC /* YouSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouSet.png; sourceTree = "<group>"; };
 		B35D9722199AB308004826D1 /* YSTCreateNewTodo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTCreateNewTodo.h; sourceTree = "<group>"; };
 		B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTCreateNewTodo.m; sourceTree = "<group>"; };
 		B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTCreateNewTodo.xib; sourceTree = "<group>"; };
@@ -171,6 +178,7 @@
 		9233824719941DB800B199A9 /* YouSet */ = {
 			isa = PBXGroup;
 			children = (
+				B33B0A2C19A514E700E86BFC /* YouSet.png */,
 				9233825019941DB800B199A9 /* YSTAppDelegate.h */,
 				9233825119941DB800B199A9 /* YSTAppDelegate.m */,
 				92DAD76E19954FBC0095FFCE /* views */,
@@ -253,6 +261,9 @@
 				2754E3E819A2882C00861249 /* YSTFriendsViewController.h */,
 				2754E3E919A2882C00861249 /* YSTFriendsViewController.m */,
 				2754E3EA19A2882C00861249 /* YSTFriendsViewController.xib */,
+				B33B0A2719A50F7600E86BFC /* YSTLoginViewController.h */,
+				B33B0A2819A50F7600E86BFC /* YSTLoginViewController.m */,
+				B33B0A2919A50F7600E86BFC /* YSTLoginViewController.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -340,8 +351,10 @@
 				92B9362119956C8D00F26A05 /* YSTMeViewController.xib in Resources */,
 				929EDD29199BE99400A909BD /* YSTMeTableViewCell.xib in Resources */,
 				92B9362619956CA800F26A05 /* YSTGroupsViewController.xib in Resources */,
+				B33B0A2B19A50F7600E86BFC /* YSTLoginViewController.xib in Resources */,
 				2754E3EC19A2882C00861249 /* YSTFriendsViewController.xib in Resources */,
 				B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */,
+				B33B0A2D19A514E700E86BFC /* YouSet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +378,7 @@
 				923382801994218700B199A9 /* YSTAssigneeStore.m in Sources */,
 				9233827A1994214E00B199A9 /* YSTToDoStore.m in Sources */,
 				9233827D1994217C00B199A9 /* YSTAssignee.m in Sources */,
+				B33B0A2A19A50F7600E86BFC /* YSTLoginViewController.m in Sources */,
 				923382831994219200B199A9 /* YSTUser.m in Sources */,
 				2754E3EF19A28B2200861249 /* CPStub.m in Sources */,
 				92338286199421A600B199A9 /* YSTUserStore.m in Sources */,

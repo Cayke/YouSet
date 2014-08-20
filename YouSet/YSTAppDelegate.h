@@ -14,4 +14,7 @@
 
 //WILL NOOB, HELCIO NOOB 2, caique NOOB, hiheldo, Cayke
 
+// inicializar o app normalmente
+-(void)normalInitializateOfYouSet;
+
 @end
