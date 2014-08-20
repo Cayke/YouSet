@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "YSTUser.h"
 
 @interface YSTFriendsViewController : UIViewController
+
+@property (nonatomic) NSMutableArray *amigos;
 
 -(void) addContact;
 

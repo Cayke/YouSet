@@ -8,6 +8,7 @@
 
 #import "YSTCreateNewTodo.h"
 #import "YSTEditableTableViewCell.h"
+#import "YSTToDoStore.h"
 
 @interface YSTCreateNewTodo ()
 
@@ -30,13 +31,6 @@
     // Do any additional setup after loading the view from its nib.
     
     
-    
-    self.createNewTodoTableView.delegate = self;
-    self.createNewTodoTableView.dataSource = self;
-    
-    UINib *nib = [UINib nibWithNibName:@"YSTEditableTableViewCell" bundle:nil];
-    [self.createNewTodoTableView registerNib:nib forCellReuseIdentifier:@"YSTEditableTableViewCell"];
-    
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelToDo)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     cancelButton.tintColor = [UIColor whiteColor];
@@ -58,28 +52,14 @@
 }
 
 -(void)createToDo{
-    NSLog(@"create");
+    YSTToDo *newToDo = [[YSTToDo alloc]init];
+    YSTToDoStore *tStore = [YSTToDoStore sharedToDoStore];
+    newToDo.todo = self.TFDescription.text;
+    [tStore createTodo:newToDo];
+    NSLog(@"created");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString static *cellIdentifier = @"YSTEditableTableViewCell";
-    YSTEditableTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    return cell;
-}
 
 
 @end

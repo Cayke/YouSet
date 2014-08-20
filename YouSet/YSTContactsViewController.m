@@ -7,7 +7,9 @@
 //
 
 #import "YSTContactsViewController.h"
+#import "YSTPersonViewController.h"
 #import "CPStub.h"
+
 
 @interface YSTContactsViewController ()
 
@@ -194,6 +196,67 @@
         }
         return sectionName;
     }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) //se for youset abre a tela da pessoa
+    {
+        YSTPersonViewController *personVC = [[YSTPersonViewController alloc]init];
+        personVC.person = [_youSetContacts objectAtIndex:indexPath.row];
+        
+    }
+    else if (indexPath.section == 1) //se nao for do youset abre tela com numeros da pessoa e se quer chamar pro app
+    {
+       // NSString *selectedFile = [_nonYouSetContacts objectAtIndex:indexPath.row];
+        NSString *selectedFile = @"91613871";
+        [self showSMS:selectedFile];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void) messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    switch (result) {
+        case MessageComposeResultCancelled:
+            break;
+            
+        case MessageComposeResultFailed:
+        {
+            UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Erro" message:@"Nao foi possivel enviar SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [warningAlert show];
+            break;
+        }
+            
+        case MessageComposeResultSent:
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)showSMS:(NSString*)number {
+    
+    if(![MFMessageComposeViewController canSendText]) {
+        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Erro" message:@"Seu device nao suporta SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [warningAlert show];
+        return;
+    }
+    
+    NSArray *recipents = @[number];
+    NSString *message = [NSString stringWithFormat:@"Acabei de baixar um app chamado YouSet, sensacional hahaha. Baixe agora para usarmos juntos. Segue o link www.youset.com.br/download"];
+    
+    MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
+    messageController.messageComposeDelegate = self;
+    [messageController setRecipients:recipents];
+    [messageController setBody:message];
+    
+    // Present message view controller on screen
+    [self presentViewController:messageController animated:YES completion:nil];
 }
 
 @end

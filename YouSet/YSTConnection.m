@@ -7,6 +7,7 @@
 //
 
 #import "YSTConnection.h"
+#import "CPStub.h"
 
 @implementation YSTConnection
 
@@ -37,8 +38,13 @@
 }
 
 -(void)updateTodo:(YSTToDo *)todo{
+
     NSLog(@"fazer ystconnection updatetodo");
     NSLog(@"%@",todo);
+}
+
+- (void)getAllToDosOfUser:(YSTUser *)user {
+    NSLog(@"Pega todos os todos do usuario: %@",user);
 }
 
 @end
