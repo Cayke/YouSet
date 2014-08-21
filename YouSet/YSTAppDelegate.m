@@ -60,8 +60,6 @@
     // colorir navigations
     [[UINavigationBar appearance] setBarStyle: UIBarStyleBlack];
     [[UINavigationBar appearance] setBarTintColor: blueColor];
-    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]];
-    
     
     // colorir tabbar
     [[UITabBar appearance] setBarStyle: UIBarStyleBlack];
