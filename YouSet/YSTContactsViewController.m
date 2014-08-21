@@ -9,9 +9,13 @@
 #import "YSTContactsViewController.h"
 #import "YSTPersonViewController.h"
 #import "CPStub.h"
+#import "YSTContact.h"
+#import "YSTPhone.h"
 
 
 @interface YSTContactsViewController ()
+
+@property (nonatomic) NSArray *searchResults;
 
 @end
 
@@ -22,7 +26,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
+        _allContacts = [[NSMutableArray alloc]init];
+        _youSetContacts = [[NSMutableArray alloc]init];
+        _nonYouSetContacts = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -31,11 +37,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    // Custom initialization
-    //_haveAccess = NO;
-    _youSetContacts = [[NSMutableArray alloc]init];
-    _nonYouSetContacts = [[NSMutableArray alloc]init];
     
     // Request authorization to Address Book
     _addressBook = ABAddressBookCreateWithOptions(nil, nil);
@@ -65,6 +66,20 @@
         [alerta show];
     }
     
+    
+    //colocar a searchbar
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];
+    [searchBar sizeToFit];
+    [searchBar setDelegate:self];
+    
+    [self setSearchController:[[UISearchDisplayController alloc] initWithSearchBar:searchBar
+                                                                contentsController:self]];
+    [self.searchController setSearchResultsDataSource:self];
+    [self.searchController setSearchResultsDelegate:self];
+    [self.searchController setDelegate:self];
+    
+    [self.tableView setTableHeaderView:self.searchController.searchBar];
+    
 }
 
 
@@ -73,11 +88,38 @@
 {
     ABRecordRef source = ABAddressBookCopyDefaultSource(_addressBook);
     
-    _allContacts = (__bridge NSArray *) ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering(_addressBook, source, kABPersonSortByFirstName); // pegando em ordem alfabetica
+    NSArray *allContacts = (__bridge NSArray *) ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering(_addressBook, source, kABPersonSortByFirstName); // pegando em ordem alfabetica
     
-    
+    [self createUsableContacts:allContacts];
     //ver quais contatos tem youset
     [self usersOfYoutSet];
+}
+
+-(void) createUsableContacts:(NSArray *) arrayAddressBook
+{
+    for (int i = 0; i<[arrayAddressBook count]; i++) {
+        //criar contato usavel
+        YSTContact *contact = [[YSTContact alloc]init];
+        
+        //passar pessoa para id person
+        ABRecordRef person = (__bridge ABRecordRef)[arrayAddressBook objectAtIndex:i];
+        
+        //pegar nome da pessoa
+        contact.name = (__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+        
+        //pegar telefones
+        ABMultiValueRef phonesRef = ABRecordCopyValue(person, kABPersonPhoneProperty);
+        
+        for (int j = 0; j < ABMultiValueGetCount(phonesRef); j++) {
+            CFStringRef currentPhoneValue = ABMultiValueCopyValueAtIndex(phonesRef, j);
+            CFStringRef currentTypeValue = ABMultiValueCopyLabelAtIndex(phonesRef, j);
+            
+            [contact addPhone:(__bridge NSString *)(currentPhoneValue) withType:(__bridge NSString *)(currentTypeValue)];
+        }
+        
+        [_allContacts addObject:contact];
+    }
+    
 }
 
 
@@ -90,50 +132,53 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    }
     return 2;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return [_youSetContacts count];
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return [_searchResults count];
     }
-    else if(section == 1) {
-        return [_nonYouSetContacts count];
+    else
+    {
+        if (section == 0)
+        {
+            return [_youSetContacts count];
+        }
+        else if(section == 1)
+        {
+            return [_nonYouSetContacts count];
+        }
     }
     return 0;
-    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"temp"];
     
-    if (indexPath.section == 0)
-    {
-        //passar pessoa para id person
-        ABRecordRef person = (__bridge ABRecordRef)([_youSetContacts objectAtIndex:indexPath.row]);
-        
-        cell.textLabel.text = (__bridge NSString *) ABRecordCopyValue(person, kABPersonFirstNameProperty);
-        
-        //        //pegar telefones
-        //        ABMultiValueRef phonesRef = ABRecordCopyValue(person, kABPersonPhoneProperty);
-        //
-        //        for (int i=0; i < ABMultiValueGetCount(phonesRef); i++)
-        //        {
-        //            CFStringRef currentPhoneValue = ABMultiValueCopyValueAtIndex(phonesRef, i);
-        //            NSString *numeroString = (__bridge NSString *)(currentPhoneValue);
-        //
-        //
-        //               NSLog(@"%@", numeroString);
-        //           }
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        YSTContact *contact = [_searchResults objectAtIndex:indexPath.row];
+        cell.textLabel.text = contact.name;
     }
     else
     {
-        //passar pessoa para id person
-        ABRecordRef person = (__bridge ABRecordRef)([_nonYouSetContacts objectAtIndex:indexPath.row]);
         
-        cell.textLabel.text = (__bridge NSString *) ABRecordCopyValue(person, kABPersonFirstNameProperty);
+        if (indexPath.section == 0)
+        {
+            YSTContact *contact = [_youSetContacts objectAtIndex:indexPath.row];
+            cell.textLabel.text = contact.name;
+        }
+        else
+        {
+            YSTContact *contact = [_nonYouSetContacts objectAtIndex:indexPath.row];
+            cell.textLabel.text = contact.name;
+        }
     }
     
     return cell;
@@ -144,16 +189,14 @@
     for (int i = 0; i < [_allContacts count]; i++)
     {
         //pegar pessoa
-        ABRecordRef person = (__bridge ABRecordRef)[_allContacts objectAtIndex:i];
+        YSTContact *contact = [_allContacts objectAtIndex:i];
         BOOL isMember = NO;
         
         //pegar telefones
-        ABMultiValueRef phonesRef = ABRecordCopyValue(person, kABPersonPhoneProperty);
-        
-        for (int j=0; j < ABMultiValueGetCount(phonesRef); j++)
+        for (int j=0; j < [contact.phones count]; j++)
         {
-            CFStringRef currentPhoneValue = ABMultiValueCopyValueAtIndex(phonesRef, j);
-            NSString *numeroString = (__bridge NSString *)(currentPhoneValue);
+            YSTPhone *phone = [contact.phones objectAtIndex:j];
+            NSString *numeroString = phone.phone;
             
             //usar predicado para transformar numero para apenas numeros
             NSString *numeros = [[numeroString componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
@@ -167,8 +210,6 @@
                 isMember = YES;
                 break;
             }
-            
-            
         }
         if (!isMember)
         {
@@ -180,6 +221,7 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
+    if(tableView != self.searchDisplayController.searchResultsTableView)
     {
         NSString *sectionName;
         switch (section)
@@ -196,24 +238,31 @@
         }
         return sectionName;
     }
+    return nil;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) //se for youset abre a tela da pessoa
-    {
-        YSTPersonViewController *personVC = [[YSTPersonViewController alloc]init];
-        personVC.person = [_youSetContacts objectAtIndex:indexPath.row];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
         
     }
-    else if (indexPath.section == 1) //se nao for do youset abre tela com numeros da pessoa e se quer chamar pro app
+    else
     {
-       // NSString *selectedFile = [_nonYouSetContacts objectAtIndex:indexPath.row];
-        NSString *selectedFile = @"91613871";
-        [self showSMS:selectedFile];
+        if (indexPath.section == 0) //se for youset abre a tela da pessoa
+        {
+            YSTPersonViewController *personVC = [[YSTPersonViewController alloc]init];
+            personVC.contact = [_youSetContacts objectAtIndex:indexPath.row];
+            [self.navigationController pushViewController:personVC animated:YES];
+        }
+        else if (indexPath.section == 1) //se nao for do youset abre tela com numeros da pessoa e se quer chamar pro app
+        {
+            // NSString *selectedFile = [_nonYouSetContacts objectAtIndex:indexPath.row];
+            NSString *selectedFile = @"91613871";
+            [self showSMS:selectedFile];
+        }
     }
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 -(void) messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
@@ -258,5 +307,28 @@
     // Present message view controller on screen
     [self presentViewController:messageController animated:YES completion:nil];
 }
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name CONTAINS %@", searchText];
+    
+    _searchResults = [_allContacts filteredArrayUsingPredicate:resultPredicate];
+    
+    NSLog(@"%@",_searchResults);
+    
+    [self.tableView reloadData];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    
+    return YES;
+}
+
 
 @end
