@@ -9,6 +9,7 @@
 #import "YSTCreateNewTodo.h"
 #import "YSTEditableTableViewCell.h"
 #import "YSTToDoStore.h"
+#import "YSTPropertiesOfCell.h"
 
 @interface YSTCreateNewTodo ()
 
@@ -21,6 +22,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        self.sectionOfRequiredFields = [NSArray arrayWithObjects:@"Todo",@"Assignee",@"Date Schedule", nil];
+        self.sectionOfOptionalFields = [NSArray arrayWithObjects:@"Date Created",@"Privacy",@"Status", nil];
+        self.arrayOfSections = [NSArray arrayWithObjects:self.sectionOfOptionalFields,self.sectionOfRequiredFields, nil];
     }
     return self;
 }
@@ -38,6 +43,7 @@
     UIBarButtonItem *createButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(createToDo)];
     self.navigationItem.rightBarButtonItem = createButton;
     createButton.tintColor = [UIColor whiteColor];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,12 +60,38 @@
 -(void)createToDo{
     YSTToDo *newToDo = [[YSTToDo alloc]init];
     YSTToDoStore *tStore = [YSTToDoStore sharedToDoStore];
-    newToDo.todo = self.TFDescription.text;
     [tStore createTodo:newToDo];
     NSLog(@"created");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return [self.arrayOfSections count];
+}
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    return @"title";
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.arrayOfSections[section] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSArray *array = self.arrayOfSections[indexPath.section];
+    NSString *item = array[indexPath.row];
+    
+    UITableViewCell  *cell = [[UITableViewCell alloc]init];
+    
+    cell.textLabel.text = item;
+    
+    return cell;
+}
 
 @end

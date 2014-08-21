@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YSTCreateNewTodo : UIViewController
+@interface YSTCreateNewTodo : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *LDescription;
-@property (weak, nonatomic) IBOutlet UITextField *TFDescription;
+@property (nonatomic) NSArray *sectionOfRequiredFields;
+@property (nonatomic) NSArray *sectionOfOptionalFields;
+@property (nonatomic) NSArray *arrayOfSections;
+@property (weak, nonatomic) IBOutlet UITableView *toDoTableView;
+
 @end
