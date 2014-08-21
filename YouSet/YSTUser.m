@@ -24,7 +24,7 @@
         _path = [NSString stringWithFormat:@"%@/Documents",NSHomeDirectory()];
 
         // pegar infos da plist user
-        NSDictionary *userDict = [[NSDictionary alloc]initWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",_path,@"info.plist"]];
+        NSDictionary *userDict = [[NSDictionary alloc]initWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",_path,@"user.plist"]];
         
         if (userDict) {
             _logedin = YES;
