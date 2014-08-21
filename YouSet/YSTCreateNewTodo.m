@@ -25,7 +25,7 @@
         
         self.sectionOfRequiredFields = [NSArray arrayWithObjects:@"Todo",@"Assignee",@"Date Schedule", nil];
         self.sectionOfOptionalFields = [NSArray arrayWithObjects:@"Date Created",@"Privacy",@"Status", nil];
-        self.arrayOfSections = [NSArray arrayWithObjects:self.sectionOfOptionalFields,self.sectionOfRequiredFields, nil];
+        self.arrayOfSections = [NSArray arrayWithObjects:self.sectionOfRequiredFields, self.sectionOfOptionalFields, nil];
     }
     return self;
 }
