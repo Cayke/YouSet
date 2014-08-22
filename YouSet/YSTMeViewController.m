@@ -102,8 +102,7 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     YSTToDo *tappedToDO = [_toDoMeArray objectAtIndex:indexPath.row];
-    
-  //  [tappedToDO incrementStatus];
+    [tappedToDO incrementStatusOfUser:[YSTUser sharedUser]];
     
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     
