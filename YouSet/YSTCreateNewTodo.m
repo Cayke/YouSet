@@ -9,7 +9,8 @@
 #import "YSTCreateNewTodo.h"
 #import "YSTEditableTableViewCell.h"
 #import "YSTToDoStore.h"
-#import "YSTPropertiesOfCell.h"
+
+
 
 @interface YSTCreateNewTodo ()
 
@@ -44,6 +45,9 @@
     self.navigationItem.rightBarButtonItem = createButton;
     createButton.tintColor = [UIColor whiteColor];
     
+    UINib *nib = [UINib nibWithNibName:@"YSTEditableTableViewCell" bundle:nil];
+    [self.toDoTableView registerNib:nib forCellReuseIdentifier:@"YSTEditableTableViewCell"];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,8 +76,11 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
-    return @"title";
+    if (section == 0) {
+        return @"Required Fields";
+    } else {
+        return @"Optional Fields";
+    }
     
 }
 
@@ -83,13 +90,25 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     NSArray *array = self.arrayOfSections[indexPath.section];
     NSString *item = array[indexPath.row];
+    NSString  *cellIdentifier1 = @"YSTEditableTableViewCell";
+
     
-    UITableViewCell  *cell = [[UITableViewCell alloc]init];
+    YSTEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
     
-    cell.textLabel.text = item;
+//    if (indexPath.section == 0) {
+//        if ([item isEqualToString:@"Todo"]) {
+//            YSTEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
+//            cell.textLabel.text = @"oi";
+//            return cell;
+//        } 
+//    }
+    
+
+//    UITableViewCell  *cell2 = [[UITableViewCell alloc]init];
+//    
+//    cell2.textLabel.text = item;
     
     return cell;
 }
