@@ -10,12 +10,6 @@
 
 @implementation YSTUser
 
--(id)init{
-    @throw [NSException exceptionWithName:@"singleton" reason:@"use sharedUser" userInfo:nil];
-    return nil;
-}
-
-
 - (id)initPrivate
 {
     self = [super init];

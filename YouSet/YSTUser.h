@@ -25,6 +25,7 @@
 // caminho para inormacoes do usuario
 @property (nonatomic) NSString *path;
 
+// usuario do aplicativo
 +(YSTUser*)sharedUser;
 
 @end
