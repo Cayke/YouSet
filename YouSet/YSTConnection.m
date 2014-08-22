@@ -21,7 +21,7 @@
     self = [super init];
     
     if (self) {
-        
+        _site = @"http://127.0.0.1:8000/youset";
     }
     
     return self;
@@ -40,6 +40,27 @@
 // update todo, envia o todo para o server modificando-o ou criando
 -(void)updateTodo:(YSTToDo*)todo { // assyncrono
     NSLog(@"[YSTConnection todo] = %@", todo);
+    
+    // preparar o todo para ser enviado para o servidor
+    NSString *post = [NSString stringWithFormat:@""];
+    
+    // criar o request
+    NSURL *url = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"%@/%@",_site,@"updateTodo"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    
+    
+    // comecar assyncrono
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // fazer algum request para o servidor
+        NSError *error = nil;
+        NSData *dataFromConnection = [self makePostRequest:request post:post withError:error];
+        
+        //This is your completion handler
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            // fazer
+        });
+    });
+
 }
 
 // login do usuario, cria o usuario, ou retorna os todos do usuario caso o usuario exista
