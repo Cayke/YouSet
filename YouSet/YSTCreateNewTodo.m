@@ -9,8 +9,12 @@
 #import "YSTCreateNewTodo.h"
 #import "YSTEditableTableViewCell.h"
 #import "YSTToDoStore.h"
+#import "YSTPickDateTableViewCell.h"
 
 
+#define FONT_SIZE 14.0f
+#define CELL_CONTENT_WIDTH 320.0f
+#define CELL_CONTENT_MARGIN 10.0f
 
 @interface YSTCreateNewTodo ()
 @property (assign) NSInteger pickerCellRowHeight;
@@ -48,6 +52,9 @@
     
     UINib *nib = [UINib nibWithNibName:@"YSTEditableTableViewCell" bundle:nil];
     [self.toDoTableView registerNib:nib forCellReuseIdentifier:@"YSTEditableTableViewCell"];
+    
+    UINib *nib2 = [UINib nibWithNibName:@"YSTPickDateTableViewCell" bundle:nil];
+    [self.toDoTableView registerNib:nib2 forCellReuseIdentifier:@"YSTPickDateTableViewCell"];
     
 }
 
@@ -94,8 +101,9 @@
     NSArray *array = self.arrayOfSections[indexPath.section];
     NSString *item = array[indexPath.row];
     NSString  *cellIdentifier1 = @"YSTEditableTableViewCell";
+    NSString  *cellIdentifier2 = @"YSTPickDateTableViewCell";
 
-    UITableViewCell  *cell2 = [[UITableViewCell alloc]init];
+    UITableViewCell  *genericCell = [[UITableViewCell alloc]init];
 
     
     if (indexPath.section == 0) {
@@ -106,20 +114,29 @@
         } else if ([item isEqualToString:@"Assignee"]){
             cell.contentTF.placeholder = @"Assignee";
         } else if ([item isEqualToString:@"Date Schedule"]) {
-//            self.pickerCellRowHeight = cell2.frame.size.height;
-//            [self getDate];
+            YSTPickDateTableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:cellIdentifier2 forIndexPath:indexPath];
             
             return cell2;
+     
+            
         }
         
         return cell;
     }
-    
 
+    genericCell.textLabel.text = item;
     
-    cell2.textLabel.text = item;
+    return genericCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *array = self.arrayOfSections[indexPath.section];
+    NSString *item = array[indexPath.row];
+    if ([item isEqualToString:@"Date Schedule"]) {
+        return 162;
+    }
     
-    return cell2;
+    return 44;
 }
 
 - (void) getDate {
@@ -128,6 +145,7 @@
     [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     
 }
+
 
 
 

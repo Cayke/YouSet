@@ -47,6 +47,8 @@
 		92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B9362919956CBC00F26A05 /* YSTContactsViewController.xib */; };
 		92DB51EE19A7AE400011DBE4 /* YSTEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB51EC19A7AE400011DBE4 /* YSTEditableTableViewCell.m */; };
 		92DB51EF19A7AE400011DBE4 /* YSTEditableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DB51ED19A7AE400011DBE4 /* YSTEditableTableViewCell.xib */; };
+		92DB51FB19A7C3490011DBE4 /* YSTPickDateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB51F919A7C3490011DBE4 /* YSTPickDateTableViewCell.m */; };
+		92DB51FC19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DB51FA19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib */; };
 		B33B0A2A19A50F7600E86BFC /* YSTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33B0A2819A50F7600E86BFC /* YSTLoginViewController.m */; };
 		B33B0A2B19A50F7600E86BFC /* YSTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33B0A2919A50F7600E86BFC /* YSTLoginViewController.xib */; };
 		B33B0A2D19A514E700E86BFC /* YouSet.png in Resources */ = {isa = PBXBuildFile; fileRef = B33B0A2C19A514E700E86BFC /* YouSet.png */; };
@@ -130,6 +132,9 @@
 		92DB51EB19A7AE400011DBE4 /* YSTEditableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTEditableTableViewCell.h; sourceTree = "<group>"; };
 		92DB51EC19A7AE400011DBE4 /* YSTEditableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTEditableTableViewCell.m; sourceTree = "<group>"; };
 		92DB51ED19A7AE400011DBE4 /* YSTEditableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTEditableTableViewCell.xib; sourceTree = "<group>"; };
+		92DB51F819A7C3490011DBE4 /* YSTPickDateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTPickDateTableViewCell.h; sourceTree = "<group>"; };
+		92DB51F919A7C3490011DBE4 /* YSTPickDateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTPickDateTableViewCell.m; sourceTree = "<group>"; };
+		92DB51FA19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTPickDateTableViewCell.xib; sourceTree = "<group>"; };
 		B33B0A2719A50F7600E86BFC /* YSTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTLoginViewController.h; sourceTree = "<group>"; };
 		B33B0A2819A50F7600E86BFC /* YSTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTLoginViewController.m; sourceTree = "<group>"; };
 		B33B0A2919A50F7600E86BFC /* YSTLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTLoginViewController.xib; sourceTree = "<group>"; };
@@ -282,6 +287,9 @@
 				92DB51EB19A7AE400011DBE4 /* YSTEditableTableViewCell.h */,
 				92DB51EC19A7AE400011DBE4 /* YSTEditableTableViewCell.m */,
 				92DB51ED19A7AE400011DBE4 /* YSTEditableTableViewCell.xib */,
+				92DB51F819A7C3490011DBE4 /* YSTPickDateTableViewCell.h */,
+				92DB51F919A7C3490011DBE4 /* YSTPickDateTableViewCell.m */,
+				92DB51FA19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib */,
 				92B9362219956CA800F26A05 /* YSTGroupsViewController.h */,
 				92B9362319956CA800F26A05 /* YSTGroupsViewController.m */,
 				92B9362419956CA800F26A05 /* YSTGroupsViewController.xib */,
@@ -392,6 +400,7 @@
 				B33B0A2B19A50F7600E86BFC /* YSTLoginViewController.xib in Resources */,
 				2754E3EC19A2882C00861249 /* YSTFriendsViewController.xib in Resources */,
 				B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */,
+				92DB51FC19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib in Resources */,
 				92DB51EF19A7AE400011DBE4 /* YSTEditableTableViewCell.xib in Resources */,
 				B33B0A2D19A514E700E86BFC /* YouSet.png in Resources */,
 			);
@@ -428,6 +437,7 @@
 				B35D9725199AB308004826D1 /* YSTCreateNewTodo.m in Sources */,
 				9233824E19941DB800B199A9 /* main.m in Sources */,
 				929EDD28199BE99400A909BD /* YSTMeTableViewCell.m in Sources */,
+				92DB51FB19A7C3490011DBE4 /* YSTPickDateTableViewCell.m in Sources */,
 				9233828F199421DC00B199A9 /* YSTGroupStore.m in Sources */,
 				92B9362019956C8D00F26A05 /* YSTMeViewController.m in Sources */,
 				92DB51EE19A7AE400011DBE4 /* YSTEditableTableViewCell.m in Sources */,
