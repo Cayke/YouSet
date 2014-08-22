@@ -12,6 +12,8 @@
 
 @interface YSTConnection : NSObject
 
+@property (nonatomic, readonly) NSString *site;
+
 +(id)sharedConnection;
 
 // update todo, envia o todo para o server modificando-o ou criando
