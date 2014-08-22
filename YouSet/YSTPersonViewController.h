@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "YSTUser.h"
+#import "YSTContact.h"
 
 @interface YSTPersonViewController : UIViewController
 
+@property (nonatomic) YSTContact *contact; //temporario
 @property (nonatomic) YSTUser *person;
+@property (weak, nonatomic) IBOutlet UILabel *labelName;
+@property (weak, nonatomic) IBOutlet UILabel *labelPhone;
 
 @end

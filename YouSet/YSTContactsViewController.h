@@ -11,13 +11,14 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import <MessageUI/MessageUI.h>
 
-@interface YSTContactsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate>
+@interface YSTContactsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate >
 
+@property (nonatomic, strong) UISearchDisplayController *searchController;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic) ABAddressBookRef addressBook;
-@property(nonatomic) NSArray *allContacts; //todos os contatos
-@property(nonatomic) NSMutableArray *youSetContacts; //contato que possuem o YouSet (recebe YSTUSER?)
+@property(nonatomic) NSMutableArray *allContacts; //todos os contatos
+@property(nonatomic) NSMutableArray *youSetContacts; //contato que possuem o YouSet
 @property(nonatomic) NSMutableArray *nonYouSetContacts; //contatos que NAO possuem YS
 //@property (nonatomic) BOOL haveAccess;
 
