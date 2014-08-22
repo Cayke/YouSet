@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+
     }
     return self;
 }
@@ -27,6 +28,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = _contact.name;
+    self.labelName.text = _contact.name;
+    //self.labelPhone.text = _contact.phone;
 }
 
 - (void)didReceiveMemoryWarning
