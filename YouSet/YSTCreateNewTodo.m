@@ -13,6 +13,7 @@
 
 
 @interface YSTCreateNewTodo ()
+@property (assign) NSInteger pickerCellRowHeight;
 
 @end
 
@@ -94,23 +95,41 @@
     NSString *item = array[indexPath.row];
     NSString  *cellIdentifier1 = @"YSTEditableTableViewCell";
 
+    UITableViewCell  *cell2 = [[UITableViewCell alloc]init];
+
     
-    YSTEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
-    
-//    if (indexPath.section == 0) {
-//        if ([item isEqualToString:@"Todo"]) {
-//            YSTEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
-//            cell.textLabel.text = @"oi";
-//            return cell;
-//        } 
-//    }
+    if (indexPath.section == 0) {
+        YSTEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
+        if ([item isEqualToString:@"Todo"]) {
+            cell.contentTF.placeholder = @"Content";
+            
+        } else if ([item isEqualToString:@"Assignee"]){
+            cell.contentTF.placeholder = @"Assignee";
+        } else if ([item isEqualToString:@"Date Schedule"]) {
+//            self.pickerCellRowHeight = cell2.frame.size.height;
+//            [self getDate];
+            
+            return cell2;
+        }
+        
+        return cell;
+    }
     
 
-//    UITableViewCell  *cell2 = [[UITableViewCell alloc]init];
-//    
-//    cell2.textLabel.text = item;
     
-    return cell;
+    cell2.textLabel.text = item;
+    
+    return cell2;
 }
+
+- (void) getDate {
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+}
+
+
+
 
 @end
