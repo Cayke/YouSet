@@ -8,7 +8,6 @@
 
 #import "YSTSwitchTableViewCell.h"
 
-
 @implementation YSTSwitchTableViewCell
 
 - (void)awakeFromNib
@@ -28,12 +27,13 @@
     // Configure the view for the selected state
 }
 
-//- (void) switchChanged:(id)sender {
-//    self.switchOfCell = sender;
-//    if (self.switchOfCell.on) {
-//        self.auxTodo.privacy = 1;
-//    } else {
-//        self.auxTodo = 0;
-//    }
-//}
+- (void) switchChanged:(id)sender {
+    self.switchOfCell = sender;
+    if (self.switchOfCell.on) {
+        self.auxTodo.isPublic = 1;
+    } else {
+        self.auxTodo.isPublic = 0;
+    }
+}
+
 @end
