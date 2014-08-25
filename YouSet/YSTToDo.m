@@ -36,4 +36,9 @@
     [assigneeToChange incrementStatus];
 }
 
+-(NSDictionary *)getDictionary {
+    NSNumber *ID = [[NSNumber alloc]initWithInt:_ID];
+    return @{@"id": ID, @"todo":_todo};
+}
+
 @end

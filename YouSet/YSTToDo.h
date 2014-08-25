@@ -39,4 +39,6 @@
 // metodo vai incrementar o status do usuario dado
 -(void)incrementStatusOfUser:(YSTUser*)user;
 
+-(NSDictionary*)getDictionary;
+
 @end

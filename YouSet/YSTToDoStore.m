@@ -104,5 +104,27 @@
     return [NSArray arrayWithArray:todos];
 }
 
+-(void)saveTodos{
+    NSString *todosPlist = [NSString stringWithFormat:@"%@/%@",_path,@"todos.plist"];
+    
+    NSMutableArray *todos = [[NSMutableArray alloc]init];
+    for (YSTToDo *todo in _toDos) {
+        [todos addObject:[todo getDictionary]];
+    }
+    
+    [todos writeToFile:todosPlist atomically:YES];
+}
+
+-(void)loadTodos{
+    _toDos = [[NSMutableArray alloc]init];
+    
+    NSString *todosPlist = [NSString stringWithFormat:@"%@/%@",_path,@"todos.plist"];
+    
+    NSArray *todos = [NSArray arrayWithContentsOfFile:todosPlist];
+    for (NSDictionary *d in todos) {
+        [_toDos addObject:[[YSTToDo alloc]initWithDictionary:d]];
+    }
+    
+}
 
 @end

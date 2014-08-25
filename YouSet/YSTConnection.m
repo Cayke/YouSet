@@ -8,6 +8,7 @@
 
 #import "YSTConnection.h"
 #import "CPStub.h"
+#import "YSTTodoLine.h"
 
 @implementation YSTConnection
 
@@ -21,7 +22,7 @@
     self = [super init];
     
     if (self) {
-        _site = @"http://127.0.0.1:8000/youset";
+        _site = @"http://127.0.0.1:8000/youset/default";
     }
     
     return self;
@@ -55,9 +56,25 @@
         NSError *error = nil;
         NSData *dataFromConnection = [self makePostRequest:request post:post withError:error];
         
+        
         //This is your completion handler
         dispatch_sync(dispatch_get_main_queue(), ^{
-            // fazer
+            NSLog(@"%@",todo);
+            if (!error && dataFromConnection) {
+                // nao deu erro e o server retornou alguma coisa, completar a tarefa
+                NSString *message = [[NSString alloc]initWithData:dataFromConnection encoding:NSUTF8StringEncoding];
+                
+                if ([message isEqualToString:@"ok"]) {
+                    // retornou uma mensagem de ok, quando o todo eh atualizado
+                } else if ([message isEqualToString:@"error"]) {
+                    // retornou erro
+                } else {
+                    // retornou o id do todo
+                }
+            } else {
+                NSLog(@"something goes wrong");
+                // colocar todo na fila de todos para serem envidos ao servidor
+            }
         });
     });
 

@@ -52,6 +52,7 @@
 		B33B0A2D19A514E700E86BFC /* YouSet.png in Resources */ = {isa = PBXBuildFile; fileRef = B33B0A2C19A514E700E86BFC /* YouSet.png */; };
 		B35D9725199AB308004826D1 /* YSTCreateNewTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */; };
 		B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */; };
+		B3CABFE219A7D10A00CFE793 /* YSTTodoLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B3CABFE119A7D10A00CFE793 /* YSTTodoLine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,8 @@
 		B35D9722199AB308004826D1 /* YSTCreateNewTodo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTCreateNewTodo.h; sourceTree = "<group>"; };
 		B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTCreateNewTodo.m; sourceTree = "<group>"; };
 		B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTCreateNewTodo.xib; sourceTree = "<group>"; };
+		B3CABFE019A7D10A00CFE793 /* YSTTodoLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTTodoLine.h; sourceTree = "<group>"; };
+		B3CABFE119A7D10A00CFE793 /* YSTTodoLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTTodoLine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +234,8 @@
 				9233828E199421DC00B199A9 /* YSTGroupStore.m */,
 				92338287199421C000B199A9 /* YSTConnection.h */,
 				92338288199421C000B199A9 /* YSTConnection.m */,
+				B3CABFE019A7D10A00CFE793 /* YSTTodoLine.h */,
+				B3CABFE119A7D10A00CFE793 /* YSTTodoLine.m */,
 				276C877519A67CCB00BE8E98 /* Nao sei se e realmente necessario, mas nao apagar */,
 				9233825319941DB800B199A9 /* Images.xcassets */,
 				9233824819941DB800B199A9 /* Supporting Files */,
@@ -434,6 +439,7 @@
 				273530E719A3CBCD00677422 /* YSTPersonViewController.m in Sources */,
 				923382771994213F00B199A9 /* YSTToDo.m in Sources */,
 				2701B43219A3F3E90056368C /* YSTInviteToYSViewController.m in Sources */,
+				B3CABFE219A7D10A00CFE793 /* YSTTodoLine.m in Sources */,
 				9233825219941DB800B199A9 /* YSTAppDelegate.m in Sources */,
 				2754E3EB19A2882C00861249 /* YSTFriendsViewController.m in Sources */,
 			);
