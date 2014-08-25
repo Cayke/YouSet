@@ -19,6 +19,7 @@
 
 @interface YSTCreateNewTodo ()
 @property (assign) NSInteger pickerCellRowHeight;
+@property (nonatomic, weak) UISwitch *switchPrivacy;
 
 @end
 
@@ -87,6 +88,17 @@
     NSDate *date = [[NSDate alloc]init];
     self.auxTodo.dateCreated = date;
     
+    if (self.switchPrivacy.isOn) {
+        self.auxTodo.isPublic = 1;
+    } else {
+        self.auxTodo.isPublic = 0;
+    }
+    
+//    NSIndexPath *i = [[NSIndexPath alloc] initWithIndex:2];
+//    
+//    YSTSwitchTableViewCell *cell = (YSTSwitchTableViewCell *)[self.toDoTableView cellForRowAtIndexPath:i];
+//    
+//    //cell.switchOfCell....
     
     [[YSTToDoStore sharedToDoStore]createTodo:self.auxTodo];
     NSLog(@"created");
@@ -139,6 +151,7 @@
         
         if ([item isEqualToString:@"Privacy"]) {
             YSTSwitchTableViewCell *cell3 = [tableView dequeueReusableCellWithIdentifier:cellIdentifier3 forIndexPath:indexPath];
+            self.switchPrivacy = cell3.switchOfCell;
             return cell3;
         }
     }
@@ -148,7 +161,6 @@
     return genericCell;
 
 }
-
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -162,7 +174,9 @@
     return 44;
 }
 
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
 
 
