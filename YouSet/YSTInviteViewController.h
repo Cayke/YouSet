@@ -12,6 +12,7 @@
 
 @interface YSTInviteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate, UIActionSheetDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) YSTContact *contact;
-
+@property (nonatomic, strong) UIActionSheet *actionSheet;
 @end
