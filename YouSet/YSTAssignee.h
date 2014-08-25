@@ -20,4 +20,6 @@
 
 -(BOOL)isFromUser:(YSTUser*)user;
 
+-(void)setTaskToUser:(YSTUser*)user;
+
 @end

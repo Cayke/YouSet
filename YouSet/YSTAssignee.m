@@ -31,4 +31,8 @@
     return _idUser == user.ID;
 }
 
+-(void)setTaskToUser:(YSTUser *)user{
+    _idUser = user.ID;
+}
+
 @end

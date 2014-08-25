@@ -21,7 +21,8 @@
 {
     YSTPhone *newPhone = [[YSTPhone alloc]init];
     newPhone.phone = phone;
-    newPhone.type = type;
+    NSString *tipo = [[type componentsSeparatedByCharactersInSet:[[NSCharacterSet alphanumericCharacterSet]invertedSet]] componentsJoinedByString:@""];
+    newPhone.type = tipo;
     
     [self.phones addObject:newPhone];
 }

@@ -49,6 +49,10 @@
     // G: 144
     // B: 226
     //
+    // COR VERDE
+    // R: 184
+    // G: 233
+    // B: 134
     //divisao padrao para encontrar o valor das cores rgb
     CGFloat divided = 255.0;
     

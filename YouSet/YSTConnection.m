@@ -22,7 +22,7 @@
     self = [super init];
     
     if (self) {
-        _site = @"http://127.0.0.1:8000/youset/default";
+        _site = @"http://127.0.0.1:8000/youset/app/";
     }
     
     return self;
@@ -46,7 +46,7 @@
     NSString *post = [todo getDescriptionToPost];
     
     // criar o request
-    NSURL *url = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"%@/%@",_site,@"updateTodo"]];
+    NSURL *url = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"updateTodo"]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
     
     
@@ -94,7 +94,6 @@
 
 // login do usuario, cria o usuario, ou retorna os todos do usuario caso o usuario exista
 -(NSDictionary*)login:(YSTUser*)user withError:(NSError*)error {
-    return nil;
     // definir url da area de login
     NSURL *url = [[NSURL alloc]initWithString:@"http://www."];
     
@@ -165,7 +164,7 @@
 }
 
 -(NSString*)codeOfServer{
-    return @"TRDFyluihijIt76UILUHgTYDeTSD7adokIUHplOU7tdRT&yojikbG7y9";
+    return @"TRDFyluihijIt76UILUHgTYDeTSD7adokIUHplOU7tdRTyojikbG7y9";
 }
 
 @end

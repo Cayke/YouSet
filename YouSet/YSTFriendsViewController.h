@@ -12,6 +12,7 @@
 @interface YSTFriendsViewController : UIViewController
 
 @property (nonatomic) NSMutableArray *amigos;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 -(void) addContact;
 
