@@ -13,12 +13,13 @@
 @interface YSTAssignee : NSObject
 
 @property (atomic) int ID;
-@property (atomic) int idToDo;
 @property (atomic) int idUser;
 @property (atomic) int status;
 
 -(void)incrementStatus;
 
 -(BOOL)isFromUser:(YSTUser*)user;
+
+-(void)setTaskToUser:(YSTUser*)user;
 
 @end
