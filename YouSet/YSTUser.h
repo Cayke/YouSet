@@ -12,7 +12,6 @@
 
 @property (atomic) int ID;
 @property (nonatomic) NSString *phone;
-@property (nonatomic) NSString *email;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *photo;
 

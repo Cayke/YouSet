@@ -36,4 +36,22 @@
     [assigneeToChange incrementStatus];
 }
 
+-(NSDictionary *)getDictionary {
+    NSNumber *ID = [[NSNumber alloc]initWithInt:_ID];
+    return @{@"id": ID, @"todo":_todo};
+}
+
+-(NSString *)getDescriptionToPost{
+    NSString *assign = nil;
+    for (YSTAssignee *a in _assignee) {
+        if (!assign) {
+            assign = @"";
+        }
+        // id_status_idUser
+        assign = [assign stringByAppendingFormat:@"a%d_%d_%d",a.ID,a.status,a.idUser];
+    }
+    
+    return [NSString stringWithFormat:@"&ID=%d&todo=%@&createdBy=%d&dateCreated=%@&dateFinished=%@&dateExpire=%@&public=%d&task=%@",_ID, _todo, _idCreatedBy,_dateCreated,_dateFinished, _dateExpire, _isPublic, assign];
+}
+
 @end

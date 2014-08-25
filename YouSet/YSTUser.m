@@ -26,7 +26,6 @@
             _phone = [userDict objectForKey:@"phone"];
             _name = [userDict objectForKey:@"name"];
             _phone = [userDict objectForKey:@"phone"];
-            _email = [userDict objectForKey:@"email"];
         } else {
             _logedin = NO;
         }
