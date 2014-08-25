@@ -12,11 +12,14 @@
 #import "YSTContact.h"
 #import "YSTPhone.h"
 #import "YSTInviteViewController.h"
+#import "YSTConnection.h"
+#import "YSTUserTableViewCell.h"
 
 
 @interface YSTContactsViewController ()
 
-@property (nonatomic) NSArray *searchResults;
+@property (nonatomic) NSArray *searchResultsUSERS;
+@property (nonatomic) NSArray *searchResultsNonUSERS;
 
 @end
 
@@ -81,6 +84,10 @@
     
     [self.tableView setTableHeaderView:self.searchController.searchBar];
     
+    //tablebiew
+    UINib *nib = [UINib nibWithNibName:@"YSTUserTableViewCell" bundle:nil];
+    [_tableView registerNib:nib forCellReuseIdentifier:@"YSTUserTableViewCell"];
+    
 }
 
 
@@ -92,7 +99,10 @@
     NSArray *allContacts = (__bridge NSArray *) ABAddressBookCopyArrayOfAllPeopleInSourceWithSortOrdering(_addressBook, source, kABPersonSortByFirstName); // pegando em ordem alfabetica
     
     [self createUsableContacts:allContacts];
-    //ver quais contatos tem youset
+    
+    //ver quais contatos tem youset (chamar o server passando allContacts
+    // NSError *error;
+    //[[YSTConnection sharedConnection]verifyUserOfYST:_allContacts withError:error];
     [self usersOfYoutSet];
 }
 
@@ -139,11 +149,16 @@
     return 2;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(tableView == self.searchDisplayController.searchResultsTableView)
     {
-        return [_searchResults count];
+        return [_searchResultsUSERS count] + [_searchResultsNonUSERS count];
     }
     else
     {
@@ -161,11 +176,23 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"temp"];
+    //    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"temp"];
+    YSTUserTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"YSTUserTableViewCell"];
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        YSTContact *contact = [_searchResults objectAtIndex:indexPath.row];
-        cell.textLabel.text = contact.name;
+        if (indexPath.row < [_searchResultsUSERS count]) {
+            YSTContact *contact = [_searchResultsUSERS objectAtIndex:indexPath.row];
+            cell.name = contact.name;
+            cell.imageView.hidden = NO;
+            [cell mount];
+        }
+        else
+        {
+            YSTContact *contact = [_searchResultsNonUSERS objectAtIndex:indexPath.row - [_searchResultsUSERS count]];
+            cell.name = contact.name;
+            cell.imageView.hidden = YES;
+            [cell mount];
+        }
     }
     else
     {
@@ -173,12 +200,16 @@
         if (indexPath.section == 0)
         {
             YSTContact *contact = [_youSetContacts objectAtIndex:indexPath.row];
-            cell.textLabel.text = contact.name;
+            cell.name = contact.name;
+            cell.imageView.hidden = NO;
+            [cell mount];
         }
         else
         {
             YSTContact *contact = [_nonYouSetContacts objectAtIndex:indexPath.row];
-            cell.textLabel.text = contact.name;
+            cell.name = contact.name;
+            cell.imageView.hidden = YES;
+            [cell mount];
         }
     }
     
@@ -245,7 +276,18 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        
+        if (indexPath.row < [_searchResultsUSERS count]) {
+            YSTPersonViewController *personVC = [[YSTPersonViewController alloc]init];
+            personVC.contact = [_searchResultsUSERS objectAtIndex:indexPath.row];
+            [self.navigationController pushViewController:personVC animated:YES];
+        }
+        else
+        {
+            YSTContact *contact = [_searchResultsNonUSERS objectAtIndex:indexPath.row - [_searchResultsUSERS count]];
+            YSTInviteViewController *invite = [[YSTInviteViewController alloc]init];
+            invite.contact = contact;
+            [self.navigationController pushViewController:invite animated:YES];
+        }
     }
     else
     {
@@ -272,9 +314,9 @@
 {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name CONTAINS %@", searchText];
     
-    _searchResults = [_allContacts filteredArrayUsingPredicate:resultPredicate];
+    _searchResultsUSERS = [_youSetContacts filteredArrayUsingPredicate:resultPredicate];
     
-    NSLog(@"%@",_searchResults);
+    _searchResultsNonUSERS = [_nonYouSetContacts filteredArrayUsingPredicate:resultPredicate];
     
     [self.tableView reloadData];
 }

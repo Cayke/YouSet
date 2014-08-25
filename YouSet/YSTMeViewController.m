@@ -41,7 +41,7 @@
     self.meTableView.delegate = self;
     self.meTableView.dataSource = self;
     
-    self.title = @"Eu";
+    self.title = @"Me";
     
     UIBarButtonItem *btnAddToDO = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newToDo:)];
     btnAddToDO.tintColor = [UIColor whiteColor];

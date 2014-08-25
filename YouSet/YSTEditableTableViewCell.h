@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YSTCreateNewTodo.h"
 
-@interface YSTEditableTableViewCell : UITableViewCell
+@class YSTCreateNewTodo;
+
+@interface YSTEditableTableViewCell : UITableViewCell <UITextFieldDelegate,UITextInputDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *contentTF;
+
+
+@property (weak, nonatomic) YSTToDo *auxTodo;
+
+- (NSString *) sendContentTF;
 
 @end

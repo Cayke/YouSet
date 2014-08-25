@@ -10,6 +10,6 @@
 
 @interface YSTPickDateTableViewCell : UITableViewCell
 @property (nonatomic) IBOutlet UIDatePicker *datePicker;
-
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @end

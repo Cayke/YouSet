@@ -10,6 +10,7 @@
 #import "YSTEditableTableViewCell.h"
 #import "YSTToDoStore.h"
 #import "YSTPickDateTableViewCell.h"
+#import "YSTSwitchTableViewCell.h"
 
 
 #define FONT_SIZE 14.0f
@@ -29,8 +30,8 @@
     if (self) {
         // Custom initialization
         
-        self.sectionOfRequiredFields = [NSArray arrayWithObjects:@"Todo",@"Assignee",@"Date Schedule", nil];
-        self.sectionOfOptionalFields = [NSArray arrayWithObjects:@"Date Created",@"Privacy",@"Status", nil];
+        self.sectionOfRequiredFields = [NSArray arrayWithObjects:@"Todo",@"Date Schedule", nil];
+        self.sectionOfOptionalFields = [NSArray arrayWithObjects:@"Privacy",nil];
         self.arrayOfSections = [NSArray arrayWithObjects:self.sectionOfRequiredFields, self.sectionOfOptionalFields, nil];
     }
     return self;
@@ -50,12 +51,20 @@
     self.navigationItem.rightBarButtonItem = createButton;
     createButton.tintColor = [UIColor whiteColor];
     
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];    
+    [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
     UINib *nib = [UINib nibWithNibName:@"YSTEditableTableViewCell" bundle:nil];
     [self.toDoTableView registerNib:nib forCellReuseIdentifier:@"YSTEditableTableViewCell"];
     
     UINib *nib2 = [UINib nibWithNibName:@"YSTPickDateTableViewCell" bundle:nil];
     [self.toDoTableView registerNib:nib2 forCellReuseIdentifier:@"YSTPickDateTableViewCell"];
     
+    UINib *nib3 = [UINib nibWithNibName:@"YSTSwitchTableViewCell" bundle:nil];
+    [self.toDoTableView registerNib:nib3 forCellReuseIdentifier:@"YSTSwitchTableViewCell"];
+    
+    self.auxTodo = [[YSTToDo alloc]init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,9 +79,16 @@
 }
 
 -(void)createToDo{
-    YSTToDo *newToDo = [[YSTToDo alloc]init];
-    YSTToDoStore *tStore = [YSTToDoStore sharedToDoStore];
-    [tStore createTodo:newToDo];
+    YSTAssignee *a = [[YSTAssignee alloc]init];
+    a.status = 0;
+    a.idUser = [YSTUser sharedUser].ID;
+    [self.auxTodo includeAssign:a];
+    
+    NSDate *date = [[NSDate alloc]init];
+    self.auxTodo.dateCreated = date;
+    
+    
+    [[YSTToDoStore sharedToDoStore]createTodo:self.auxTodo];
     NSLog(@"created");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -94,41 +110,49 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.arrayOfSections[section] count];
+    NSInteger numbersOfRows = [self.arrayOfSections[section] count];
+    
+    return numbersOfRows;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSArray *array = self.arrayOfSections[indexPath.section];
     NSString *item = array[indexPath.row];
     NSString  *cellIdentifier1 = @"YSTEditableTableViewCell";
     NSString  *cellIdentifier2 = @"YSTPickDateTableViewCell";
+    NSString  *cellIdentifier3 = @"YSTSwitchTableViewCell";
 
-    UITableViewCell  *genericCell = [[UITableViewCell alloc]init];
+    if (array == self.sectionOfRequiredFields) {
+            if ([item isEqualToString:@"Todo"]) {
+                YSTEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
+                cell.contentTF.placeholder = @"Content";
+                cell.auxTodo = self.auxTodo;
+                return cell;
+            } else if ([item isEqualToString:@"Date Schedule"]) {
+                YSTPickDateTableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:cellIdentifier2 forIndexPath:indexPath];
+                return cell2;
+            }
 
-    
-    if (indexPath.section == 0) {
-        YSTEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
-        if ([item isEqualToString:@"Todo"]) {
-            cell.contentTF.placeholder = @"Content";
-            
-        } else if ([item isEqualToString:@"Assignee"]){
-            cell.contentTF.placeholder = @"Assignee";
-        } else if ([item isEqualToString:@"Date Schedule"]) {
-            YSTPickDateTableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:cellIdentifier2 forIndexPath:indexPath];
-            return cell2;
-     
-            
-        }
+    } else if (array == self.sectionOfOptionalFields){
         
-        return cell;
+        if ([item isEqualToString:@"Privacy"]) {
+            YSTSwitchTableViewCell *cell3 = [tableView dequeueReusableCellWithIdentifier:cellIdentifier3 forIndexPath:indexPath];
+            return cell3;
+        }
     }
-
-    genericCell.textLabel.text = item;
+        
     
+    UITableViewCell  *genericCell = [[UITableViewCell alloc]init];
     return genericCell;
+
 }
 
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSArray *array = self.arrayOfSections[indexPath.section];
     NSString *item = array[indexPath.row];
     if ([item isEqualToString:@"Date Schedule"]) {
@@ -138,12 +162,6 @@
     return 44;
 }
 
-- (void) getDate {
-    self.dateFormatter = [[NSDateFormatter alloc] init];
-    [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    
-}
 
 
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "YSTToDo.h"
 @interface YSTCreateNewTodo : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic) NSArray *sectionOfRequiredFields;
@@ -16,9 +16,10 @@
 
 // tableview
 @property (weak, nonatomic) IBOutlet UITableView *toDoTableView;
-
+@property (strong, nonatomic) NSIndexPath *datePickerIndexPath;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
-@property (nonatomic, strong) UIDatePicker *pickerView;
-@property (nonatomic, strong) NSIndexPath *datePickerIndexPath;
+@property (nonatomic) YSTToDo *auxTodo;
 
+
+@property (nonatomic) NSString *todo;
 @end

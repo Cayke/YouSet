@@ -8,10 +8,9 @@
 
 #import "YSTInviteViewController.h"
 #import "YSTPhone.h"
+#import "YSTInviteTableViewCell.h"
 
 @interface YSTInviteViewController ()
-
-@property (nonatomic) NSMutableArray *arrayPhoneNumbers ;
 
 @end
 
@@ -30,9 +29,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _arrayPhoneNumbers = [[NSMutableArray alloc]init];
-    
     self.title = [NSString stringWithFormat:@"%@", _contact.name];
+    
+    UINib *nib = [UINib nibWithNibName:@"YSTInviteTableViewCell" bundle:nil];
+    
+    [_tableView registerNib:nib forCellReuseIdentifier:@"YSTInviteTableViewCell"];
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,22 +59,39 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    UITableViewCell *cell = [[UITableViewCell alloc]init];
     if (indexPath.section == 0) {
+            YSTInviteTableViewCell *YSTCell = [_tableView dequeueReusableCellWithIdentifier:@"YSTInviteTableViewCell" forIndexPath:indexPath];
     YSTPhone *phone = [_contact.phones objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = phone.phone;
+        
+        YSTCell.type = phone.type;
+        YSTCell.phone = phone.phone;
+        [YSTCell mount];
+        return YSTCell;
     }
     else
     {
-        cell.textLabel.text = @"Invite to YouSet";
-        cell.textLabel.textColor = [UIColor greenColor];
+        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"hue"];
+        cell.textLabel.text = @"     Invite to YouSet";
+        
+        // COR VERDE
+        // R: 184
+        // G: 233
+        // B: 134
+        //divisao padrao para encontrar o valor das cores rgb
+        CGFloat divided = 255.0;
+        
+        //cores para fazer o verde
+        CGFloat red = 38.0/divided;
+        CGFloat green = 146.0/divided;
+        CGFloat blue = 42.0/divided;
+        UIColor *greenYST = [UIColor colorWithRed:red green:green blue:blue alpha:10.0];
+        cell.textLabel.textColor = greenYST;
+        
+        //_tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        
+        return cell;
+        
     }
-    
-    
-    return cell;
-
 }
 
 -(void) messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
@@ -127,15 +147,31 @@
 }
 
 -(void) showNormalActionSheet{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+    int contador = 0;
+    
+     _actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
     
     for (YSTPhone *phone in _contact.phones) {
-        [actionSheet addButtonWithTitle:phone.phone];
-        [_arrayPhoneNumbers addObject:phone.phone];
+        [_actionSheet addButtonWithTitle:[NSString stringWithFormat:@"%@:%@", phone.type, phone.phone]];
+        contador++;
     }
-    [actionSheet addButtonWithTitle:@"Cancelar"];
-    actionSheet.cancelButtonIndex = [_arrayPhoneNumbers count];
-    [actionSheet showInView:self.view];
+    
+    [_actionSheet addButtonWithTitle:@"Cancelar"];
+    _actionSheet.destructiveButtonIndex = contador;
+    [_actionSheet showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == actionSheet.destructiveButtonIndex) {
+        [_actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    }
+    else
+    {
+    YSTPhone *phone = [_contact.phones objectAtIndex:buttonIndex];
+    NSString *number = phone.phone;
+    
+    [self showSMS:number];
+    }
 }
 
 @end

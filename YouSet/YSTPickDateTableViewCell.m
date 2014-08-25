@@ -13,9 +13,10 @@
 
 - (void)awakeFromNib
 {
-    self.datePicker = [[UIDatePicker alloc] init];
-    self.datePicker.datePickerMode = UIDatePickerModeDate;
-    self.datePicker.hidden = NO;
+//    self.datePicker = [[UIDatePicker alloc] init];
+//    self.datePicker.datePickerMode = UIDatePickerModeDate;
+//    NSDate *date = [[NSDate alloc]init];
+//    [self.datePicker setDate:date animated:NO];
 }
 
 
@@ -24,6 +25,12 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)createDateFormatter {
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
 }
 
 
