@@ -22,13 +22,16 @@
 
 @property (atomic) int ID;
 @property (nonatomic) NSString *todo;
+
 // O NSArray assignee será do tipo YSTAssignee
 @property (nonatomic) NSArray *assignee;
 @property (nonatomic) int idCreatedBy;
+
 @property (nonatomic) NSDate *dateCreated;
 @property (nonatomic) NSDate *dateFinished;
-@property (nonatomic) NSDate *dateSchedule;
-@property (atomic) int privacy;
+@property (nonatomic) NSDate *dateExpire;
+
+@property (atomic) BOOL isPublic;
 @property (nonatomic) int serverOk;
 
 -(id)initWithDictionary:(NSDictionary*)dict;
@@ -40,5 +43,7 @@
 -(void)incrementStatusOfUser:(YSTUser*)user;
 
 -(NSDictionary*)getDictionary;
+
+-(NSString*)getDescriptionToPost;
 
 @end

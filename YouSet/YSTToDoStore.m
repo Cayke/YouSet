@@ -45,44 +45,6 @@
 
 // apagar depois
 // funcoes para teste
-
-
--(int)getNewID{
-    NSDictionary *info = [[NSDictionary alloc]initWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",_path,@"info.plist"]];
-    
-    int lastid = 0;
-    if (info) {
-        lastid = [[info objectForKey:@"lastid"]intValue];
-        lastid++;
-        
-        NSMutableDictionary *updateInfo = [[NSMutableDictionary alloc]initWithDictionary:info];
-        [updateInfo removeObjectForKey:@"lastid"];
-        [updateInfo setObject:[[NSNumber alloc]initWithInt:lastid] forKey:@"lastid"];
-        
-        [updateInfo writeToFile:[NSString stringWithFormat:@"%@/%@",_path,@"info.plist"] atomically:YES];
-    } else {
-        NSDictionary *newinfo = @{@"lastid": [[NSNumber alloc]initWithInt:0]};
-        [newinfo writeToFile:[NSString stringWithFormat:@"%@/%@",_path,@"info.plist"] atomically:YES];
-        
-    }
-    return lastid;
-}
-
--(void)createTodo:(YSTToDo *)todo{
-    // registrar o todo na store
-    [_toDos addObject:todo];
-    
-    
-    // criar o id do todo
-    // ** todo **
-    NSString *newTodoID = [NSString stringWithFormat:@"%d%d",[YSTUser sharedUser].ID,[self getNewID]];
-    todo.ID = [newTodoID intValue];
-
-    
-    // enviar o todo criado para o servidor
-    [[YSTConnection sharedConnection]updateTodo:todo];
-}
-
 + (NSArray *)allToDosOfUser {
     NSMutableArray *todos = [[NSMutableArray alloc]init];
     YSTToDo *toDo;
@@ -94,7 +56,7 @@
         toDo.todo = [NSString stringWithFormat:@"ToDo number %d",i];
         toDo.idCreatedBy = 1;
         toDo.dateCreated = [[NSDate alloc]init];
-        toDo.privacy = 2;
+        toDo.isPublic = YES;
         [toDo includeAssign:assignee];
         assignee.status = 0;
         [todos addObject:toDo];
@@ -102,6 +64,47 @@
     
     
     return [NSArray arrayWithArray:todos];
+}
+
+//-(int)getNewID{
+//    NSDictionary *info = [[NSDictionary alloc]initWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",_path,@"info.plist"]];
+//    
+//    int lastid = 0;
+//    if (info) {
+//        lastid = [[info objectForKey:@"lastid"]intValue];
+//        lastid++;
+//        
+//        NSMutableDictionary *updateInfo = [[NSMutableDictionary alloc]initWithDictionary:info];
+//        [updateInfo removeObjectForKey:@"lastid"];
+//        [updateInfo setObject:[[NSNumber alloc]initWithInt:lastid] forKey:@"lastid"];
+//        
+//        [updateInfo writeToFile:[NSString stringWithFormat:@"%@/%@",_path,@"info.plist"] atomically:YES];
+//    } else {
+//        NSDictionary *newinfo = @{@"lastid": [[NSNumber alloc]initWithInt:0]};
+//        [newinfo writeToFile:[NSString stringWithFormat:@"%@/%@",_path,@"info.plist"] atomically:YES];
+//        
+//    }
+//    return lastid;
+//}
+
+-(void)createTodo:(YSTToDo *)todo{
+    // registrar o todo na store
+    [_toDos addObject:todo];
+    
+    // enviar o todo criado para o servidor
+    [[YSTConnection sharedConnection]updateTodo:todo];
+}
+
+
+-(YSTToDo *)nextTodoOnLine{
+    YSTToDo *nextTodo = nil;
+    for (YSTToDo *t in _toDos) {
+        if (t.serverOk == 0) {
+            nextTodo = t;
+            break;
+        }
+    }
+    return nextTodo;
 }
 
 -(void)saveTodos{
@@ -115,7 +118,7 @@
     [todos writeToFile:todosPlist atomically:YES];
 }
 
--(void)loadTodos{
+-(void)reloadTodos{
     _toDos = [[NSMutableArray alloc]init];
     
     NSString *todosPlist = [NSString stringWithFormat:@"%@/%@",_path,@"todos.plist"];

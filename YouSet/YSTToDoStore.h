@@ -25,8 +25,10 @@
 -(void)createTodo:(YSTToDo*)todo;
 + (NSArray *)allToDosOfUser;
 
+-(YSTToDo*)nextTodoOnLine;
+
 -(void)saveTodos;
 
--(void)readTodos;
+-(void)reloadTodos;
 
 @end

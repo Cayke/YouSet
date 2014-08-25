@@ -115,7 +115,6 @@
             cell.contentTF.placeholder = @"Assignee";
         } else if ([item isEqualToString:@"Date Schedule"]) {
             YSTPickDateTableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:cellIdentifier2 forIndexPath:indexPath];
-            
             return cell2;
      
             
