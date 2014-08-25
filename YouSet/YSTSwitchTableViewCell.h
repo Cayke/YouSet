@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "YSTCreateNewTodo.h"
+#import "YSTToDo.h"
 
 @class YSTCreateNewTodo;
 @interface YSTSwitchTableViewCell : UITableViewCell

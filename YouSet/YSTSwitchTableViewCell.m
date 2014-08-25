@@ -28,12 +28,12 @@
     // Configure the view for the selected state
 }
 
-- (void) switchChanged:(id)sender {
-    self.switchOfCell = sender;
-    if (self.switchOfCell.on) {
-        self.auxTodo.privacy = 1;
-    } else {
-        self.auxTodo.privacy = 0;
-    }
-}
+//- (void) switchChanged:(id)sender {
+//    self.switchOfCell = sender;
+//    if (self.switchOfCell.on) {
+//        self.auxTodo.privacy = 1;
+//    } else {
+//        self.auxTodo = 0;
+//    }
+//}
 @end
