@@ -13,7 +13,7 @@
 @interface YSTSwitchTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UISwitch *switchOfCell;
+@property (nonatomic) IBOutlet UISwitch *switchOfCell;
 @property (weak, nonatomic) YSTToDo *auxTodo;
 
 
