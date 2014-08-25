@@ -13,6 +13,8 @@
 @property (nonatomic) NSArray *sectionOfRequiredFields;
 @property (nonatomic) NSArray *sectionOfOptionalFields;
 @property (nonatomic) NSArray *arrayOfSections;
+
+// tableview
 @property (weak, nonatomic) IBOutlet UITableView *toDoTableView;
 @property (strong, nonatomic) NSIndexPath *datePickerIndexPath;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;

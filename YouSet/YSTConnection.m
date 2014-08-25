@@ -8,6 +8,7 @@
 
 #import "YSTConnection.h"
 #import "CPStub.h"
+#import "YSTToDoStore.h"
 
 @implementation YSTConnection
 
@@ -21,7 +22,7 @@
     self = [super init];
     
     if (self) {
-        _site = @"http://127.0.0.1:8000/youset";
+        _site = @"http://127.0.0.1:8000/youset/default";
     }
     
     return self;
@@ -42,7 +43,7 @@
     NSLog(@"[YSTConnection todo] = %@", todo);
     
     // preparar o todo para ser enviado para o servidor
-    NSString *post = [NSString stringWithFormat:@""];
+    NSString *post = [todo getDescriptionToPost];
     
     // criar o request
     NSURL *url = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"%@/%@",_site,@"updateTodo"]];
@@ -55,9 +56,37 @@
         NSError *error = nil;
         NSData *dataFromConnection = [self makePostRequest:request post:post withError:error];
         
+        
         //This is your completion handler
         dispatch_sync(dispatch_get_main_queue(), ^{
-            // fazer
+            NSLog(@"%@",todo);
+            if (!error && dataFromConnection) {
+                // nao deu erro e o server retornou alguma coisa, completar a tarefa
+                NSString *message = [[NSString alloc]initWithData:dataFromConnection encoding:NSUTF8StringEncoding];
+                
+                if ([message isEqualToString:@"ok"]) {
+                    // retornou uma mensagem de ok, quando o todo eh atualizado
+                    todo.serverOk = 1;
+                } else if ([message isEqualToString:@"error"]) {
+                    // retornou erro
+                    NSLog(@"Erro no servidor");
+                    @throw [NSException exceptionWithName:@"Server Error" reason:@"This happens when something stranger happen on server" userInfo:nil];
+                } else {
+                    // retornou o id do todo
+                    todo.ID = [message intValue];
+                    todo.serverOk = 1;
+                    
+                    // mandar outros todos para o server, se houver
+                    YSTToDo *nextTodo = [[YSTToDoStore sharedToDoStore]nextTodoOnLine];
+                    if (nextTodo) {
+                        [self updateTodo:nextTodo];
+                    }
+                }
+            } else {
+                NSLog(@"something goes wrong");
+                // colocar todo na fila de todos para serem envidos ao servidor
+                todo.serverOk = 0;
+            }
         });
     });
 
