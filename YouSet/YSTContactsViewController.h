@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
-#import <MessageUI/MessageUI.h>
 
-@interface YSTContactsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MFMessageComposeViewControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate >
+
+@interface YSTContactsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate >
 
 @property (nonatomic, strong) UISearchDisplayController *searchController;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
