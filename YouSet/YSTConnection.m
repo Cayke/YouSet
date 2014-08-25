@@ -43,7 +43,8 @@
     NSLog(@"[YSTConnection todo] = %@", todo);
     
     // preparar o todo para ser enviado para o servidor
-    NSString *post = [todo getDescriptionToPost];
+    NSString *post = [NSString stringWithFormat:@"&code=%@",[self codeOfServer]];
+    post = [post stringByAppendingString:[todo getDescriptionToPost]];
     
     // criar o request
     NSURL *url = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"updateTodo"]];
@@ -95,7 +96,7 @@
 // login do usuario, cria o usuario, ou retorna os todos do usuario caso o usuario exista
 -(NSDictionary*)login:(YSTUser*)user withError:(NSError*)error {
     // definir url da area de login
-    NSURL *url = [[NSURL alloc]initWithString:@"http://www."];
+    NSURL *url = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"login"]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
     
