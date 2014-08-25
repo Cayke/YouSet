@@ -13,7 +13,7 @@
 - (void)awakeFromNib
 {
     // Initialization code
-    
+    self.contentTF.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -23,5 +23,20 @@
     // Configure the view for the selected state
     
 }
+
+- (NSString *) sendContentTF {
+    NSString *content;
+    
+    content = self.contentTF.text;
+    
+    return content;
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    _auxTodo.todo = textField.text;
+    return YES;
+}
+
+
 
 @end

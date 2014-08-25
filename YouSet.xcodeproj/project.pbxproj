@@ -17,6 +17,8 @@
 		276C877819A67D0100BE8E98 /* YSTContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 276C877719A67D0100BE8E98 /* YSTContact.m */; };
 		276C877C19A7D02F00BE8E98 /* YSTInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 276C877A19A7D02F00BE8E98 /* YSTInviteViewController.m */; };
 		276C877D19A7D02F00BE8E98 /* YSTInviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 276C877B19A7D02F00BE8E98 /* YSTInviteViewController.xib */; };
+		920420D719ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 920420D519ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.m */; };
+		920420D819ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920420D619ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.xib */; };
 		9233824219941DB800B199A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9233824119941DB800B199A9 /* Foundation.framework */; };
 		9233824419941DB800B199A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9233824319941DB800B199A9 /* CoreGraphics.framework */; };
 		9233824619941DB800B199A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9233824519941DB800B199A9 /* UIKit.framework */; };
@@ -84,6 +86,9 @@
 		276C877919A7D02F00BE8E98 /* YSTInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTInviteViewController.h; sourceTree = "<group>"; };
 		276C877A19A7D02F00BE8E98 /* YSTInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTInviteViewController.m; sourceTree = "<group>"; };
 		276C877B19A7D02F00BE8E98 /* YSTInviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTInviteViewController.xib; sourceTree = "<group>"; };
+		920420D419ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTSwitchTableViewCell.h; sourceTree = "<group>"; };
+		920420D519ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTSwitchTableViewCell.m; sourceTree = "<group>"; };
+		920420D619ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTSwitchTableViewCell.xib; sourceTree = "<group>"; };
 		9233823E19941DB800B199A9 /* YouSet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouSet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9233824119941DB800B199A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9233824319941DB800B199A9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -291,6 +296,9 @@
 				92DB51F819A7C3490011DBE4 /* YSTPickDateTableViewCell.h */,
 				92DB51F919A7C3490011DBE4 /* YSTPickDateTableViewCell.m */,
 				92DB51FA19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib */,
+				920420D419ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.h */,
+				920420D519ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.m */,
+				920420D619ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.xib */,
 				92B9362219956CA800F26A05 /* YSTGroupsViewController.h */,
 				92B9362319956CA800F26A05 /* YSTGroupsViewController.m */,
 				92B9362419956CA800F26A05 /* YSTGroupsViewController.xib */,
@@ -392,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9233824C19941DB800B199A9 /* InfoPlist.strings in Resources */,
+				920420D819ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.xib in Resources */,
 				9233825419941DB800B199A9 /* Images.xcassets in Resources */,
 				273530E819A3CBCD00677422 /* YSTPersonViewController.xib in Resources */,
 				92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */,
@@ -437,6 +446,7 @@
 				92B9362519956CA800F26A05 /* YSTGroupsViewController.m in Sources */,
 				9233828C199421D000B199A9 /* YSTGroup.m in Sources */,
 				B35D9725199AB308004826D1 /* YSTCreateNewTodo.m in Sources */,
+				920420D719ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.m in Sources */,
 				9233824E19941DB800B199A9 /* main.m in Sources */,
 				929EDD28199BE99400A909BD /* YSTMeTableViewCell.m in Sources */,
 				92DB51FB19A7C3490011DBE4 /* YSTPickDateTableViewCell.m in Sources */,

@@ -13,7 +13,6 @@
 @interface YSTAssignee : NSObject
 
 @property (atomic) int ID;
-@property (atomic) int idToDo;
 @property (atomic) int idUser;
 @property (atomic) int status;
 
