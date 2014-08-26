@@ -94,6 +94,8 @@
     YSTFriendToDosViewController * friend = [[YSTFriendToDosViewController alloc]init];
     friend.user = [_amigos objectAtIndex:indexPath.row];
     
+    friend.hidesBottomBarWhenPushed = YES;
+    
     [self.navigationController pushViewController:friend animated:YES];
     
     [_tableView deselectRowAtIndexPath:indexPath animated:YES];

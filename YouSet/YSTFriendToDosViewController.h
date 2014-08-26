@@ -14,4 +14,12 @@
 @property (nonatomic) YSTUser *user ;
 @property (nonatomic) NSArray *arrayToDos;
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *toolBarItemSeguir;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *toolBarItemMais;
+
+@property (nonatomic) UIImage *imageBarButton;
+
 @end

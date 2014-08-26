@@ -6,6 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YSTFriendToDosViewController">
             <connections>
+                <outlet property="tableView" destination="WsL-wU-Z3e" id="fWo-bW-IcN"/>
+                <outlet property="toolBar" destination="U1R-Li-88l" id="w1s-29-ouO"/>
+                <outlet property="toolBarItemMais" destination="FOz-1m-snk" id="MdQ-Y2-oT2"/>
+                <outlet property="toolBarItemSeguir" destination="IJM-NB-71e" id="IEC-ee-Xgm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,8 +18,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WsL-wU-Z3e">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WsL-wU-Z3e">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -23,8 +27,27 @@
                         <outlet property="delegate" destination="-1" id="qJn-uG-baa"/>
                     </connections>
                 </tableView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1R-Li-88l">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem title="Seguir" id="IJM-NB-71e"/>
+                        <barButtonItem width="215" style="plain" systemItem="fixedSpace" id="dD5-6U-Yf5"/>
+                        <barButtonItem systemItem="add" id="FOz-1m-snk"/>
+                    </items>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="U1R-Li-88l" secondAttribute="bottom" id="5CE-xv-KRf"/>
+                <constraint firstItem="WsL-wU-Z3e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Jfk-iK-biz"/>
+                <constraint firstItem="U1R-Li-88l" firstAttribute="top" secondItem="WsL-wU-Z3e" secondAttribute="bottom" id="Zbd-XU-qAc"/>
+                <constraint firstAttribute="trailing" secondItem="WsL-wU-Z3e" secondAttribute="trailing" id="c02-PT-iaj"/>
+                <constraint firstItem="U1R-Li-88l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dCN-6L-uf9"/>
+                <constraint firstItem="U1R-Li-88l" firstAttribute="top" secondItem="WsL-wU-Z3e" secondAttribute="bottom" id="kHd-6O-3h9"/>
+                <constraint firstItem="WsL-wU-Z3e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ugm-Ja-F39"/>
+                <constraint firstAttribute="trailing" secondItem="U1R-Li-88l" secondAttribute="trailing" id="vSv-Wg-u5s"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
