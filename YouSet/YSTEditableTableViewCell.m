@@ -32,25 +32,16 @@
     return content;
 }
 
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     _auxTodo.todo = textField.text;
     return YES;
 }
 
-- (void)selectionDidChange:(id<UITextInput>)textInput {
-
-}
-
-- (void)selectionWillChange:(id<UITextInput>)textInput {
-    
-}
-
-- (void)textWillChange:(id<UITextInput>)textInput {
-    
-}
-
-- (void)textDidChange:(id<UITextInput>)textInput {
-    
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

@@ -9,6 +9,8 @@
 #import "YSTFriendToDosViewController.h"
 #import "YSTConnection.h"
 #import "YSTToDo.h"
+#import "YSTCreateNewFriendToDo.h"
+#import "YSTShowPhotoViewController.h"
 
 @interface YSTFriendToDosViewController ()
 
@@ -84,12 +86,21 @@
 
 - (void) showPhoto
 {
-    NSLog(@"mostrar fotinha");
+    YSTShowPhotoViewController *show = [[YSTShowPhotoViewController alloc]init];
+    show.title = self.user.name;
+    show.navigationItem.backBarButtonItem.title = self.title;
+    show.photo = self.imageBarButton;
+    [self.navigationController pushViewController:show animated:YES];
+    
 }
 -(void) addTodo
 {
+    //chamar tela para criar novo todo
     NSLog(@"add todo tal pessoa");
     
+    YSTCreateNewFriendToDo *friendToDo = [[YSTCreateNewFriendToDo alloc]init];
+    UINavigationController *navFriendToDo = [[UINavigationController alloc]initWithRootViewController:friendToDo];
+    [self.navigationController presentViewController:navFriendToDo animated:YES completion:nil];    
 }
 
 -(void) seguir
