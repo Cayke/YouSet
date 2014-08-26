@@ -10,10 +10,10 @@
 #import "YSTToDo.h"
 
 @interface YSTMeTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *idToDo;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *description;
 
 -(void)setCellWithTodo:(YSTToDo*)todo;
-
+- (CGFloat)cellHeightForContentWidth:(CGFloat)contentWidth;
 @end

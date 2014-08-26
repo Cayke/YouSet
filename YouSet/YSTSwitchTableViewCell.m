@@ -13,11 +13,11 @@
 - (void)awakeFromNib
 {
     // Initialization code
+    
     self.title.text = @"Privacy";
-    self.switchOfCell = 0;
     self.accessoryView = self.switchOfCell;
-    [self.switchOfCell setOn:NO animated:NO];
     [self.switchOfCell addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -28,12 +28,13 @@
 }
 
 - (void) switchChanged:(id)sender {
-    self.switchOfCell = sender;
-    if (self.switchOfCell.on) {
-        self.auxTodo.isPublic = 1;
+    BOOL isPublic = [sender isOn];
+    if (isPublic == YES) {
+        self.auxTodo.isPublic = YES;
     } else {
-        self.auxTodo.isPublic = 0;
+        self.auxTodo.isPublic = NO;
     }
 }
+
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YSTUser.h"
 
-@interface YSTFriendsViewController : UIViewController
+@interface YSTFriendsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) NSMutableArray *amigos;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

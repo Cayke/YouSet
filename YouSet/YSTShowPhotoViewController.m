@@ -1,25 +1,24 @@
 //
-//  YSTPersonViewController.m
+//  YSTShowPhotoViewController.m
 //  YouSet
 //
-//  Created by Cayke Prudente on 19/08/14.
+//  Created by Cayke Prudente on 26/08/14.
 //  Copyright (c) 2014 YouSet. All rights reserved.
 //
 
-#import "YSTPersonViewController.h"
+#import "YSTShowPhotoViewController.h"
 
-@interface YSTPersonViewController ()
+@interface YSTShowPhotoViewController ()
 
 @end
 
-@implementation YSTPersonViewController
+@implementation YSTShowPhotoViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-
     }
     return self;
 }
@@ -28,9 +27,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = _contact.name;
-    self.labelName.text = _contact.name;
-    //self.labelPhone.text = _contact.phone;
+    
+    _imageView.image = _photo;
 }
 
 - (void)didReceiveMemoryWarning

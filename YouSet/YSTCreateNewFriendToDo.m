@@ -1,12 +1,12 @@
 //
-//  YSTCreateNewTodo.m
+//  YSTCreateNewFriendToDo.m
 //  YouSet
 //
 //  Created by Riheldo Melo Santos on 12/08/14.
 //  Copyright (c) 2014 YouSet. All rights reserved.
 //
 
-#import "YSTCreateNewTodo.h"
+#import "YSTCreateNewFriendToDo.h"
 #import "YSTEditableTableViewCell.h"
 #import "YSTToDoStore.h"
 #import "YSTPickDateTableViewCell.h"
@@ -17,13 +17,13 @@
 #define CELL_CONTENT_WIDTH 320.0f
 #define CELL_CONTENT_MARGIN 10.0f
 
-@interface YSTCreateNewTodo ()
+@interface YSTCreateNewFriendToDo ()
 @property (assign) NSInteger pickerCellRowHeight;
 @property (nonatomic, weak) UISwitch *switchPrivacy;
 
 @end
 
-@implementation YSTCreateNewTodo
+@implementation YSTCreateNewFriendToDo
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -87,7 +87,6 @@
     
     NSDate *date = [[NSDate alloc]init];
     self.auxTodo.dateCreated = date;
-    self.auxTodo.idCreatedBy = [YSTUser sharedUser].ID;
     
     if (self.switchPrivacy.isOn) {
         self.auxTodo.isPublic = 1;

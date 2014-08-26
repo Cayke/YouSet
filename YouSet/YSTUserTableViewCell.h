@@ -12,9 +12,11 @@
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) UIImage *photo;
+
 @property (weak, nonatomic, readonly) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *labelNome;
 
--(void)mount;
+-(void)mountWithPhoto:(BOOL) photo;
+
 
 @end

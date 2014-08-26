@@ -19,14 +19,14 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BFP-s5-tBr">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kBP-e7-fPE">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imageView" destination="BFP-s5-tBr" id="A32-CT-dyO"/>
+                <outlet property="imageView" destination="kBP-e7-fPE" id="Mpn-7f-O1k"/>
                 <outlet property="labelNome" destination="4Ap-RK-rif" id="WlO-Tj-ZgM"/>
             </connections>
         </tableViewCell>

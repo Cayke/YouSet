@@ -11,7 +11,7 @@
 
 @class YSTCreateNewTodo;
 
-@interface YSTEditableTableViewCell : UITableViewCell <UITextFieldDelegate,UITextInputDelegate>
+@interface YSTEditableTableViewCell : UITableViewCell <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *contentTF;
 

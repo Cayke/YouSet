@@ -7,7 +7,7 @@
 //
 
 #import "YSTContactsViewController.h"
-#import "YSTPersonViewController.h"
+#import "YSTFriendToDosViewController.h"
 #import "CPStub.h"
 #import "YSTContact.h"
 #import "YSTPhone.h"
@@ -183,15 +183,13 @@
         if (indexPath.row < [_searchResultsUSERS count]) {
             YSTContact *contact = [_searchResultsUSERS objectAtIndex:indexPath.row];
             cell.name = contact.name;
-            cell.imageView.hidden = NO;
-            [cell mount];
+            [cell mountWithPhoto:YES];
         }
         else
         {
             YSTContact *contact = [_searchResultsNonUSERS objectAtIndex:indexPath.row - [_searchResultsUSERS count]];
             cell.name = contact.name;
-            cell.imageView.hidden = YES;
-            [cell mount];
+            [cell mountWithPhoto:NO];
         }
     }
     else
@@ -201,15 +199,13 @@
         {
             YSTContact *contact = [_youSetContacts objectAtIndex:indexPath.row];
             cell.name = contact.name;
-            cell.imageView.hidden = NO;
-            [cell mount];
+            [cell mountWithPhoto:YES];
         }
         else
         {
             YSTContact *contact = [_nonYouSetContacts objectAtIndex:indexPath.row];
             cell.name = contact.name;
-            cell.imageView.hidden = YES;
-            [cell mount];
+            [cell mountWithPhoto:NO];
         }
     }
     
@@ -277,8 +273,8 @@
 {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         if (indexPath.row < [_searchResultsUSERS count]) {
-            YSTPersonViewController *personVC = [[YSTPersonViewController alloc]init];
-            personVC.contact = [_searchResultsUSERS objectAtIndex:indexPath.row];
+            YSTFriendToDosViewController *personVC = [[YSTFriendToDosViewController alloc]init];
+            personVC.user = [_searchResultsUSERS objectAtIndex:indexPath.row];
             [self.navigationController pushViewController:personVC animated:YES];
         }
         else
@@ -293,8 +289,8 @@
     {
         if (indexPath.section == 0) //se for youset abre a tela da pessoa
         {
-            YSTPersonViewController *personVC = [[YSTPersonViewController alloc]init];
-            personVC.contact = [_youSetContacts objectAtIndex:indexPath.row];
+            YSTFriendToDosViewController *personVC = [[YSTFriendToDosViewController alloc]init];
+            personVC.user = [_youSetContacts objectAtIndex:indexPath.row];
             [self.navigationController pushViewController:personVC animated:YES];
         }
         else if (indexPath.section == 1) //se nao for do youset abre tela com numeros da pessoa e se quer chamar pro app
