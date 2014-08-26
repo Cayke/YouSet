@@ -477,7 +477,7 @@
 				276C877D19A7D02F00BE8E98 /* YSTInviteViewController.xib in Resources */,
 				92B9362119956C8D00F26A05 /* YSTMeViewController.xib in Resources */,
 				2752A27019ABE4E6000A547B /* user91.png in Resources */,
-				B3329B8119AD22F600E2EE6D /* YSTRegisterViewController.xib in Resources */,
+				271DB79E19AD3AB2000405A4 /* YSTShowPhotoViewController.xib in Resources */,
 				929EDD29199BE99400A909BD /* YSTMeTableViewCell.xib in Resources */,
 				92B9362619956CA800F26A05 /* YSTGroupsViewController.xib in Resources */,
 				B33B0A2B19A50F7600E86BFC /* YSTLoginViewController.xib in Resources */,
@@ -487,6 +487,8 @@
 				B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */,
 				92DB51FC19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib in Resources */,
 				92DB51EF19A7AE400011DBE4 /* YSTEditableTableViewCell.xib in Resources */,
+				B33B0A2D19A514E700E86BFC /* YouSet.png in Resources */,
+				271DB79919AD35C5000405A4 /* YSTCreateNewFriendToDo.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

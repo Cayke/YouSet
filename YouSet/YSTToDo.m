@@ -27,15 +27,13 @@
 }
 
 -(void)incrementStatusOfUser:(YSTUser*)user{
-    YSTAssignee *assigneeToChange = nil;
     for (YSTAssignee *assig in _assignee) {
         if ([assig isFromUser:user]) {
-            assigneeToChange = assig;
+            [assig incrementStatus];
+            [[YSTConnection sharedConnection]updateTodo:self];
             break;
         }
     }
-    [assigneeToChange incrementStatus];
-    [[YSTConnection sharedConnection]updateTodo:self];
 }
 
 -(NSDictionary *)getDictionary {
