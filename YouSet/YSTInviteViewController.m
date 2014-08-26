@@ -157,12 +157,12 @@
     }
     
     [_actionSheet addButtonWithTitle:@"Cancelar"];
-    _actionSheet.destructiveButtonIndex = contador;
+    _actionSheet.cancelButtonIndex = contador;
     [_actionSheet showInView:self.view];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == actionSheet.destructiveButtonIndex) {
+    if (buttonIndex == actionSheet.cancelButtonIndex) {
         [_actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
     }
     else
