@@ -37,6 +37,20 @@
     return YES;
 }
 
+- (void)selectionDidChange:(id<UITextInput>)textInput {
 
+}
+
+- (void)selectionWillChange:(id<UITextInput>)textInput {
+    
+}
+
+- (void)textWillChange:(id<UITextInput>)textInput {
+    
+}
+
+- (void)textDidChange:(id<UITextInput>)textInput {
+    
+}
 
 @end

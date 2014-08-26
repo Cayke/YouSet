@@ -13,6 +13,8 @@
 #import "YSTToDoStore.h"
 #import "CPStub.h"
 
+
+
 @interface YSTMeViewController ()
 
 @end
@@ -91,10 +93,31 @@
 //        cell.accessoryType = UITableViewCellAccessoryCheckmark;
 //    }
 //    
+    
+//    cell.description.lineBreakMode = NSLineBreakByWordWrapping;
+//    cell.description.numberOfLines = 0;
+//    
+//    CGSize maximumLabelSize = CGSizeMake(290, FLT_MAX);
+//    CGRect textRect = [cell.description.text boundingRectWithSize:maximumLabelSize
+//                       
+//                                                  options:NSStringDrawingUsesLineFragmentOrigin
+//                       
+//                                               attributes:@{NSFontAttributeName:cell.description.font}
+//                       
+//                                                  context:nil];
+//    CGSize expectedLabelSize = textRect.size;
+//    int offsetYCoordinate = 65;
+//    offsetYCoordinate = (expectedLabelSize.height > 50 && expectedLabelSize.height < 70) ? 55 : offsetYCoordinate;
+//    offsetYCoordinate = (expectedLabelSize.height > 10 && expectedLabelSize.height < 20) ? 60 : offsetYCoordinate;
+//    CGRect newFrame = cell.description.frame;
+//    newFrame.origin.y = offsetYCoordinate;
+//    int heightForCell = expectedLabelSize.height + offsetYCoordinate;
+//    newFrame.size.height = heightForCell;
+//    cell.description.frame = newFrame;
+    
+    
     return cell;
 }
-
-
 
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,5 +130,38 @@
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    YSTToDo *thisToDo = [_toDoMeArray objectAtIndex:indexPath.row];
+//    NSString *text = thisToDo.todo;
+////    YSTMeTableViewCell *cell = (YSTMeTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+//    
+//    CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
+//    
+//    CGREct textOfRect = [text boundingRectWithSize:constraint options:NSStringDrawingUsesLineFragmentOrigin attributes:<#(NSDictionary *)#> context:<#(NSStringDrawingContext *)#>]
+//    
+//    CGRect textRect = [text boundingRectWithSize:constraint
+//                                         options:NSStringDrawingUsesLineFragmentOrigin
+//                                      attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Myriad Pro"
+//                                                                                       size:18.0f]}
+//                                         context:nil];
+//    CGSize size = textRect.size;
+//    
+//    CGFloat height = MAX(size.height, 44.0f);
+//    
+//    
+//    float cellHeight = height + (CELL_CONTENT_MARGIN * 13);
+//    cellHeight = (cellHeight == 174) ? 165 : cellHeight;
+//    
+//    cellHeight = (cellHeight < 200 && cellHeight != 174) ? cellHeight - 20 : cellHeight;
+//    
+//    
+//    
+// 
+//
+//    return cellHeight;
+//}
+
+
 
 @end
