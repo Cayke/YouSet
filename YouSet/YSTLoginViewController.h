@@ -10,6 +10,7 @@
 #import "YSTAppDelegate.h"
 
 @interface YSTLoginViewController : UIViewController
+<UITextFieldDelegate>
 
 // text field onde o usuario vai digitar o celular
 @property (weak, nonatomic) IBOutlet UITextField *inputCell;
@@ -17,6 +18,14 @@
 // appDelegate para mudanca de tela
 @property (weak, nonatomic) YSTAppDelegate *appDelegate;
 
+// pais
+@property (nonatomic) NSDictionary *country;
+@property (weak, nonatomic) IBOutlet UIButton *btnCountry;
+
 // botao para cadastrar
 - (IBAction)cadastrar:(id)sender;
+- (IBAction)choiceCountry:(id)sender;
+
+-(void)countryHasBeenChoosen:(NSDictionary*)country;
+
 @end

@@ -42,6 +42,8 @@
 -(void)updateTodo:(YSTToDo*)todo { // assyncrono
     NSLog(@"[YSTConnection todo] = %@", todo);
     
+    todo.serverOk = 0;
+    
     // preparar o todo para ser enviado para o servidor
     NSString *post = [NSString stringWithFormat:@"&code=%@",[self codeOfServer]];
     post = [post stringByAppendingString:[todo getDescriptionToPost]];
@@ -60,22 +62,29 @@
         
         //This is your completion handler
         dispatch_sync(dispatch_get_main_queue(), ^{
-            NSLog(@"%@",todo);
-            if (!error && dataFromConnection) {
+            
+            if (!error) {
                 // nao deu erro e o server retornou alguma coisa, completar a tarefa
-                NSString *message = [[NSString alloc]initWithData:dataFromConnection encoding:NSUTF8StringEncoding];
                 
-                if ([message isEqualToString:@"ok"]) {
+                NSError *error2 = nil;
+                NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error2];
+                
+                if ([[a objectForKey:@"connectionStatus"]isEqualToString:@"ok"]) {
                     // retornou uma mensagem de ok, quando o todo eh atualizado
                     todo.serverOk = 1;
-                } else if ([message isEqualToString:@"error"]) {
+                } else if ([[a objectForKey:@"connectionStatus"]isEqualToString:@"error"]) {
                     // retornou erro
                     NSLog(@"Erro no servidor");
                     @throw [NSException exceptionWithName:@"Server Error" reason:@"This happens when something stranger happen on server" userInfo:nil];
                 } else {
-                    // retornou o id do todo
-                    todo.ID = [message intValue];
+                    // retornou o json que contem o id do todo e os ids do assign
+                    todo.ID = [[a objectForKey:@"todoId"]intValue];
                     todo.serverOk = 1;
+                    
+                    // colocar ids nos assigns
+                    for (YSTAssignee *assi in todo.assignee) {
+                        [assi setIdFromArrayOfServer:[a objectForKey:@"tasks"]];
+                    }
                     
                     // mandar outros todos para o server, se houver
                     YSTToDo *nextTodo = [[YSTToDoStore sharedToDoStore]nextTodoOnLine];
@@ -94,7 +103,7 @@
 }
 
 // login do usuario, cria o usuario, ou retorna os todos do usuario caso o usuario exista
--(NSDictionary*)login:(YSTUser*)user withError:(NSError*)error {
+-(YSTUser*)login:(YSTUser*)user withError:(NSError*)error {
     // definir url da area de login
     NSURL *url = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"login"]];
     
@@ -103,14 +112,20 @@
     ////// variaveis em post
     // setar post string
     NSString *post = [NSString stringWithFormat:@"&code=%@", [self codeOfServer]];
+    post = [post stringByAppendingString:[user getDescriptionToPost]];
     
     NSData *dataFromConnection = [self makePostRequest:request post: post withError:error];
     
-    
     if (!error && dataFromConnection) {
+        
         NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error];
         if (!error) {
-            return a;
+            if ([[a objectForKey:@"userStatus"]isEqualToString:@"notFounded"]) {
+                return nil;
+            } else {
+                [user setUserFromServer:a];
+                return user;
+            }
         }
     }
     

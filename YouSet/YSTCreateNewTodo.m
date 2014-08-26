@@ -86,6 +86,7 @@
     
     NSDate *date = [[NSDate alloc]init];
     self.auxTodo.dateCreated = date;
+    self.auxTodo.idCreatedBy = [YSTUser sharedUser].ID;
     
     
     [[YSTToDoStore sharedToDoStore]createTodo:self.auxTodo];

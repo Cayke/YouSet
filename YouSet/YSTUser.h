@@ -27,4 +27,13 @@
 // usuario do aplicativo
 +(YSTUser*)sharedUser;
 
+// retorna o numero sem nenhum caracter
+-(NSString*)getJustNumbersOfPhone;
+
+-(NSString*)getDescriptionToPost;
+
+-(void)setUserFromServer:(NSDictionary*)d;
+
+-(void)save;
+
 @end

@@ -22,4 +22,6 @@
 
 -(void)setTaskToUser:(YSTUser*)user;
 
+-(void)setIdFromArrayOfServer:(NSArray*)array;
+
 @end

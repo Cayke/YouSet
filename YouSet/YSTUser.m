@@ -25,7 +25,6 @@
             
             _phone = [userDict objectForKey:@"phone"];
             _name = [userDict objectForKey:@"name"];
-            _phone = [userDict objectForKey:@"phone"];
         } else {
             _logedin = NO;
         }
@@ -38,9 +37,32 @@
     
     if (!user) {
         user = [[YSTUser alloc]initPrivate];
+        user.ID = 1;
     }
     
     return user;
+}
+
+-(NSString*)getJustNumbersOfPhone{
+    //usar predicado para transformar numero para apenas numeros
+    NSString *numeros = [[_phone componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
+    return numeros;
+}
+
+-(void)save{
+    NSNumber *ID = [[NSNumber alloc]initWithInt:_ID];
+    NSDictionary *userDict = @{@"id": ID, @"name": _name, @"phone": _phone};
+    [userDict writeToFile:[_path stringByAppendingString:@"/user.plist"] atomically:YES];
+}
+
+-(NSString *)getDescriptionToPost{
+    return [NSString stringWithFormat:@"&name=%@&phone=%@",_name,[self getJustNumbersOfPhone]];
+}
+
+-(void)setUserFromServer:(NSDictionary *)d{
+    // id, name, phone.
+    _ID = [[d objectForKey:@"id"]intValue];
+    _name = [d objectForKey:@"name"];
 }
 
 @end

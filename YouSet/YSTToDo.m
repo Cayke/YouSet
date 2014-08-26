@@ -7,6 +7,7 @@
 //
 
 #import "YSTToDo.h"
+#import "YSTConnection.h"
 
 @implementation YSTToDo
 
@@ -34,6 +35,7 @@
         }
     }
     [assigneeToChange incrementStatus];
+    [[YSTConnection sharedConnection]updateTodo:self];
 }
 
 -(NSDictionary *)getDictionary {

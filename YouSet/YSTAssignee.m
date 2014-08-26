@@ -35,4 +35,12 @@
     _idUser = user.ID;
 }
 
+-(void)setIdFromArrayOfServer:(NSArray *)array{
+    for (NSDictionary *dic in array) {
+        if ([[dic objectForKey:@"user"]intValue] == _idUser) {
+            _ID = [[dic objectForKey:@"id"]intValue];
+        }
+    }
+}
+
 @end

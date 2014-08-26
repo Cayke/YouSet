@@ -19,8 +19,8 @@
 // update todo, envia o todo para o server modificando-o ou criando
 -(void)updateTodo:(YSTToDo*)todo; // assyncrono
 
-// login do usuario, cria o usuario, ou retorna os todos do usuario caso o usuario exista
--(NSDictionary*)login:(YSTUser*)user withError:(NSError*)error;
+// login do usuario, cria o usuario, ou retorna os dados do usuario caso ele exista
+-(YSTUser*)login:(YSTUser*)user withError:(NSError*)error;
 
 // vai fazer uma requisicao dos todos do usuario passado
 -(NSArray*)getTodosFromUser:(YSTUser*)user withError:(NSError*)error;
