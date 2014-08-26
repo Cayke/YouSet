@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		273530E719A3CBCD00677422 /* YSTPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 273530E519A3CBCD00677422 /* YSTPersonViewController.m */; };
-		273530E819A3CBCD00677422 /* YSTPersonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 273530E619A3CBCD00677422 /* YSTPersonViewController.xib */; };
 		273530EA19A3D00F00677422 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273530E919A3D00F00677422 /* MessageUI.framework */; };
 		2752A26119ABAFCF000A547B /* YSTInviteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2752A25F19ABAFCF000A547B /* YSTInviteTableViewCell.m */; };
 		2752A26219ABAFCF000A547B /* YSTInviteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2752A26019ABAFCF000A547B /* YSTInviteTableViewCell.xib */; };
@@ -79,9 +77,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		273530E419A3CBCD00677422 /* YSTPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTPersonViewController.h; sourceTree = "<group>"; };
-		273530E519A3CBCD00677422 /* YSTPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTPersonViewController.m; sourceTree = "<group>"; };
-		273530E619A3CBCD00677422 /* YSTPersonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTPersonViewController.xib; sourceTree = "<group>"; };
 		273530E919A3D00F00677422 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2752A25E19ABAFCF000A547B /* YSTInviteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTInviteTableViewCell.h; sourceTree = "<group>"; };
 		2752A25F19ABAFCF000A547B /* YSTInviteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTInviteTableViewCell.m; sourceTree = "<group>"; };
@@ -212,9 +207,6 @@
 				2752A25E19ABAFCF000A547B /* YSTInviteTableViewCell.h */,
 				2752A25F19ABAFCF000A547B /* YSTInviteTableViewCell.m */,
 				2752A26019ABAFCF000A547B /* YSTInviteTableViewCell.xib */,
-				273530E419A3CBCD00677422 /* YSTPersonViewController.h */,
-				273530E519A3CBCD00677422 /* YSTPersonViewController.m */,
-				273530E619A3CBCD00677422 /* YSTPersonViewController.xib */,
 				2754E3ED19A28B2200861249 /* CPStub.h */,
 				2754E3EE19A28B2200861249 /* CPStub.m */,
 				2754E3E819A2882C00861249 /* YSTFriendsViewController.h */,
@@ -446,7 +438,6 @@
 				920420D819ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.xib in Resources */,
 				2752A27B19ABF035000A547B /* YSTFriendToDosViewController.xib in Resources */,
 				9233825419941DB800B199A9 /* Images.xcassets in Resources */,
-				273530E819A3CBCD00677422 /* YSTPersonViewController.xib in Resources */,
 				92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */,
 				2752A26219ABAFCF000A547B /* YSTInviteTableViewCell.xib in Resources */,
 				2752A27619ABE774000A547B /* YSTFriendTableViewCell.xib in Resources */,
@@ -506,7 +497,6 @@
 				92B9362019956C8D00F26A05 /* YSTMeViewController.m in Sources */,
 				276C877C19A7D02F00BE8E98 /* YSTInviteViewController.m in Sources */,
 				92DB51EE19A7AE400011DBE4 /* YSTEditableTableViewCell.m in Sources */,
-				273530E719A3CBCD00677422 /* YSTPersonViewController.m in Sources */,
 				923382771994213F00B199A9 /* YSTToDo.m in Sources */,
 				9233825219941DB800B199A9 /* YSTAppDelegate.m in Sources */,
 				2754E3EB19A2882C00861249 /* YSTFriendsViewController.m in Sources */,

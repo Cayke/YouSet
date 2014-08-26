@@ -28,6 +28,8 @@
         todo2.todo = @"ME CHUPA WILL VIADO";
         
         _arrayToDos = [[NSArray alloc]initWithObjects:todo1,todo2, nil];
+        
+        self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }
