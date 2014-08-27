@@ -11,6 +11,7 @@
 #import "YSTChoiceCountryViewController.h"
 #import "YSTConnection.h"
 #import "YSTRegisterViewController.h"
+#import "YSTToDoStore.h"
 
 @interface YSTLoginViewController ()
 
@@ -57,6 +58,7 @@
         // usuario existe
         [YSTUser sharedUser].phone = u.phone;
         [YSTUser sharedUser].name = u.name;
+        [YSTUser sharedUser].ID = u.ID;
         [[YSTUser sharedUser] save];
         
         [_appDelegate normalInitializateOfYouSet];

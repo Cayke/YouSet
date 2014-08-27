@@ -15,4 +15,6 @@
 
 -(void) addPhone:(NSString *) phone withType:(NSString *) type;
 
+-(NSString*)getPostDescription;
+
 @end

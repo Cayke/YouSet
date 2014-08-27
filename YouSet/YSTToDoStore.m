@@ -24,6 +24,8 @@
     if (self) {
         self.toDos = [[NSMutableArray alloc]init];
         
+        
+        
         // path
         _path = [NSString stringWithFormat:@"%@/Documents",NSHomeDirectory()];
     }
@@ -128,6 +130,17 @@
         [_toDos addObject:[[YSTToDo alloc]initWithDictionary:d]];
     }
     
+    [self pullTodosFromServer];
+    
+}
+
+-(void)pullTodosFromServer{
+    // se usuario existe, vamos puxar os todos dele do servidor
+    NSError *error = nil;
+    NSArray *todosFromUser = [[YSTConnection sharedConnection]getTodosFromUser:[YSTUser sharedUser] withError:error];
+    if (todosFromUser) {
+        self.toDos = [[NSMutableArray alloc]initWithArray:todosFromUser];
+    }
 }
 
 @end

@@ -23,6 +23,7 @@
         if (userDict) {
             _logedin = YES;
             
+            _ID = [[userDict objectForKey:@"id"]intValue];
             _phone = [userDict objectForKey:@"phone"];
             _name = [userDict objectForKey:@"name"];
         } else {
@@ -37,7 +38,6 @@
     
     if (!user) {
         user = [[YSTUser alloc]initPrivate];
-        user.ID = 1;
     }
     
     return user;
@@ -56,7 +56,7 @@
 }
 
 -(NSString *)getDescriptionToPost{
-    return [NSString stringWithFormat:@"&name=%@&phone=%@",_name,[self getJustNumbersOfPhone]];
+    return [NSString stringWithFormat:@"&id=%d&name=%@&phone=%@",_ID,_name,[self getJustNumbersOfPhone]];
 }
 
 -(void)setUserFromServer:(NSDictionary *)d{

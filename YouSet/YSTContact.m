@@ -32,5 +32,12 @@
     return [NSString stringWithFormat:@"Name: %@ phones: %@", self.name, self.phones];
 }
 
+-(NSString *)getPostDescription{
+    NSString *phones = @"";
+    for (YSTPhone *p in _phones) {
+        phones = [phones stringByAppendingFormat:@"p%@", p.phone];
+    }
+    return phones;
+}
 
 @end

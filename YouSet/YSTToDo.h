@@ -44,6 +44,11 @@
 
 -(NSDictionary*)getDictionary;
 
+// retorna dicionario
 -(NSString*)getDescriptionToPost;
+// seta todo com dicionario
+-(void)setWithDictionary:(NSDictionary*)dict;
+
+-(void)setFromServer:(NSDictionary*)dict;
 
 @end

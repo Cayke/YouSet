@@ -43,4 +43,17 @@
     }
 }
 
+-(NSDictionary *)getDictionary{
+    NSNumber *ID = [[NSNumber alloc]initWithInt:_ID];
+    NSNumber *idUser = [[NSNumber alloc]initWithInt:_idUser];
+    NSNumber *status = [[NSNumber alloc]initWithInt:_status];
+    return @{@"id": ID, @"idUser": idUser, @"status": status};
+}
+
+-(void)setWithDictionary:(NSDictionary *)dict{
+    _ID = [[dict objectForKey:@"id"]intValue];
+    _idUser = [[dict objectForKey:@"idUser"]intValue];
+    _status = [[dict objectForKey:@"status"]intValue];
+}
+
 @end

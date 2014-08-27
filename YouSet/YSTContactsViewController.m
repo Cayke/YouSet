@@ -14,6 +14,7 @@
 #import "YSTInviteViewController.h"
 #import "YSTConnection.h"
 #import "YSTUserTableViewCell.h"
+#import "YSTConnection.h"
 
 
 @interface YSTContactsViewController ()
@@ -214,6 +215,8 @@
 
 -(void)usersOfYoutSet
 {
+    NSError *error = nil;
+    [[YSTConnection sharedConnection]verifyUserOfYST:_allContacts withError:error];
     for (int i = 0; i < [_allContacts count]; i++)
     {
         //pegar pessoa
