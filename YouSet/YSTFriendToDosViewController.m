@@ -69,7 +69,6 @@
     
     UIButton *button = [[UIButton alloc]initWithFrame:frame];
     
-    CGRect frame = CGRectMake(10, 2.5, 75, 75);
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame: frame];
     imageView.layer.cornerRadius = 38;
@@ -112,6 +111,8 @@
 //    UIBarButtonItem *buttonWithPhoto = [[UIBarButtonItem alloc]initWithCustomView:button];
 //    
 //    [self putPhoto];
+    
+    return nil;
 }
 
 -(void) setImageWithPath:(NSString*)path {
@@ -125,7 +126,7 @@
     YSTShowPhotoViewController *show = [[YSTShowPhotoViewController alloc]init];
     show.title = self.user.name;
     show.navigationItem.backBarButtonItem.title = self.title;
-    show.photo = self.imageBarButton;
+    show.photo = self.viewOfImage.image;
     [self.navigationController pushViewController:show animated:YES];
     
 }
