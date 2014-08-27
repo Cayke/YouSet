@@ -82,7 +82,7 @@
 -(void)createToDo{
     YSTAssignee *a = [[YSTAssignee alloc]init];
     a.status = 0;
-    a.idUser = [YSTUser sharedUser].ID;
+    a.idUser = _userToDelegateTask.ID;
     [self.auxTodo includeAssign:a];
     
     NSDate *date = [[NSDate alloc]init];

@@ -14,6 +14,8 @@
 @property (nonatomic) NSArray *sectionOfOptionalFields;
 @property (nonatomic) NSArray *arrayOfSections;
 
+@property (nonatomic) YSTUser *userToDelegateTask;
+
 // tableview
 @property (weak, nonatomic) IBOutlet UITableView *toDoTableView;
 @property (strong, nonatomic) NSIndexPath *datePickerIndexPath;
