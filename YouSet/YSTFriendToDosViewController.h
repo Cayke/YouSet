@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *toolBarItemSeguir;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *toolBarItemMais;
 
-@property (nonatomic) UIImage *imageBarButton;
+@property (weak, nonatomic, readonly) UIImageView *viewOfImage;
+
 
 @end
