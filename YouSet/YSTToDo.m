@@ -89,6 +89,15 @@
     return [NSString stringWithFormat:@"&ID=%d&todo=%@&createdBy=%d&dateCreated=%@&dateFinished=%@&dateExpire=%@&public=%d&task=%@",_ID, _todo, _idCreatedBy,_dateCreated,_dateFinished, _dateExpire, _isPublic, assign];
 }
 
+-(YSTAssignee *)getAssigneeOfUser:(YSTUser *)user{
+    for (YSTAssignee *a in _assignee) {
+        if (a.idUser == user.ID) {
+            return a;
+        }
+    }
+    return nil;
+}
+
 -(void)setFromServer:(NSDictionary *)dict{
     _ID = [[dict objectForKey:@"id"]intValue];
     _todo = [dict objectForKey:@"todo"];

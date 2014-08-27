@@ -42,6 +42,8 @@
 // metodo vai incrementar o status do usuario dado
 -(void)incrementStatusOfUser:(YSTUser*)user;
 
+-(YSTAssignee*)getAssigneeOfUser:(YSTUser*)user;
+
 -(NSDictionary*)getDictionary;
 
 // retorna dicionario
