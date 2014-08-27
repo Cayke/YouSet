@@ -65,13 +65,13 @@
 -(UIBarButtonItem *) createBarButtonWithPhoto
 {
     //altura de 44 pontos
-    CGRect frame = CGRectMake(0, 0, 44,44);
+    CGRect frame = CGRectMake(0, 0, 40,40);
     
     UIButton *button = [[UIButton alloc]initWithFrame:frame];
     
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame: frame];
-    imageView.layer.cornerRadius = 38;
+    imageView.layer.cornerRadius = 20;
     imageView.clipsToBounds = YES;
     imageView.layer.borderWidth = 1;
     imageView.layer.borderColor = [[UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1] CGColor];
@@ -87,7 +87,7 @@
     topView.layer.shadowColor = [[UIColor blackColor] CGColor];
     topView.layer.shadowOpacity = 0.2;
     topView.layer.shadowRadius = 1;
-    topView.layer.shadowOffset = CGSizeMake(10, 3);
+    topView.layer.shadowOffset = CGSizeMake(0, 3);
     topView.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:topView.bounds cornerRadius:60].CGPath;
     topView.layer.shouldRasterize = YES;
     topView.layer.rasterizationScale = [UIScreen mainScreen].scale;
@@ -96,7 +96,7 @@
     
     [button addSubview:topView];
     [button setShowsTouchWhenHighlighted:YES];
-    [button addTarget:self action:@selector(showPhoto) forControlEvents:UIControlEventTouchDown];
+    [button addTarget:self action:@selector(showPhoto) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *buttonWithPhoto = [[UIBarButtonItem alloc]initWithCustomView:button];
     
