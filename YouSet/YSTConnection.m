@@ -23,7 +23,9 @@
     self = [super init];
     
     if (self) {
-        _site = @"http://127.0.0.1:8000/youset/app/";
+        _site = @"http://107.170.189.125/youset/app/";
+        // apagar para distribuicao, deixar para teste no mac do riheldo
+        //_site = @"http://127.0.0.1:8000/youset/app/";
     }
     
     return self;
@@ -203,14 +205,15 @@
         
         NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error];
         if (!error) {
-            NSMutableArray *todos = [[NSMutableArray alloc]init];
-            YSTToDo *newTodo = nil;
+            YSTUser *user = nil;
+            NSMutableArray *users = [[NSMutableArray alloc]init];
             for (NSDictionary *d in a) {
-                newTodo = [[YSTToDo alloc]init];
-                [newTodo setFromServer:d];
-                [todos addObject:newTodo];
+                user = [[YSTUser alloc]init];
+                [user setUserFromServer:a];
+                [users addObject:user];
             }
-            return [NSArray arrayWithArray:todos];
+            
+            return [NSArray arrayWithArray:users];
         }
     }
     

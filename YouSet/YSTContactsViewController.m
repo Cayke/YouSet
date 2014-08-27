@@ -15,6 +15,7 @@
 #import "YSTConnection.h"
 #import "YSTUserTableViewCell.h"
 #import "YSTConnection.h"
+#import "YSTNonUserTableViewCell.h"
 
 
 @interface YSTContactsViewController ()
