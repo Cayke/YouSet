@@ -64,7 +64,7 @@
     else
     {
         [self setImageWithPath:nil];
-    }
+    }   
 }
 
 -(void) setImageWithPath:(NSString*)path {
