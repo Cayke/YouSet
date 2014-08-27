@@ -29,8 +29,6 @@
         [self loginScreen];
     }
     
-    [[YSTConnection sharedConnection]getFollowersFromUser:[YSTUser sharedUser] withError:nil];
-    
     [self.window makeKeyAndVisible];
     return YES;
 }
