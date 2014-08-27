@@ -45,9 +45,9 @@
 
 -(void)setStyles{
     // COR AZUL
-    // R: 74
-    // G: 144
-    // B: 226
+    // R: 0
+    // G: 122
+    // B: 255
     //
     // COR VERDE
     // R: 184
@@ -57,9 +57,9 @@
     CGFloat divided = 255.0;
     
     //cores para fazer o azul
-    CGFloat red = 74.0/divided;
-    CGFloat green = 144.0/divided;
-    CGFloat blue = 226.0/divided;
+    CGFloat red = 0.0/divided;
+    CGFloat green = 122.0/divided;
+    CGFloat blue = 255.0/divided;
     UIColor *blueColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
     
     // colorir navigations
@@ -71,12 +71,12 @@
     [[UITabBar appearance] setBarTintColor: blueColor];
     
     // cores para fazer o verde
-    red = 184.0/divided;
-    green = 233.0/divided;
-    blue = 134.0/divided;
-    UIColor *greenColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+    red = 255.0/divided;
+    green = 255.0/divided;
+    blue = 255.0/divided;
+   // UIColor *greenColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
     
-    [[UITabBar appearance]setSelectedImageTintColor:greenColor];
+    [[UITabBar appearance]setSelectedImageTintColor:[UIColor whiteColor]];
     
 }
 
@@ -84,17 +84,21 @@
     [[YSTToDoStore sharedToDoStore]reloadTodos];
     // Override point for customization after application launch.
     YSTMeViewController *mvc = [[YSTMeViewController alloc]init];
-    YSTGroupsViewController *gvc = [[YSTGroupsViewController alloc]init];
+//    YSTGroupsViewController *gvc = [[YSTGroupsViewController alloc]init];
     YSTFriendsViewController *fvc = [[YSTFriendsViewController alloc]init];
     
     // criar navigations
     UINavigationController *navMe = [[UINavigationController alloc]initWithRootViewController:mvc];
-    UINavigationController *navGroups = [[UINavigationController alloc]initWithRootViewController:gvc];
+//    UINavigationController *navGroups = [[UINavigationController alloc]initWithRootViewController:gvc];
     UINavigationController *navFriends = [[UINavigationController alloc]initWithRootViewController:fvc];
     
     
     UITabBarController *tbc = [[UITabBarController alloc]init];
-    tbc.viewControllers = [NSArray  arrayWithObjects:navMe, navGroups, navFriends, nil];
+    tbc.viewControllers = [NSArray  arrayWithObjects:navMe,navFriends, nil];
+    NSString *image = @"user.png";
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
+    imageView.image = [UIImage imageNamed:image];
+    navMe.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Eu" image:imageView.image selectedImage:imageView.image];
     self.window.rootViewController = tbc;
 }
 

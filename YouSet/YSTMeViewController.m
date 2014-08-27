@@ -45,6 +45,7 @@
     
     self.title = @"Eu";
     
+    
     UIBarButtonItem *btnAddToDO = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newToDo:)];
     btnAddToDO.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = btnAddToDO;
@@ -85,17 +86,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString static *cellIdentifier = @"YSTMeTableViewCell";
     YSTMeTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-
     YSTToDo *thisToDo = [_toDoMeArray objectAtIndex:indexPath.row];
-
     [cell setCellWithTodo:thisToDo];
-
    if ([thisToDo getAssigneeOfUser:[YSTUser sharedUser]].status == 0) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }
+       NSString *image = @"none.png";
+       UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25.0, 25.0)];
+       imageView.image = [UIImage imageNamed:image];
+       [cell setAccessoryView:imageView];
     
+    } else if ([thisToDo getAssigneeOfUser:[YSTUser sharedUser]].status == 1) {
+        NSString *image = @"clock.png";
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25.0, 25.0)];
+        imageView.image = [UIImage imageNamed:image];
+        [cell setAccessoryView:imageView];
+    } else {
+        NSString *image = @"check.png";
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25.0, 25.0)];
+        imageView.image = [UIImage imageNamed:image];
+        [cell setAccessoryView:imageView];
+    }
     return cell;
 
 }
