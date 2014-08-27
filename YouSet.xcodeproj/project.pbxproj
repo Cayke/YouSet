@@ -53,6 +53,10 @@
 		9233828F199421DC00B199A9 /* YSTGroupStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9233828E199421DC00B199A9 /* YSTGroupStore.m */; };
 		929EDD28199BE99400A909BD /* YSTMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 929EDD26199BE99400A909BD /* YSTMeTableViewCell.m */; };
 		929EDD29199BE99400A909BD /* YSTMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929EDD27199BE99400A909BD /* YSTMeTableViewCell.xib */; };
+		92A939D219AE91720001A468 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A939D119AE91720001A468 /* clock@2x.png */; };
+		92A939D419AE98AD0001A468 /* none@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A939D319AE98AD0001A468 /* none@2x.png */; };
+		92A939D619AE99220001A468 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A939D519AE99220001A468 /* check@2x.png */; };
+		92A939D819AE9CBD0001A468 /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A939D719AE9CBD0001A468 /* user@2x.png */; };
 		92B9362019956C8D00F26A05 /* YSTMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9361E19956C8D00F26A05 /* YSTMeViewController.m */; };
 		92B9362119956C8D00F26A05 /* YSTMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B9361F19956C8D00F26A05 /* YSTMeViewController.xib */; };
 		92B9362519956CA800F26A05 /* YSTGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9362319956CA800F26A05 /* YSTGroupsViewController.m */; };
@@ -156,6 +160,10 @@
 		929EDD25199BE99400A909BD /* YSTMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTMeTableViewCell.h; sourceTree = "<group>"; };
 		929EDD26199BE99400A909BD /* YSTMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTMeTableViewCell.m; sourceTree = "<group>"; };
 		929EDD27199BE99400A909BD /* YSTMeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTMeTableViewCell.xib; sourceTree = "<group>"; };
+		92A939D119AE91720001A468 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		92A939D319AE98AD0001A468 /* none@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "none@2x.png"; sourceTree = "<group>"; };
+		92A939D519AE99220001A468 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		92A939D719AE9CBD0001A468 /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
 		92B9361D19956C8D00F26A05 /* YSTMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTMeViewController.h; sourceTree = "<group>"; };
 		92B9361E19956C8D00F26A05 /* YSTMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTMeViewController.m; sourceTree = "<group>"; };
 		92B9361F19956C8D00F26A05 /* YSTMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTMeViewController.xib; sourceTree = "<group>"; };
@@ -293,6 +301,10 @@
 			isa = PBXGroup;
 			children = (
 				B3329B7619AD134500E2EE6D /* iTunesArtwork@2x.png */,
+				92A939D119AE91720001A468 /* clock@2x.png */,
+				92A939D319AE98AD0001A468 /* none@2x.png */,
+				92A939D719AE9CBD0001A468 /* user@2x.png */,
+				92A939D519AE99220001A468 /* check@2x.png */,
 				9233825019941DB800B199A9 /* YSTAppDelegate.h */,
 				9233825119941DB800B199A9 /* YSTAppDelegate.m */,
 				92DAD76E19954FBC0095FFCE /* views */,
@@ -465,11 +477,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A939D219AE91720001A468 /* clock@2x.png in Resources */,
 				9233824C19941DB800B199A9 /* InfoPlist.strings in Resources */,
 				920420D819ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.xib in Resources */,
 				2752A27B19ABF035000A547B /* YSTFriendToDosViewController.xib in Resources */,
 				9233825419941DB800B199A9 /* Images.xcassets in Resources */,
 				92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */,
+				92A939D819AE9CBD0001A468 /* user@2x.png in Resources */,
 				275DE5CA19AE537F00022660 /* YSTNonUserTableViewCell.xib in Resources */,
 				B3329B7C19AD161B00E2EE6D /* YSTChoiceCountryViewController.xib in Resources */,
 				2752A26219ABAFCF000A547B /* YSTInviteTableViewCell.xib in Resources */,
