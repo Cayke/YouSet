@@ -53,8 +53,10 @@
     newUser = [[YSTConnection sharedConnection]login:newUser withError:error];
     
     if (newUser) {
+        [YSTUser sharedUser].ID = newUser.ID;
         [YSTUser sharedUser].phone = newUser.phone;
         [YSTUser sharedUser].name = newUser.name;
+        [YSTUser sharedUser].photo = newUser.photo;
         [[YSTUser sharedUser] save];
         [_login.appDelegate normalInitializateOfYouSet];
     }
