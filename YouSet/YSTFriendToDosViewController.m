@@ -23,14 +23,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        //_arrayToDos = [[YSTConnection sharedConnection]getTodosFromUser:self.user withError:nil];
-        YSTToDo *todo1 = [[YSTToDo alloc]init];
-        todo1.todo = @"HUEBR";
-        YSTToDo *todo2 = [[YSTToDo alloc]init];
-        todo2.todo = @"ME CHUPA WILL VIADO";
-        
-        _arrayToDos = [[NSArray alloc]initWithObjects:todo1,todo2, nil];
-        
         self.hidesBottomBarWhenPushed = YES;
     }
     return self;
@@ -40,6 +32,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self getUserToDos];
+    
     
     self.title = _user.name;
     
@@ -123,9 +117,9 @@
 -(void) addTodo
 {
     //chamar tela para criar novo todo
-    NSLog(@"add todo tal pessoa");
-    
     YSTCreateNewFriendToDo *friendToDo = [[YSTCreateNewFriendToDo alloc]init];
+    friendToDo.user = self.user;
+    
     UINavigationController *navFriendToDo = [[UINavigationController alloc]initWithRootViewController:friendToDo];
     [self.navigationController presentViewController:navFriendToDo animated:YES completion:nil];
 }
@@ -155,6 +149,11 @@
     // [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void) getUserToDos
+{
+    _arrayToDos = [[YSTConnection sharedConnection]getTodosFromUser:self.user withError:nil];
 }
 
 @end

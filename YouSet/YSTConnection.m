@@ -25,7 +25,7 @@
     if (self) {
         _site = @"http://107.170.189.125/youset/app/";
         // apagar para distribuicao, deixar para teste no mac do riheldo
-        _site = @"http://127.0.0.1:8000/youset/app/";
+        //_site = @"http://127.0.0.1:8000/youset/app/";
     }
     
     return self;

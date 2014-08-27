@@ -32,10 +32,16 @@
     return [NSString stringWithFormat:@"Name: %@ phones: %@", self.name, self.phones];
 }
 
+-(NSString*)getJustNumbersOfPhone:(NSString *) phone
+{
+    //usar predicado para transformar numero para apenas numeros
+    return [[phone componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
+}
+
 -(NSString *)getPostDescription{
     NSString *phones = @"";
     for (YSTPhone *p in _phones) {
-        phones = [phones stringByAppendingFormat:@"p%@", p.phone];
+        phones = [phones stringByAppendingFormat:@"p%@", [self getJustNumbersOfPhone:p.phone]];
     }
     return phones;
 }
