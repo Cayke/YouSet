@@ -43,7 +43,7 @@
     self.meTableView.delegate = self;
     self.meTableView.dataSource = self;
     
-    self.title = @"Me";
+    self.title = @"Eu";
     
     UIBarButtonItem *btnAddToDO = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newToDo:)];
     btnAddToDO.tintColor = [UIColor whiteColor];
@@ -89,36 +89,15 @@
     YSTToDo *thisToDo = [_toDoMeArray objectAtIndex:indexPath.row];
 
     [cell setCellWithTodo:thisToDo];
-//   if ([thisToDo.assignee objectAtIndex:0].sta  == 0) {
-//        cell.accessoryType = UITableViewCellAccessoryNone;
-//    } else {
-//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-//    }
-//    
-    
-//    cell.description.lineBreakMode = NSLineBreakByWordWrapping;
-//    cell.description.numberOfLines = 0;
-//    
-//    CGSize maximumLabelSize = CGSizeMake(290, FLT_MAX);
-//    CGRect textRect = [cell.description.text boundingRectWithSize:maximumLabelSize
-//                       
-//                                                  options:NSStringDrawingUsesLineFragmentOrigin
-//                       
-//                                               attributes:@{NSFontAttributeName:cell.description.font}
-//                       
-//                                                  context:nil];
-//    CGSize expectedLabelSize = textRect.size;
-//    int offsetYCoordinate = 65;
-//    offsetYCoordinate = (expectedLabelSize.height > 50 && expectedLabelSize.height < 70) ? 55 : offsetYCoordinate;
-//    offsetYCoordinate = (expectedLabelSize.height > 10 && expectedLabelSize.height < 20) ? 60 : offsetYCoordinate;
-//    CGRect newFrame = cell.description.frame;
-//    newFrame.origin.y = offsetYCoordinate;
-//    int heightForCell = expectedLabelSize.height + offsetYCoordinate;
-//    newFrame.size.height = heightForCell;
-//    cell.description.frame = newFrame;
-    
+    YSTAssignee *assignee = thisToDo.assignee;
+   if ([thisToDo.assignee valueForKey:@"status"] == 0) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
     
     return cell;
+
 }
 
 #pragma mark - Table view delegate
@@ -130,7 +109,8 @@
     [tappedToDO incrementStatusOfUser:[YSTUser sharedUser]];
     
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    
+    [self.meTableView reloadData];
+
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
