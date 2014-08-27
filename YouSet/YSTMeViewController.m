@@ -89,8 +89,8 @@
     YSTToDo *thisToDo = [_toDoMeArray objectAtIndex:indexPath.row];
 
     [cell setCellWithTodo:thisToDo];
-    YSTAssignee *assignee = thisToDo.assignee;
-   if ([thisToDo.assignee valueForKey:@"status"] == 0) {
+
+   if ([thisToDo getAssigneeOfUser:[YSTUser sharedUser]].status == 0) {
         cell.accessoryType = UITableViewCellAccessoryNone;
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
