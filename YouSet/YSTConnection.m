@@ -174,12 +174,39 @@
 
 // pegar os seguidores de um user dado
 -(NSArray*)getFollowersFromUser:(YSTUser*)user withError:(NSError*)error {
+    // definir url da area de login
+    NSURL *url = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"getFollowersFromUser"]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    
+    ////// variaveis em post
+    // setar post string
+    NSString *post = [NSString stringWithFormat:@"&code=%@", [self codeOfServer]];
+    post = [post stringByAppendingString:[user getDescriptionToPost]];
+    
+    NSData *dataFromConnection = [self makePostRequest:request post: post withError:error];
+    
+    if (!error && dataFromConnection) {
+        
+        NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error];
+        if (!error) {
+            NSMutableArray *todos = [[NSMutableArray alloc]init];
+            YSTToDo *newTodo = nil;
+            for (NSDictionary *d in a) {
+                newTodo = [[YSTToDo alloc]init];
+                [newTodo setFromServer:d];
+                [todos addObject:newTodo];
+            }
+            return [NSArray arrayWithArray:todos];
+        }
+    }
+    
     return nil;
 }
 
 // pegar seguidores do usuario do dispositivo
 -(NSArray*)getFollowersFromDeviseUserWithError:(NSError*)error{
-    return nil;
+    return [self getFollowersFromUser:[YSTUser sharedUser] withError:error];
 }
 
 // envia a lista de contatos do usuario do dispositivo e retorna os usuarios que sao do yst
