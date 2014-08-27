@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YSTFriendsViewController">
             <connections>
-                <outlet property="activityIndicator" destination="gt3-Si-BiK" id="cAH-2l-ZFV"/>
                 <outlet property="tableView" destination="Mb4-Zz-Fdf" id="jLt-sU-tYY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,10 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gt3-Si-BiK">
-                    <rect key="frame" x="142" y="266" width="37" height="37"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </activityIndicatorView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Mb4-Zz-Fdf">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,9 +29,7 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Mb4-Zz-Fdf" secondAttribute="bottom" id="7ZB-LO-eZP"/>
                 <constraint firstItem="Mb4-Zz-Fdf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GaG-cU-CCX"/>
-                <constraint firstAttribute="centerY" secondItem="gt3-Si-BiK" secondAttribute="centerY" id="Pd1-3O-hjV"/>
                 <constraint firstItem="Mb4-Zz-Fdf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZpO-9a-tgA"/>
-                <constraint firstAttribute="centerX" secondItem="gt3-Si-BiK" secondAttribute="centerX" id="jsH-Mc-DpG"/>
                 <constraint firstAttribute="trailing" secondItem="Mb4-Zz-Fdf" secondAttribute="trailing" id="rs7-gw-64E"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
