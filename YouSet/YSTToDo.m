@@ -12,8 +12,7 @@
 @implementation YSTToDo
 
 -(id)initWithDictionary:(NSDictionary *)dict{
-    _ID = [[dict objectForKey:@"id"]intValue];
-    _todo = [dict objectForKey:@"todo"];
+    [self setWithDictionary:dict];
     return self;
 }
 
@@ -38,7 +37,43 @@
 
 -(NSDictionary *)getDictionary {
     NSNumber *ID = [[NSNumber alloc]initWithInt:_ID];
-    return @{@"id": ID, @"todo":_todo};
+    NSNumber *idCreatedBy = [[NSNumber alloc]initWithInt:_idCreatedBy];
+    NSNumber *public = [[NSNumber alloc]initWithBool:_isPublic];
+    NSNumber *serverOK = [[NSNumber alloc]initWithInt:_serverOk];
+    
+    NSMutableArray *assigns = [[NSMutableArray alloc]init];
+    for (YSTAssignee *ass in _assignee) {
+        [assigns addObject:[ass getDictionary]];
+    }
+    
+    if (!_dateCreated) {
+        _dateCreated = [NSDate date];
+    }
+    if (!_dateExpire) {
+        _dateExpire = [NSDate date];
+    }
+    if (!_dateFinished) {
+        _dateFinished = [NSDate date];
+    }
+    
+    return @{@"id": ID, @"todo":_todo, @"assignee": assigns, @"createdBy": idCreatedBy, @"dateCreated": _dateCreated, @"dateFinished": _dateFinished, @"dateExpire": _dateExpire, @"isPublic": public, @"serverOk":serverOK};
+}
+
+-(void)setWithDictionary:(NSDictionary *)dict{
+    _ID = [[dict objectForKey:@"id"]intValue];
+    _todo = [dict objectForKey:@"todo"];
+    
+    YSTAssignee *reloadAss = nil;
+    for (NSDictionary *a in [dict objectForKey:@"assignee"]) {
+        reloadAss = [[YSTAssignee alloc]init];
+        [reloadAss setWithDictionary:a];
+        [self includeAssign:reloadAss];
+    }
+    
+    _idCreatedBy = [[dict objectForKey:@"createdBy"]intValue];
+    _dateCreated = [dict objectForKey:@"dateCreated"];
+    _dateFinished = [dict objectForKey:@"dateFinished"];
+    _dateExpire = [dict objectForKey:@"dateExpire"];
 }
 
 -(NSString *)getDescriptionToPost{
@@ -54,4 +89,20 @@
     return [NSString stringWithFormat:@"&ID=%d&todo=%@&createdBy=%d&dateCreated=%@&dateFinished=%@&dateExpire=%@&public=%d&task=%@",_ID, _todo, _idCreatedBy,_dateCreated,_dateFinished, _dateExpire, _isPublic, assign];
 }
 
+-(void)setFromServer:(NSDictionary *)dict{
+    _ID = [[dict objectForKey:@"id"]intValue];
+    _todo = [dict objectForKey:@"todo"];
+    
+    YSTAssignee *reloadAss = nil;
+    for (NSDictionary *a in [dict objectForKey:@"tasks"]) {
+        reloadAss = [[YSTAssignee alloc]init];
+        [reloadAss setWithDictionary:a];
+        [self includeAssign:reloadAss];
+    }
+    
+    _idCreatedBy = [[dict objectForKey:@"createdBy"]intValue];
+    _dateCreated = [dict objectForKey:@"dateCreated"];
+    _dateFinished = [dict objectForKey:@"dateFinished"];
+    _dateExpire = [dict objectForKey:@"dateExpire"];
+}
 @end

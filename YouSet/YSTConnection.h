@@ -35,6 +35,6 @@
 -(NSArray*)getFollowersFromDeviseUserWithError:(NSError*)error;
 
 // envia a lista de contatos do usuario do dispositivo e retorna os usuarios que sao do yst
--(NSArray*)verifyUserOfYST:(NSArray*)users withError:(NSError*)error;
+-(NSArray*)verifyUserOfYST:(NSArray*)contacts withError:(NSError*)error;
 
 @end
