@@ -64,6 +64,8 @@
 -(void)newToDo:(UIBarButtonItem*)bar{
     NSLog(@"novo ToDo");
     YSTCreateNewTodo *createNewToDoVC = [[YSTCreateNewTodo alloc]init];
+    createNewToDoVC.userToDelegateTask = [YSTUser sharedUser];
+    
     UINavigationController *navCreateNewTodo = [[UINavigationController alloc]initWithRootViewController:createNewToDoVC];
 
     [self presentViewController:navCreateNewTodo animated:YES completion:nil];
