@@ -10,9 +10,13 @@
 #import "YSTUser.h"
 
 @interface YSTFriendsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    IBOutlet UIActivityIndicatorView *activityIndicator;
+}
 
 @property (nonatomic) NSArray *amigos;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) UIActivityIndicatorView *activityIndicator;
 
 -(void) addContact;
 

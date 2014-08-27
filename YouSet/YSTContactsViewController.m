@@ -35,6 +35,7 @@
         _allContacts = [[NSMutableArray alloc]init];
        // _youSetContacts = [[NSMutableArray alloc]init];
        // _nonYouSetContacts = [[NSMutableArray alloc]init];
+
     }
     return self;
 }
@@ -50,7 +51,7 @@
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
         ABAddressBookRequestAccessWithCompletion(_addressBook, ^(bool granted, CFErrorRef error) {
             if (granted) {
-                // First time access has been granted, add the contact
+                // First time access has been granted
                 [self startContacts];
                 [_tableView reloadData];
             } else {
@@ -62,7 +63,7 @@
         });
     }
     else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
-        // The user has previously given access, add the contact
+        // The user has previously given access
         [self startContacts];
     }
     else {
@@ -93,8 +94,9 @@
     UINib *nib2 = [UINib nibWithNibName:@"YSTNonUserTableViewCell" bundle:nil];
     [_tableView registerNib:nib2 forCellReuseIdentifier:@"YSTNonUserTableViewCell"];
     
-}
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
 
+}
 
 
 -(void) startContacts
@@ -109,6 +111,7 @@
     // NSError *error;
     //[[YSTConnection sharedConnection]verifyUserOfYST:_allContacts withError:error];
     [self usersOfYoutSet];
+    
 }
 
 -(void) createUsableContacts:(NSArray *) arrayAddressBook

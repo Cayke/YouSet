@@ -9,7 +9,7 @@
 #import "YSTFriendToDosViewController.h"
 #import "YSTConnection.h"
 #import "YSTToDo.h"
-#import "YSTCreateNewFriendToDo.h"
+#import "YSTCreateNewTodo.h"
 #import "YSTShowPhotoViewController.h"
 
 @interface YSTFriendToDosViewController ()
@@ -117,8 +117,8 @@
 -(void) addTodo
 {
     //chamar tela para criar novo todo
-    YSTCreateNewFriendToDo *friendToDo = [[YSTCreateNewFriendToDo alloc]init];
-    friendToDo.user = self.user;
+    YSTCreateNewTodo *friendToDo = [[YSTCreateNewTodo alloc]init];
+    friendToDo.userToDelegateTask = self.user;
     
     UINavigationController *navFriendToDo = [[UINavigationController alloc]initWithRootViewController:friendToDo];
     [self.navigationController presentViewController:navFriendToDo animated:YES completion:nil];
@@ -134,7 +134,10 @@
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"brbr"];
     YSTToDo *todo = [_arrayToDos objectAtIndex:indexPath.row];
     cell.textLabel.text = todo.todo;
-    [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
+    
+    if ([todo getAssigneeOfUser:self.user].status == 2 ) {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
     return cell;
 }
 

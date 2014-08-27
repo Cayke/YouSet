@@ -57,6 +57,10 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact)];
     
+   // [self performSelector:@selector(addContact) withObject:nil afterDelay:1.0];
+//    self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+//    
+//    [self.tableView addSubview:self.activityIndicator];
     
     //ver se tem amigos ou esta vazio
     if (_amigos == nil) {
@@ -73,9 +77,18 @@
 
 -(void) addContact
 {
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [UIApplication sharedApplication].networkActivityIndicatorVisible=YES;
+//        [activityIndicator startAnimating];
+//    });
+    
+//    [activityIndicator startAnimating];
+    
+    
     YSTContactsViewController *contacts = [[YSTContactsViewController alloc]init];
     [self.navigationController pushViewController:contacts animated:YES];
     
+//    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
