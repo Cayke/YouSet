@@ -14,7 +14,7 @@
 @property (nonatomic) short numeroPendente;
 
 
-@property (weak, nonatomic, readonly) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic, readonly) UIImageView *viewOfImage;
 @property (weak, nonatomic) IBOutlet UILabel *labelContato;
 @property (weak, nonatomic) IBOutlet UILabel *labelPendent;
 

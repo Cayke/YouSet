@@ -14,6 +14,7 @@
 #import "YSTInviteViewController.h"
 #import "YSTConnection.h"
 #import "YSTUserTableViewCell.h"
+#import "YSTNonUserTableViewCell.h"
 
 
 @interface YSTContactsViewController ()
@@ -87,6 +88,9 @@
     //tablebiew
     UINib *nib = [UINib nibWithNibName:@"YSTUserTableViewCell" bundle:nil];
     [_tableView registerNib:nib forCellReuseIdentifier:@"YSTUserTableViewCell"];
+    
+    UINib *nib2 = [UINib nibWithNibName:@"YSTNonUserTableViewCell" bundle:nil];
+    [_tableView registerNib:nib2 forCellReuseIdentifier:@"YSTNonUserTableViewCell"];
     
 }
 
@@ -177,19 +181,22 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"temp"];
-    YSTUserTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"YSTUserTableViewCell"];
     
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         if (indexPath.row < [_searchResultsUSERS count]) {
+            YSTUserTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"YSTUserTableViewCell"];
             YSTContact *contact = [_searchResultsUSERS objectAtIndex:indexPath.row];
             cell.name = contact.name;
-            [cell mountWithPhoto:YES];
+            [cell mount];
+            return cell;
         }
         else
         {
+            YSTNonUserTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"YSTNonUserTableViewCell"];
             YSTContact *contact = [_searchResultsNonUSERS objectAtIndex:indexPath.row - [_searchResultsUSERS count]];
             cell.name = contact.name;
-            [cell mountWithPhoto:NO];
+            [cell mount];
+            return cell;
         }
     }
     else
@@ -197,19 +204,22 @@
         
         if (indexPath.section == 0)
         {
+            YSTUserTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"YSTUserTableViewCell"];
             YSTContact *contact = [_youSetContacts objectAtIndex:indexPath.row];
             cell.name = contact.name;
-            [cell mountWithPhoto:YES];
+            [cell mount];
+            return cell;
         }
         else
         {
+            YSTNonUserTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"YSTNonUserTableViewCell"];
             YSTContact *contact = [_nonYouSetContacts objectAtIndex:indexPath.row];
             cell.name = contact.name;
-            [cell mountWithPhoto:NO];
+            [cell mount];
+            return cell;
         }
     }
     
-    return cell;
 }
 
 -(void)usersOfYoutSet

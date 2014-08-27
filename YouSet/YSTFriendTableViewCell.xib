@@ -13,10 +13,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Njl-j7-TH9">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contato" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LP-zC-vcC">
                         <rect key="frame" x="108" y="20" width="179" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -33,7 +29,6 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imageView" destination="Njl-j7-TH9" id="41i-za-372"/>
                 <outlet property="labelContato" destination="4LP-zC-vcC" id="kRI-7T-hsc"/>
                 <outlet property="labelPendent" destination="dMg-Pc-taW" id="Xyd-ds-LJf"/>
             </connections>

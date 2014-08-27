@@ -1,14 +1,14 @@
 //
-//  YSTUserTableViewCell.m
+//  YSTNonUserTableViewCell
 //  YouSet
 //
 //  Created by Cayke Prudente on 25/08/14.
 //  Copyright (c) 2014 YouSet. All rights reserved.
 //
 
-#import "YSTUserTableViewCell.h"
+#import "YSTNonUserTableViewCell.h"
 
-@implementation YSTUserTableViewCell
+@implementation YSTNonUserTableViewCell
 
 - (void)awakeFromNib
 {
@@ -25,8 +25,6 @@
 -(void)mount
 {
     _labelNome.text = _name;
-    
-    self.imageView.image = [UIImage imageNamed:@"user91.png"];
 }
 
 @end

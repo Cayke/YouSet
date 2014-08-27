@@ -1,5 +1,5 @@
 //
-//  YSTUserTableViewCell.h
+//  YSTNonUserTableViewCell
 //  YouSet
 //
 //  Created by Cayke Prudente on 25/08/14.
@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YSTUserTableViewCell : UITableViewCell
+@interface YSTNonUserTableViewCell : UITableViewCell
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) UIImage *photo;
 
-@property (weak, nonatomic, readonly) UIImageView *viewOfImage;
 @property (weak, nonatomic) IBOutlet UILabel *labelNome;
 
 -(void)mount;
