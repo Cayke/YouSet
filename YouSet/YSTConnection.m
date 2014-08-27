@@ -169,7 +169,43 @@
 
 // o usuario do yst vai seguir ou deixar de seguir certo usuario
 -(void)userDevice:(YSTUser*)mainUser willFollow:(BOOL)follow user:(YSTUser*)user { // assyncrono
-    NSLog(@"[YSTConnection userDevice:willFollow:user");
+    // definir url da area de login
+    NSURL *url = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"mainUserFollowUser"]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    
+    ////// variaveis em post
+    // setar post string
+    NSString *post = [NSString stringWithFormat:@"&code=%@", [self codeOfServer]];
+    post = [post stringByAppendingFormat:@"&mainUserId=%d&userToFollowId=%d",mainUser.ID,user.ID];
+    
+    
+    // comecar assyncrono
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // fazer algum request para o servidor
+        NSError *error = nil;
+        NSData *dataFromConnection = [self makePostRequest:request post: post withError:error];
+        
+        
+        //This is your completion handler
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            if (!error) {
+                // nao deu erro e o server retornou alguma coisa, completar a tarefa
+                NSString *message = [[NSString alloc]initWithData:dataFromConnection encoding:NSUTF8StringEncoding];
+                
+                if ([message isEqualToString:@"ok"]) {
+                    NSLog(@"esta seguindo");
+                } else {
+                    NSLog(@"Nao esta seguindo");
+                }
+                
+            } else {
+                NSLog(@"something goes wrong to follow user");
+                // colocar todo na fila de todos para serem envidos ao servidor
+            }
+        });
+    });
 }
 
 // pegar os seguidores de um user dado
@@ -190,14 +226,17 @@
         
         NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error];
         if (!error) {
-            NSMutableArray *todos = [[NSMutableArray alloc]init];
-            YSTToDo *newTodo = nil;
-            for (NSDictionary *d in a) {
-                newTodo = [[YSTToDo alloc]init];
-                [newTodo setFromServer:d];
-                [todos addObject:newTodo];
+            if ([a count]) {
+                NSMutableArray *users = [[NSMutableArray alloc]init];
+                YSTUser *user = nil;
+                for (NSDictionary *d in a) {
+                    user = [[YSTUser alloc]init];
+                    [user setUserFromServer:d];
+                    user.phone = [d objectForKey:@"phone"];
+                    [users addObject:user];
+                }
+                return [NSArray arrayWithArray:users];
             }
-            return [NSArray arrayWithArray:todos];
         }
     }
     
