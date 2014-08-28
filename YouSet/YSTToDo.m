@@ -101,6 +101,8 @@
 -(void)setFromServer:(NSDictionary *)dict{
     _ID = [[dict objectForKey:@"id"]intValue];
     _todo = [dict objectForKey:@"todo"];
+    _serverOk = 3;
+    _isPublic = [[dict objectForKey:@"public"]boolValue];
     
     YSTAssignee *reloadAss = nil;
     for (NSDictionary *a in [dict objectForKey:@"tasks"]) {
