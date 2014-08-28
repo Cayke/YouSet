@@ -1,20 +1,20 @@
 //
-//  YSTRegisterViewController.m
+//  YSTRegisterNewViewController.m
 //  YouSet
 //
-//  Created by Riheldo Melo Santos on 26/08/14.
+//  Created by Cayke on 27/08/14.
 //  Copyright (c) 2014 YouSet. All rights reserved.
 //
 
-#import "YSTRegisterViewController.h"
-#import "YSTConnection.h"
+#import "YSTRegisterNewViewController.h"
 #import "YSTUser.h"
+#import "YSTConnection.h"
 
-@interface YSTRegisterViewController ()
+@interface YSTRegisterNewViewController ()
 
 @end
 
-@implementation YSTRegisterViewController
+@implementation YSTRegisterNewViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

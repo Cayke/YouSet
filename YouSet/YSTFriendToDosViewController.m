@@ -126,6 +126,7 @@
 
 -(void) seguir
 {
+    [[YSTConnection sharedConnection] userDevice:[YSTUser sharedUser] willFollow:YES user:self.user];
     NSLog(@"agora vc segue tal pessoa");
 }
 

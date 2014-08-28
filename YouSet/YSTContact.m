@@ -8,6 +8,7 @@
 
 #import "YSTContact.h"
 #import "YSTPhone.h"
+#import "YSTUser.h"
 
 @implementation YSTContact
 
@@ -35,7 +36,33 @@
 -(NSString*)getJustNumbersOfPhone:(NSString *) phone
 {
     //usar predicado para transformar numero para apenas numeros
-    return [[phone componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
+    NSString *phoneOnlyNumbers = [[phone componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
+    
+    //fucking logica para passar o numero sempre com 55(dd)number
+    if (phoneOnlyNumbers.length == 8) {
+        NSString *myNumber = [YSTUser sharedUser].phone;
+        myNumber = [[myNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
+        myNumber = [myNumber substringToIndex:4];
+        phoneOnlyNumbers = [myNumber stringByAppendingString:phoneOnlyNumbers];
+    }
+    else if (phoneOnlyNumbers.length == 10)
+    {
+        NSString *myNumber = [YSTUser sharedUser].phone;
+        myNumber = [[myNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
+        myNumber = [myNumber substringToIndex:2];
+        phoneOnlyNumbers = [myNumber stringByAppendingString:phoneOnlyNumbers];
+    }
+    else if (phoneOnlyNumbers.length == 11)
+    {
+        NSString *myNumber = [YSTUser sharedUser].phone;
+        myNumber = [[myNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
+        myNumber = [myNumber substringToIndex:2];
+        phoneOnlyNumbers = [phoneOnlyNumbers substringFromIndex:1];
+        phoneOnlyNumbers = [myNumber stringByAppendingString:phoneOnlyNumbers];
+    }
+    
+    return phoneOnlyNumbers;
+    
 }
 
 -(NSString *)getPostDescription{
