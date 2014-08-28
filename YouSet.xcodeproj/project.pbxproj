@@ -63,6 +63,8 @@
 		92B9362619956CA800F26A05 /* YSTGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B9362419956CA800F26A05 /* YSTGroupsViewController.xib */; };
 		92B9362A19956CBC00F26A05 /* YSTContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9362819956CBC00F26A05 /* YSTContactsViewController.m */; };
 		92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B9362919956CBC00F26A05 /* YSTContactsViewController.xib */; };
+		92CBD24B19AFA25700E1EA63 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A939D519AE99220001A468 /* check@2x.png */; };
+		92CBD24C19AFA26100E1EA63 /* none@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A939D319AE98AD0001A468 /* none@2x.png */; };
 		92DB51EE19A7AE400011DBE4 /* YSTEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB51EC19A7AE400011DBE4 /* YSTEditableTableViewCell.m */; };
 		92DB51EF19A7AE400011DBE4 /* YSTEditableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DB51ED19A7AE400011DBE4 /* YSTEditableTableViewCell.xib */; };
 		92DB51FB19A7C3490011DBE4 /* YSTPickDateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB51F919A7C3490011DBE4 /* YSTPickDateTableViewCell.m */; };
@@ -476,6 +478,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92CBD24C19AFA26100E1EA63 /* none@2x.png in Resources */,
+				92CBD24B19AFA25700E1EA63 /* check@2x.png in Resources */,
 				92A939D219AE91720001A468 /* clock@2x.png in Resources */,
 				9233824C19941DB800B199A9 /* InfoPlist.strings in Resources */,
 				920420D819ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.xib in Resources */,
