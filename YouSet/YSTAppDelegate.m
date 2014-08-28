@@ -108,6 +108,7 @@
     navMe.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Eu" image:imageView.image selectedImage:imageView.image];
     
 
+
     NSString *imageFriends = @"friends.png";
     UIImageView *imageViewFriends = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
     imageViewFriends.image = [UIImage imageNamed:imageFriends];
