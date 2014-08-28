@@ -24,6 +24,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        _reloadFriendsInfo = NO;
         
 //        _amigos = [[NSMutableArray alloc]init];
         //mudar para pegar amigos certo kkk
@@ -39,7 +40,7 @@
 //        user3.name = @"Hiheldo";
 //        user3.ID = 1;
 //        [_amigos addObject:user3];
-        _amigos = [[YSTConnection sharedConnection] getFollowersFromDeviseUserWithError:nil];
+
         
     }
     return self;
@@ -49,6 +50,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    _amigos = [[YSTConnection sharedConnection] getFollowersFromDeviseUserWithError:nil];
     
     self.title = @"Amigos";
     
@@ -64,16 +67,33 @@
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (_reloadFriendsInfo == YES) {
+        [self reloadFriends];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+-(void) reloadFriends
+{
+     _amigos = [[YSTConnection sharedConnection] getFollowersFromDeviseUserWithError:nil];
+    
+    [_tableView reloadData];
+    
+    _reloadFriendsInfo = NO;
+}
+
 -(void) addContact
 {
 
     YSTContactsViewController *contacts = [[YSTContactsViewController alloc]init];
+    contacts.friendsVC = self;
     [self.navigationController pushViewController:contacts animated:YES];
     
 }
@@ -96,6 +116,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     YSTFriendToDosViewController * friend = [[YSTFriendToDosViewController alloc]init];
+    friend.friendsVC = self;
     friend.user = [_amigos objectAtIndex:indexPath.row];
     
     [self.navigationController pushViewController:friend animated:YES];

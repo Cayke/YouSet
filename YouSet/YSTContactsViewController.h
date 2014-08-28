@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import "YSTFriendsViewController.h"
 
 
 @interface YSTContactsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) UISearchDisplayController *searchController;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) YSTFriendsViewController *friendsVC;
 
 @property(nonatomic) ABAddressBookRef addressBook;
 @property(nonatomic) NSMutableArray *allContacts; //todos os contatos

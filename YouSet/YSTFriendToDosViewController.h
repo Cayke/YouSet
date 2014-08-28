@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "YSTUser.h"
+#import "YSTFriendsViewController.h"
 
 @interface YSTFriendToDosViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) YSTUser *user ;
 @property (nonatomic) NSArray *arrayToDos;
+@property (nonatomic) BOOL reloadView;
 
+@property (weak, nonatomic) YSTFriendsViewController *friendsVC;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
