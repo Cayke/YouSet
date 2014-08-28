@@ -16,7 +16,6 @@
 		2752A26219ABAFCF000A547B /* YSTInviteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2752A26019ABAFCF000A547B /* YSTInviteTableViewCell.xib */; };
 		2752A26B19ABC154000A547B /* YSTUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2752A26919ABC154000A547B /* YSTUserTableViewCell.m */; };
 		2752A26C19ABC154000A547B /* YSTUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2752A26A19ABC154000A547B /* YSTUserTableViewCell.xib */; };
-		2752A27019ABE4E6000A547B /* user91.png in Resources */ = {isa = PBXBuildFile; fileRef = 2752A26F19ABE4E6000A547B /* user91.png */; };
 		2752A27519ABE774000A547B /* YSTFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2752A27319ABE774000A547B /* YSTFriendTableViewCell.m */; };
 		2752A27619ABE774000A547B /* YSTFriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2752A27419ABE774000A547B /* YSTFriendTableViewCell.xib */; };
 		2752A27A19ABF035000A547B /* YSTFriendToDosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2752A27819ABF035000A547B /* YSTFriendToDosViewController.m */; };
@@ -123,7 +122,6 @@
 		2752A26819ABC154000A547B /* YSTUserTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTUserTableViewCell.h; sourceTree = "<group>"; };
 		2752A26919ABC154000A547B /* YSTUserTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTUserTableViewCell.m; sourceTree = "<group>"; };
 		2752A26A19ABC154000A547B /* YSTUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTUserTableViewCell.xib; sourceTree = "<group>"; };
-		2752A26F19ABE4E6000A547B /* user91.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user91.png; sourceTree = "<group>"; };
 		2752A27219ABE774000A547B /* YSTFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTFriendTableViewCell.h; sourceTree = "<group>"; };
 		2752A27319ABE774000A547B /* YSTFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTFriendTableViewCell.m; sourceTree = "<group>"; };
 		2752A27419ABE774000A547B /* YSTFriendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTFriendTableViewCell.xib; sourceTree = "<group>"; };
@@ -370,7 +368,6 @@
 				92CBD24D19AFA37A00E1EA63 /* images */,
 				276C877519A67CCB00BE8E98 /* Nao sei se e realmente necessario, mas nao apagar */,
 				9233825319941DB800B199A9 /* Images.xcassets */,
-				2752A26F19ABE4E6000A547B /* user91.png */,
 				9233824819941DB800B199A9 /* Supporting Files */,
 			);
 			path = YouSet;
@@ -588,7 +585,6 @@
 				2752A27619ABE774000A547B /* YSTFriendTableViewCell.xib in Resources */,
 				276C877D19A7D02F00BE8E98 /* YSTInviteViewController.xib in Resources */,
 				92B9362119956C8D00F26A05 /* YSTMeViewController.xib in Resources */,
-				2752A27019ABE4E6000A547B /* user91.png in Resources */,
 				9238286A19AFB98900771CFC /* launch@R4.png in Resources */,
 				271DB79E19AD3AB2000405A4 /* YSTShowPhotoViewController.xib in Resources */,
 				929EDD29199BE99400A909BD /* YSTMeTableViewCell.xib in Resources */,

@@ -11,7 +11,6 @@
 
 @interface YSTFriendsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-
 @property (nonatomic) NSArray *amigos;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) BOOL reloadFriendsInfo;
