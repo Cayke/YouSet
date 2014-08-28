@@ -14,6 +14,7 @@
 @property (nonatomic) NSString *phone;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *photo;
+@property (nonatomic) int pendentTodos;
 
 @property (nonatomic) NSDictionary *following;
 @property (nonatomic) NSDictionary *followers;

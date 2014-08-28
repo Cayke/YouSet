@@ -15,8 +15,8 @@
     self = [super init];
     if (self) {
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        [fileManager createDirectoryAtPath:[NSString stringWithFormat:@"%@/Documents/SuperOnline/images", NSHomeDirectory()] withIntermediateDirectories:YES attributes:nil error:nil];
-        _pathToImages = [NSString stringWithFormat:@"%@/Documents/SuperOnline/images",NSHomeDirectory()];
+        [fileManager createDirectoryAtPath:[NSString stringWithFormat:@"%@/Documents/images", NSHomeDirectory()] withIntermediateDirectories:YES attributes:nil error:nil];
+        _pathToImages = [NSString stringWithFormat:@"%@/Documents/images",NSHomeDirectory()];
     }
     return self;
 }
@@ -38,7 +38,7 @@
                        
                        if (!image) {
                            // se a imagem nao existir
-                           NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://107.170.189.125/default/download/%@", imageName]];
+                           NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://107.170.189.125/youset/default/download/%@", imageName]];
                            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
                            
                            if (imageData) {
