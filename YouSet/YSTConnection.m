@@ -43,9 +43,7 @@
 
 // update todo, envia o todo para o server modificando-o ou criando
 -(void)updateTodo:(YSTToDo*)todo { // assyncrono
-    NSLog(@"[YSTConnection todo] = %@", todo);
-    
-    todo.serverOk = 0;
+    todo.serverOk = 1;
     
     // preparar o todo para ser enviado para o servidor
     NSString *post = [NSString stringWithFormat:@"&code=%@",[self codeOfServer]];
@@ -54,6 +52,8 @@
     // criar o request
     NSURL *url = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"updateTodo"]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    
+    NSLog(@"%@", post);
     
     
     // comecar assyncrono
@@ -74,7 +74,7 @@
                 
                 if ([[a objectForKey:@"connectionStatus"]isEqualToString:@"ok"]) {
                     // retornou uma mensagem de ok, quando o todo eh atualizado
-                    todo.serverOk = 1;
+                    todo.serverOk = 2;
                 } else if ([[a objectForKey:@"connectionStatus"]isEqualToString:@"error"]) {
                     // retornou erro
                     NSLog(@"Erro no servidor");
@@ -82,7 +82,7 @@
                 } else {
                     // retornou o json que contem o id do todo e os ids do assign
                     todo.ID = [[a objectForKey:@"todoId"]intValue];
-                    todo.serverOk = 1;
+                    todo.serverOk = 2;
                     
                     // colocar ids nos assigns
                     for (YSTAssignee *assi in todo.assignee) {
@@ -144,7 +144,7 @@
     
     ////// variaveis em post
     // setar post string
-    NSString *post = [NSString stringWithFormat:@"&code=%@", [self codeOfServer]];
+    NSString *post = [NSString stringWithFormat:@"&code=%@&userOwnerId=%d", [self codeOfServer], [YSTUser sharedUser].ID];
     post = [post stringByAppendingString:[user getDescriptionToPost]];
     
     NSData *dataFromConnection = [self makePostRequest:request post: post withError:error];

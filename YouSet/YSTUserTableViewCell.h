@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YSTUser.h"
 
 @interface YSTUserTableViewCell : UITableViewCell
 
-@property (nonatomic) NSString *name;
-@property (nonatomic) UIImage *photo;
+@property (nonatomic) YSTUser *user;
 
 @property (weak, nonatomic, readonly) UIImageView *viewOfImage;
 @property (weak, nonatomic) IBOutlet UILabel *labelNome;

@@ -86,7 +86,7 @@
     YSTMeViewController *mvc = [[YSTMeViewController alloc]init];
 //    YSTGroupsViewController *gvc = [[YSTGroupsViewController alloc]init];
     YSTFriendsViewController *fvc = [[YSTFriendsViewController alloc]init];
-    
+
     // criar navigations
     UINavigationController *navMe = [[UINavigationController alloc]initWithRootViewController:mvc];
 //    UINavigationController *navGroups = [[UINavigationController alloc]initWithRootViewController:gvc];
@@ -94,16 +94,16 @@
     
     
     UITabBarController *tbc = [[UITabBarController alloc]init];
-    tbc.viewControllers = [NSArray  arrayWithObjects:navMe,navFriends, nil];
+    tbc.viewControllers = @[navMe, navFriends];
     
     NSString *imageUser = @"user.png";
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
     imageView.image = [UIImage imageNamed:imageUser];
     navMe.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Eu" image:imageView.image selectedImage:imageView.image];
     
     NSString *imageFriends = @"friends.png";
     UIImageView *imageViewFriends = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
-    imageView.image = [UIImage imageNamed:imageFriends];
+    imageViewFriends.image = [UIImage imageNamed:imageFriends];
     navFriends.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Amigos" image:imageViewFriends.image selectedImage:imageViewFriends.image];
     
     

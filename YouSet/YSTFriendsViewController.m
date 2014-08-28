@@ -25,23 +25,6 @@
     if (self) {
         // Custom initialization
         _reloadFriendsInfo = NO;
-        
-//        _amigos = [[NSMutableArray alloc]init];
-        //mudar para pegar amigos certo kkk
-//        YSTUser *user = [[YSTUser alloc]init];
-//        user.name = @"will";
-//        user.ID = 1;
-//        [_amigos addObject:user];
-//        YSTUser *user2 = [[YSTUser alloc]init];
-//        user2.name = @"Cayke";
-//        user2.ID = 1;
-//        [_amigos addObject:user2];
-//        YSTUser *user3 = [[YSTUser alloc]init];
-//        user3.name = @"Hiheldo";
-//        user3.ID = 1;
-//        [_amigos addObject:user3];
-
-        
     }
     return self;
 }
@@ -104,8 +87,10 @@
     
     YSTUser *user = [_amigos objectAtIndex:indexPath.row];
     
-    cell.nome = user.name;
-    cell.numeroPendente = 0; // ver isso aqui depois
+    
+    user.pendentTodos = 0; // ver isso aqui depois
+    
+    cell.user = user;
 
     [cell mount];
     

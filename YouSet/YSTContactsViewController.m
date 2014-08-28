@@ -33,9 +33,9 @@
     if (self) {
         // Custom initialization
         _allContacts = [[NSMutableArray alloc]init];
-       // _youSetContacts = [[NSMutableArray alloc]init];
-       // _nonYouSetContacts = [[NSMutableArray alloc]init];
-
+        // _youSetContacts = [[NSMutableArray alloc]init];
+        // _nonYouSetContacts = [[NSMutableArray alloc]init];
+        
     }
     return self;
 }
@@ -95,7 +95,7 @@
     [_tableView registerNib:nib2 forCellReuseIdentifier:@"YSTNonUserTableViewCell"];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
-
+    
 }
 
 
@@ -186,11 +186,13 @@
 {
     //    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"temp"];
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        if (indexPath.row < [_searchResultsUSERS count]) {
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        if (indexPath.row < [_searchResultsUSERS count])
+        {
             YSTUserTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"YSTUserTableViewCell"];
-            YSTContact *contact = [_searchResultsUSERS objectAtIndex:indexPath.row];
-            cell.name = contact.name;
+            YSTUser *user = [_searchResultsUSERS objectAtIndex:indexPath.row];
+            cell.user = user;
             [cell mount];
             return cell;
         }
@@ -209,8 +211,8 @@
         if (indexPath.section == 0)
         {
             YSTUserTableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"YSTUserTableViewCell"];
-            YSTContact *contact = [_youSetContacts objectAtIndex:indexPath.row];
-            cell.name = contact.name;
+            YSTUser *user = [_youSetContacts objectAtIndex:indexPath.row];
+            cell.user = user;
             [cell mount];
             return cell;
         }
@@ -233,37 +235,37 @@
     _youSetContacts = [[NSMutableArray alloc]initWithArray:array];
     _nonYouSetContacts = [[NSMutableArray alloc]initWithArray:_allContacts];
     
-//    for (int i = 0; i < [_allContacts count]; i++)
-//    {
-//        //pegar pessoa
-//        YSTContact *contact = [_allContacts objectAtIndex:i];
-//        BOOL isMember = NO;
-//        
-//        //pegar telefones
-//        for (int j=0; j < [contact.phones count]; j++)
-//        {
-//            YSTPhone *phone = [contact.phones objectAtIndex:j];
-//            NSString *numeroString = phone.phone;
-//            
-//            //usar predicado para transformar numero para apenas numeros
-//            NSString *numeros = [[numeroString componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
-//            
-//            //perguntar para server se e usuario YouSet
-//            BOOL isUSer = [CPStub isYouSetUser:numeros];
-//            
-//            //se for poe contato no arrayUsuarios e sai do for
-//            if (isUSer) {
-//                [_youSetContacts addObject:[_allContacts objectAtIndex:i]];
-//                isMember = YES;
-//                break;
-//            }
-//        }
-//        if (!isMember)
-//        {
-//            //por no arrayNotUser
-//            [_nonYouSetContacts addObject:[_allContacts objectAtIndex:i]];
-//        }
-//    }
+    //    for (int i = 0; i < [_allContacts count]; i++)
+    //    {
+    //        //pegar pessoa
+    //        YSTContact *contact = [_allContacts objectAtIndex:i];
+    //        BOOL isMember = NO;
+    //
+    //        //pegar telefones
+    //        for (int j=0; j < [contact.phones count]; j++)
+    //        {
+    //            YSTPhone *phone = [contact.phones objectAtIndex:j];
+    //            NSString *numeroString = phone.phone;
+    //
+    //            //usar predicado para transformar numero para apenas numeros
+    //            NSString *numeros = [[numeroString componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
+    //
+    //            //perguntar para server se e usuario YouSet
+    //            BOOL isUSer = [CPStub isYouSetUser:numeros];
+    //
+    //            //se for poe contato no arrayUsuarios e sai do for
+    //            if (isUSer) {
+    //                [_youSetContacts addObject:[_allContacts objectAtIndex:i]];
+    //                isMember = YES;
+    //                break;
+    //            }
+    //        }
+    //        if (!isMember)
+    //        {
+    //            //por no arrayNotUser
+    //            [_nonYouSetContacts addObject:[_allContacts objectAtIndex:i]];
+    //        }
+    //    }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
