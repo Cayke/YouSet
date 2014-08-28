@@ -30,7 +30,8 @@
     _countries = @[
                    @{@"pais": @"Brasil", @"code": @"+55"}
                    ];
-    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.navigationItem setTitle:@"Selecione seu País"];
 }
 
 - (void)didReceiveMemoryWarning
