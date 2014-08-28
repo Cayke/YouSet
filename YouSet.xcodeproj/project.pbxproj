@@ -72,6 +72,7 @@
 		B3329B7719AD134500E2EE6D /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3329B7619AD134500E2EE6D /* iTunesArtwork@2x.png */; };
 		B3329B7B19AD161B00E2EE6D /* YSTChoiceCountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3329B7919AD161B00E2EE6D /* YSTChoiceCountryViewController.m */; };
 		B3329B7C19AD161B00E2EE6D /* YSTChoiceCountryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3329B7A19AD161B00E2EE6D /* YSTChoiceCountryViewController.xib */; };
+		B3329B8419AFA4FA00E2EE6D /* YSTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B3329B8319AFA4FA00E2EE6D /* YSTImage.m */; };
 		B33B0A2A19A50F7600E86BFC /* YSTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B33B0A2819A50F7600E86BFC /* YSTLoginViewController.m */; };
 		B33B0A2B19A50F7600E86BFC /* YSTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33B0A2919A50F7600E86BFC /* YSTLoginViewController.xib */; };
 		B35D9725199AB308004826D1 /* YSTCreateNewTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */; };
@@ -187,6 +188,8 @@
 		B3329B7819AD161B00E2EE6D /* YSTChoiceCountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTChoiceCountryViewController.h; sourceTree = "<group>"; };
 		B3329B7919AD161B00E2EE6D /* YSTChoiceCountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTChoiceCountryViewController.m; sourceTree = "<group>"; };
 		B3329B7A19AD161B00E2EE6D /* YSTChoiceCountryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTChoiceCountryViewController.xib; sourceTree = "<group>"; };
+		B3329B8219AFA4FA00E2EE6D /* YSTImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTImage.h; sourceTree = "<group>"; };
+		B3329B8319AFA4FA00E2EE6D /* YSTImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTImage.m; sourceTree = "<group>"; };
 		B33B0A2719A50F7600E86BFC /* YSTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTLoginViewController.h; sourceTree = "<group>"; };
 		B33B0A2819A50F7600E86BFC /* YSTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTLoginViewController.m; sourceTree = "<group>"; };
 		B33B0A2919A50F7600E86BFC /* YSTLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTLoginViewController.xib; sourceTree = "<group>"; };
@@ -320,6 +323,8 @@
 				9233828B199421D000B199A9 /* YSTGroup.m */,
 				9233828D199421DC00B199A9 /* YSTGroupStore.h */,
 				9233828E199421DC00B199A9 /* YSTGroupStore.m */,
+				B3329B8219AFA4FA00E2EE6D /* YSTImage.h */,
+				B3329B8319AFA4FA00E2EE6D /* YSTImage.m */,
 				92338287199421C000B199A9 /* YSTConnection.h */,
 				92338288199421C000B199A9 /* YSTConnection.m */,
 				92CBD24D19AFA37A00E1EA63 /* images */,
@@ -549,6 +554,7 @@
 				275DE5C919AE537F00022660 /* YSTNonUserTableViewCell.m in Sources */,
 				9233828C199421D000B199A9 /* YSTGroup.m in Sources */,
 				2752A27A19ABF035000A547B /* YSTFriendToDosViewController.m in Sources */,
+				B3329B8419AFA4FA00E2EE6D /* YSTImage.m in Sources */,
 				2752A26B19ABC154000A547B /* YSTUserTableViewCell.m in Sources */,
 				2752A26119ABAFCF000A547B /* YSTInviteTableViewCell.m in Sources */,
 				B35D9725199AB308004826D1 /* YSTCreateNewTodo.m in Sources */,
