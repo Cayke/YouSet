@@ -39,7 +39,7 @@
 //        user3.name = @"Hiheldo";
 //        user3.ID = 1;
 //        [_amigos addObject:user3];
-        _amigos = [[YSTConnection sharedConnection] getFollowersFromDeviseUserWithError:nil];
+
         
     }
     return self;
@@ -49,6 +49,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+            _amigos = [[YSTConnection sharedConnection] getFollowersFromDeviseUserWithError:nil];
     
     self.title = @"Amigos";
     
