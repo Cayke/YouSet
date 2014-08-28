@@ -301,11 +301,6 @@
 		9233824719941DB800B199A9 /* YouSet */ = {
 			isa = PBXGroup;
 			children = (
-				B3329B7619AD134500E2EE6D /* iTunesArtwork@2x.png */,
-				92A939D119AE91720001A468 /* clock@2x.png */,
-				92A939D319AE98AD0001A468 /* none@2x.png */,
-				92A939D719AE9CBD0001A468 /* user@2x.png */,
-				92A939D519AE99220001A468 /* check@2x.png */,
 				9233825019941DB800B199A9 /* YSTAppDelegate.h */,
 				9233825119941DB800B199A9 /* YSTAppDelegate.m */,
 				92DAD76E19954FBC0095FFCE /* views */,
@@ -327,6 +322,7 @@
 				9233828E199421DC00B199A9 /* YSTGroupStore.m */,
 				92338287199421C000B199A9 /* YSTConnection.h */,
 				92338288199421C000B199A9 /* YSTConnection.m */,
+				92CBD24D19AFA37A00E1EA63 /* images */,
 				276C877519A67CCB00BE8E98 /* Nao sei se e realmente necessario, mas nao apagar */,
 				9233825319941DB800B199A9 /* Images.xcassets */,
 				2752A26F19ABE4E6000A547B /* user91.png */,
@@ -362,6 +358,18 @@
 				9233826319941DB800B199A9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92CBD24D19AFA37A00E1EA63 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B3329B7619AD134500E2EE6D /* iTunesArtwork@2x.png */,
+				92A939D119AE91720001A468 /* clock@2x.png */,
+				92A939D319AE98AD0001A468 /* none@2x.png */,
+				92A939D719AE9CBD0001A468 /* user@2x.png */,
+				92A939D519AE99220001A468 /* check@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		92DAD76E19954FBC0095FFCE /* views */ = {
