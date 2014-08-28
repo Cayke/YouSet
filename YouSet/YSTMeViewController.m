@@ -14,7 +14,6 @@
 #import "CPStub.h"
 
 
-
 @interface YSTMeViewController ()
 
 @end
