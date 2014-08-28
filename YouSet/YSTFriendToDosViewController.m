@@ -46,6 +46,8 @@
     [self.toolBarItemSeguir setAction:@selector(seguir)];
     [self.toolBarItemMais setAction:@selector(addTodo)];
     
+
+
     
     //criar botao com a fotinha da pessoa
     self.navigationItem.rightBarButtonItem = [self createBarButtonWithPhoto];

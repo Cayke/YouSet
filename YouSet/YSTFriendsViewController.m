@@ -48,6 +48,8 @@
         UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Atencao" message:@"Voce ainda nao segue ninguem. Para seguir um amigo novo clique no botao + a cima" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alerta show];
     }
+    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
