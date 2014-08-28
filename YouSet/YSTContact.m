@@ -8,6 +8,7 @@
 
 #import "YSTContact.h"
 #import "YSTPhone.h"
+#import "YSTUser.h"
 
 @implementation YSTContact
 

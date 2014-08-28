@@ -11,7 +11,7 @@
 #import <AddressBookUI/AddressBookUI.h>
 
 
-@interface YSTContactsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate >
+@interface YSTContactsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) UISearchDisplayController *searchController;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

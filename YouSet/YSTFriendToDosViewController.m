@@ -9,7 +9,7 @@
 #import "YSTFriendToDosViewController.h"
 #import "YSTConnection.h"
 #import "YSTToDo.h"
-#import "YSTCreateNewFriendToDo.h"
+#import "YSTCreateNewTodo.h"
 #import "YSTShowPhotoViewController.h"
 
 @interface YSTFriendToDosViewController ()
@@ -23,14 +23,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        //_arrayToDos = [[YSTConnection sharedConnection]getTodosFromUser:self.user withError:nil];
-        YSTToDo *todo1 = [[YSTToDo alloc]init];
-        todo1.todo = @"HUEBR";
-        YSTToDo *todo2 = [[YSTToDo alloc]init];
-        todo2.todo = @"ME CHUPA WILL VIADO";
-        
-        _arrayToDos = [[NSArray alloc]initWithObjects:todo1,todo2, nil];
-        
         self.hidesBottomBarWhenPushed = YES;
     }
     return self;
@@ -40,6 +32,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self getUserToDos];
+    
     
     self.title = _user.name;
     
@@ -123,15 +117,16 @@
 -(void) addTodo
 {
     //chamar tela para criar novo todo
-    NSLog(@"add todo tal pessoa");
+    YSTCreateNewTodo *friendToDo = [[YSTCreateNewTodo alloc]init];
+    friendToDo.userToDelegateTask = self.user;
     
-    YSTCreateNewFriendToDo *friendToDo = [[YSTCreateNewFriendToDo alloc]init];
     UINavigationController *navFriendToDo = [[UINavigationController alloc]initWithRootViewController:friendToDo];
     [self.navigationController presentViewController:navFriendToDo animated:YES completion:nil];
 }
 
 -(void) seguir
 {
+    [[YSTConnection sharedConnection] userDevice:[YSTUser sharedUser] willFollow:YES user:self.user];
     NSLog(@"agora vc segue tal pessoa");
 }
 
@@ -140,7 +135,10 @@
     UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"brbr"];
     YSTToDo *todo = [_arrayToDos objectAtIndex:indexPath.row];
     cell.textLabel.text = todo.todo;
-    [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
+    
+    if ([todo getAssigneeOfUser:self.user].status == 2 ) {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
     return cell;
 }
 
@@ -155,6 +153,11 @@
     // [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(void) getUserToDos
+{
+    _arrayToDos = [[YSTConnection sharedConnection]getTodosFromUser:self.user withError:nil];
 }
 
 @end

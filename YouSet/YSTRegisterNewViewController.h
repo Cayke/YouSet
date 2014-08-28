@@ -1,15 +1,15 @@
 //
-//  YSTRegisterViewController.h
+//  YSTRegisterNewViewController.h
 //  YouSet
 //
-//  Created by Riheldo Melo Santos on 26/08/14.
+//  Created by Cayke on 27/08/14.
 //  Copyright (c) 2014 YouSet. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "YSTLoginViewController.h"
 
-@interface YSTRegisterViewController : UIViewController
+@interface YSTRegisterNewViewController : UIViewController
 
 @property (weak, nonatomic) YSTLoginViewController *login;
 

@@ -10,7 +10,7 @@
 #import "YSTUser.h"
 #import "YSTChoiceCountryViewController.h"
 #import "YSTConnection.h"
-#import "YSTRegisterViewController.h"
+#import "YSTRegisterNewViewController.h"
 #import "YSTToDoStore.h"
 
 @interface YSTLoginViewController ()
@@ -65,7 +65,7 @@
         
     } else {
         // usuario nao existe
-        YSTRegisterViewController *registerVC = [[YSTRegisterViewController alloc]init];
+        YSTRegisterNewViewController *registerVC = [[YSTRegisterNewViewController alloc]init];
         registerVC.phone = _inputCell.text;
         registerVC.login = self;
         [self.navigationController pushViewController:registerVC animated:YES];

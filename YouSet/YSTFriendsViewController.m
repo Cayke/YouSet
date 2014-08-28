@@ -11,6 +11,7 @@
 #import "YSTUser.h"
 #import "YSTFriendTableViewCell.h"
 #import "YSTFriendToDosViewController.h"
+#import "YSTConnection.h"
 
 @interface YSTFriendsViewController ()
 
@@ -23,20 +24,23 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        _amigos = [[NSMutableArray alloc]init];
         
+//        _amigos = [[NSMutableArray alloc]init];
         //mudar para pegar amigos certo kkk
-        YSTUser *user = [[YSTUser alloc]init];
-        user.name = @"will";
-        [_amigos addObject:user];
-        YSTUser *user2 = [[YSTUser alloc]init];
-        user2.name = @"Cayke";
-        [_amigos addObject:user2];
-        YSTUser *user3 = [[YSTUser alloc]init];
-        user3.name = @"Hiheldo";
-        [_amigos addObject:user3];
+//        YSTUser *user = [[YSTUser alloc]init];
+//        user.name = @"will";
+//        user.ID = 1;
+//        [_amigos addObject:user];
+//        YSTUser *user2 = [[YSTUser alloc]init];
+//        user2.name = @"Cayke";
+//        user2.ID = 1;
+//        [_amigos addObject:user2];
+//        YSTUser *user3 = [[YSTUser alloc]init];
+//        user3.name = @"Hiheldo";
+//        user3.ID = 1;
+//        [_amigos addObject:user3];
+        _amigos = [[YSTConnection sharedConnection] getFollowersFromDeviseUserWithError:nil];
         
-     
     }
     return self;
 }
@@ -53,7 +57,6 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addContact)];
     
-    
     //ver se tem amigos ou esta vazio
     if (_amigos == nil) {
         UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Atencao" message:@"Voce ainda nao segue ninguem. Para seguir um amigo novo clique no botao + a cima" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
@@ -69,6 +72,7 @@
 
 -(void) addContact
 {
+
     YSTContactsViewController *contacts = [[YSTContactsViewController alloc]init];
     [self.navigationController pushViewController:contacts animated:YES];
     
@@ -93,8 +97,6 @@
 {
     YSTFriendToDosViewController * friend = [[YSTFriendToDosViewController alloc]init];
     friend.user = [_amigos objectAtIndex:indexPath.row];
-    
-   // friend.hidesBottomBarWhenPushed = YES;
     
     [self.navigationController pushViewController:friend animated:YES];
     

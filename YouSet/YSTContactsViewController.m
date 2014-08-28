@@ -33,8 +33,9 @@
     if (self) {
         // Custom initialization
         _allContacts = [[NSMutableArray alloc]init];
-        _youSetContacts = [[NSMutableArray alloc]init];
-        _nonYouSetContacts = [[NSMutableArray alloc]init];
+       // _youSetContacts = [[NSMutableArray alloc]init];
+       // _nonYouSetContacts = [[NSMutableArray alloc]init];
+
     }
     return self;
 }
@@ -50,7 +51,7 @@
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
         ABAddressBookRequestAccessWithCompletion(_addressBook, ^(bool granted, CFErrorRef error) {
             if (granted) {
-                // First time access has been granted, add the contact
+                // First time access has been granted
                 [self startContacts];
                 [_tableView reloadData];
             } else {
@@ -62,7 +63,7 @@
         });
     }
     else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
-        // The user has previously given access, add the contact
+        // The user has previously given access
         [self startContacts];
     }
     else {
@@ -93,8 +94,9 @@
     UINib *nib2 = [UINib nibWithNibName:@"YSTNonUserTableViewCell" bundle:nil];
     [_tableView registerNib:nib2 forCellReuseIdentifier:@"YSTNonUserTableViewCell"];
     
-}
+    [UIApplication sharedApplication].networkActivityIndicatorVisible=NO;
 
+}
 
 
 -(void) startContacts
@@ -109,6 +111,7 @@
     // NSError *error;
     //[[YSTConnection sharedConnection]verifyUserOfYST:_allContacts withError:error];
     [self usersOfYoutSet];
+    
 }
 
 -(void) createUsableContacts:(NSArray *) arrayAddressBook
@@ -226,38 +229,41 @@
 -(void)usersOfYoutSet
 {
     NSError *error = nil;
-    [[YSTConnection sharedConnection]verifyUserOfYST:_allContacts withError:error];
-    for (int i = 0; i < [_allContacts count]; i++)
-    {
-        //pegar pessoa
-        YSTContact *contact = [_allContacts objectAtIndex:i];
-        BOOL isMember = NO;
-        
-        //pegar telefones
-        for (int j=0; j < [contact.phones count]; j++)
-        {
-            YSTPhone *phone = [contact.phones objectAtIndex:j];
-            NSString *numeroString = phone.phone;
-            
-            //usar predicado para transformar numero para apenas numeros
-            NSString *numeros = [[numeroString componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
-            
-            //perguntar para server se e usuario YouSet
-            BOOL isUSer = [CPStub isYouSetUser:numeros];
-            
-            //se for poe contato no arrayUsuarios e sai do for
-            if (isUSer) {
-                [_youSetContacts addObject:[_allContacts objectAtIndex:i]];
-                isMember = YES;
-                break;
-            }
-        }
-        if (!isMember)
-        {
-            //por no arrayNotUser
-            [_nonYouSetContacts addObject:[_allContacts objectAtIndex:i]];
-        }
-    }
+    NSArray *array =     [[YSTConnection sharedConnection]verifyUserOfYST:_allContacts withError:error];
+    _youSetContacts = [[NSMutableArray alloc]initWithArray:array];
+    _nonYouSetContacts = [[NSMutableArray alloc]initWithArray:_allContacts];
+    
+//    for (int i = 0; i < [_allContacts count]; i++)
+//    {
+//        //pegar pessoa
+//        YSTContact *contact = [_allContacts objectAtIndex:i];
+//        BOOL isMember = NO;
+//        
+//        //pegar telefones
+//        for (int j=0; j < [contact.phones count]; j++)
+//        {
+//            YSTPhone *phone = [contact.phones objectAtIndex:j];
+//            NSString *numeroString = phone.phone;
+//            
+//            //usar predicado para transformar numero para apenas numeros
+//            NSString *numeros = [[numeroString componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
+//            
+//            //perguntar para server se e usuario YouSet
+//            BOOL isUSer = [CPStub isYouSetUser:numeros];
+//            
+//            //se for poe contato no arrayUsuarios e sai do for
+//            if (isUSer) {
+//                [_youSetContacts addObject:[_allContacts objectAtIndex:i]];
+//                isMember = YES;
+//                break;
+//            }
+//        }
+//        if (!isMember)
+//        {
+//            //por no arrayNotUser
+//            [_nonYouSetContacts addObject:[_allContacts objectAtIndex:i]];
+//        }
+//    }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
