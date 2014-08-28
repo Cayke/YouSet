@@ -104,8 +104,10 @@
     
     YSTUser *user = [_amigos objectAtIndex:indexPath.row];
     
-    cell.nome = user.name;
-    cell.numeroPendente = 0; // ver isso aqui depois
+    
+    user.pendentTodos = 0; // ver isso aqui depois
+    
+    cell.user = user;
 
     [cell mount];
     

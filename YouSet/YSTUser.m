@@ -63,6 +63,7 @@
     // id, name, phone.
     _ID = [[d objectForKey:@"id"]intValue];
     _name = [d objectForKey:@"name"];
+    _photo = [d objectForKey:@"photo"];
 }
 
 @end

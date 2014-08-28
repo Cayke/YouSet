@@ -7,6 +7,7 @@
 //
 
 #import "YSTFriendTableViewCell.h"
+#import "YSTImage.h"
 
 @implementation YSTFriendTableViewCell
 
@@ -24,8 +25,8 @@
 
 -(void)mount
 {
-    _labelContato.text = _nome;
-    _labelPendent.text = [NSString stringWithFormat:@"%d pendente(s)", _numeroPendente];
+    _labelContato.text = _user.name;
+    _labelPendent.text = [NSString stringWithFormat:@"%d pendente(s)", _user.pendentTodos];
     
     if (_viewOfImage == nil)
     {
@@ -35,42 +36,43 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame: frame];
         imageView.layer.cornerRadius = 38;
         imageView.clipsToBounds = YES;
-        imageView.layer.borderWidth = 1;
-        imageView.layer.borderColor = [[UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1] CGColor];
+       // imageView.layer.borderWidth = 0;
+       // imageView.layer.borderColor = [[UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1] CGColor];
         imageView.backgroundColor = [UIColor whiteColor];
         
         //colocar image view como property da classe
         _viewOfImage = imageView;
         
         //sombra
-        UIView *topView= [[UIView alloc] initWithFrame: frame];
-        topView.center=  CGPointMake(frame.size.width / 2, frame.size.height / 2);
-        topView.backgroundColor  =[UIColor clearColor];
-        topView.layer.shadowColor = [[UIColor blackColor] CGColor];
-        topView.layer.shadowOpacity = 0.2;
-        topView.layer.shadowRadius = 1;
-        topView.layer.shadowOffset = CGSizeMake(10, 3);
-        topView.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:topView.bounds cornerRadius:60].CGPath;
-        topView.layer.shouldRasterize = YES;
-        topView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+//        UIView *topView= [[UIView alloc] initWithFrame: frame];
+//        topView.center=  CGPointMake(frame.size.width / 2, frame.size.height / 2);
+//        topView.backgroundColor  =[UIColor clearColor];
+//        topView.layer.shadowColor = [[UIColor blackColor] CGColor];
+//        topView.layer.shadowOpacity = 0.2;
+//        topView.layer.shadowRadius = 1;
+//        topView.layer.shadowOffset = CGSizeMake(10, 3);
+//        topView.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:topView.bounds cornerRadius:60].CGPath;
+//        topView.layer.shouldRasterize = YES;
+//        topView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+//        
+//        [topView addSubview:imageView];
+//        
+//        [self addSubview: topView];
         
-        [topView addSubview:imageView];
+        [self addSubview:imageView];
         
-        [self addSubview: topView];
-        
-        [self setImageWithPath:nil];
+        [self setImageWithPath];
     }
-    
+
     else
     {
-        [self setImageWithPath:nil];
+        [self setImageWithPath];
     }   
 }
 
--(void) setImageWithPath:(NSString*)path {
-    //    SOImage *image = [[SOImage alloc]init];
-    //    [image setImageNamed:path toUIImageView:_viewOfImage andActivivyIndicator:_carregando];
-    _viewOfImage.image = [UIImage imageNamed:@"user91.png"];
+-(void) setImageWithPath {
+    YSTImage *image = [[YSTImage alloc]init];
+    [image setImageNamed:_user.photo toUIImageView:_viewOfImage andActivivyIndicator:nil];
 }
 
 @end

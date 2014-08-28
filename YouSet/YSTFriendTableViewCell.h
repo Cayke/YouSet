@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YSTUser.h"
 
 @interface YSTFriendTableViewCell : UITableViewCell
 
-@property (nonatomic) NSString *nome;
-@property (nonatomic) short numeroPendente;
-
+@property (nonatomic) YSTUser *user;
 
 @property (weak, nonatomic, readonly) UIImageView *viewOfImage;
 @property (weak, nonatomic) IBOutlet UILabel *labelContato;
