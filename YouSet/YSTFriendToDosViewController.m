@@ -61,7 +61,6 @@
 
 -(void) reloadViewMethod
 {
-    NSLog(@"recarregar o amigo");
     [self getUserToDos];
     
     [_tableView reloadData];
@@ -179,6 +178,7 @@
 -(void) getUserToDos
 {
     _arrayToDos = [[YSTConnection sharedConnection]getTodosFromUser:self.user withError:nil];
+    NSLog(@"pegou todos");
 }
 
 @end
