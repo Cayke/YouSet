@@ -44,11 +44,16 @@
     // Do any additional setup after loading the view from its nib.
     
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelToDo)];
+//    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelToDo)];
+    
+    self.title = @"Criar todo";
+ 
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelToDo)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     cancelButton.tintColor = [UIColor whiteColor];
     
-    UIBarButtonItem *createButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(createToDo)];
+//    UIBarButtonItem *createButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(createToDo)];
+    UIBarButtonItem *createButton = [[UIBarButtonItem alloc]initWithTitle:@"Criar" style:UIBarButtonItemStyleBordered target:self action:@selector(createToDo)];
     self.navigationItem.rightBarButtonItem = createButton;
     createButton.tintColor = [UIColor whiteColor];
     
@@ -118,9 +123,9 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"Required Fields";
+        return @"Campos Obrigatórios";
     } else {
-        return @"Optional Fields";
+        return @"Campos OPicionais";
     }
     
 }
@@ -144,8 +149,10 @@
     if (array == self.sectionOfRequiredFields) {
             if ([item isEqualToString:@"Todo"]) {
                 YSTEditableTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
-                cell.contentTF.placeholder = @"Content";
+                cell.contentTF.placeholder = @"Todo";
+                [cell.contentTF sizeToFit];
                 cell.auxTodo = self.auxTodo;
+                
                 return cell;
             } else if ([item isEqualToString:@"Date Schedule"]) {
                 YSTPickDateTableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:cellIdentifier2 forIndexPath:indexPath];
@@ -169,12 +176,16 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     NSArray *array = self.arrayOfSections[indexPath.section];
     NSString *item = array[indexPath.row];
     if ([item isEqualToString:@"Date Schedule"]) {
         return 162;
     }
+    if ([item isEqualToString:@"Todo"]) {
+
+        return 60;
+    }
+
     
     return 44;
 }
@@ -182,6 +193,12 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
 
 
 

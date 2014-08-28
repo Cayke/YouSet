@@ -64,7 +64,9 @@
     
     // colorir navigations
     [[UINavigationBar appearance] setBarStyle: UIBarStyleBlack];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [ UIColor whiteColor]}];
     [[UINavigationBar appearance] setBarTintColor: blueColor];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     // colorir tabbar
     [[UITabBar appearance] setBarStyle: UIBarStyleBlack];
@@ -77,6 +79,7 @@
    // UIColor *greenColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
     
     [[UITabBar appearance]setSelectedImageTintColor:[UIColor whiteColor]];
+    
     
 }
 
@@ -96,17 +99,21 @@
     UITabBarController *tbc = [[UITabBarController alloc]init];
     tbc.viewControllers = @[navMe, navFriends];
     
+
+    
+    
     NSString *imageUser = @"user.png";
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
     imageView.image = [UIImage imageNamed:imageUser];
     navMe.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Eu" image:imageView.image selectedImage:imageView.image];
     
+
     NSString *imageFriends = @"friends.png";
     UIImageView *imageViewFriends = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
     imageViewFriends.image = [UIImage imageNamed:imageFriends];
     navFriends.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Amigos" image:imageViewFriends.image selectedImage:imageViewFriends.image];
     
-    
+
     self.window.rootViewController = tbc;
 }
 

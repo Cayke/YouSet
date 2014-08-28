@@ -14,7 +14,7 @@
 {
     // Initialization code
     
-    self.title.text = @"Privacy";
+    self.title.text = @"Público";
     self.accessoryView = self.switchOfCell;
     [self.switchOfCell addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
 
