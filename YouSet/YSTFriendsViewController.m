@@ -40,6 +40,8 @@
     
     _amigos = [[YSTConnection sharedConnection] getFollowersFromDeviseUserWithError:nil];
     
+    [_carregando stopAnimating];
+    
     self.title = @"Amigos";
     
     UINib *nib = [UINib nibWithNibName:@"YSTFriendTableViewCell" bundle:nil];
@@ -69,6 +71,9 @@
 
 -(void) reloadFriends
 {
+    [_carregando startAnimating];
+    
+    
      _amigos = [[YSTConnection sharedConnection] getFollowersFromDeviseUserWithError:nil];
     
     [_tableView reloadData];
