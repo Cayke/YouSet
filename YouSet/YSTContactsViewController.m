@@ -64,7 +64,22 @@
     }
     else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
         // The user has previously given access
-        [self startContacts];
+        [_carregando setColor:[UIColor blueColor]];
+        [_carregando startAnimating];
+        _carregando.hidesWhenStopped = YES;
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            //Call your function or whatever work that needs to be done
+            //Code in this part is run on a background thread
+            [self startContacts];
+            dispatch_async(dispatch_get_main_queue(), ^(void) {
+                //Stop your activity indicator or anything else with the GUI
+                //Code here is run on the main thread
+                [_carregando stopAnimating];
+                [_tableView reloadData];
+            });
+        });
+        
     }
     else {
         // The user has previously denied access

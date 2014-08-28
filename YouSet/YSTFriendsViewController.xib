@@ -25,8 +25,8 @@
                         <outlet property="delegate" destination="-1" id="YjG-Ki-VJz"/>
                     </connections>
                 </tableView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kah-HY-jj2">
-                    <rect key="frame" x="150" y="274" width="20" height="20"/>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kah-HY-jj2">
+                    <rect key="frame" x="142" y="266" width="37" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </subviews>
@@ -35,7 +35,9 @@
                 <constraint firstAttribute="bottom" secondItem="Mb4-Zz-Fdf" secondAttribute="bottom" id="7ZB-LO-eZP"/>
                 <constraint firstItem="Mb4-Zz-Fdf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GaG-cU-CCX"/>
                 <constraint firstItem="Mb4-Zz-Fdf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZpO-9a-tgA"/>
+                <constraint firstAttribute="centerY" secondItem="kah-HY-jj2" secondAttribute="centerY" id="ezr-Uf-ePF"/>
                 <constraint firstAttribute="trailing" secondItem="Mb4-Zz-Fdf" secondAttribute="trailing" id="rs7-gw-64E"/>
+                <constraint firstAttribute="centerX" secondItem="kah-HY-jj2" secondAttribute="centerX" id="ucm-SH-Zxn"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

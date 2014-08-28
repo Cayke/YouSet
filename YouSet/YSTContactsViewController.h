@@ -14,6 +14,7 @@
 
 @interface YSTContactsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UIAlertViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *carregando;
 @property (nonatomic, strong) UISearchDisplayController *searchController;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) YSTFriendsViewController *friendsVC;

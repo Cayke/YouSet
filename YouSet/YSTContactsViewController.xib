@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YSTContactsViewController">
             <connections>
+                <outlet property="carregando" destination="dqF-kG-N5E" id="CTO-gW-NPb"/>
                 <outlet property="tableView" destination="Ram-bD-ktj" id="b4L-Ug-FLm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,13 +25,23 @@
                         <outlet property="delegate" destination="-1" id="zcK-IG-FyI"/>
                     </connections>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dqF-kG-N5E">
+                    <rect key="frame" x="142" y="266" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ram-bD-ktj" secondAttribute="trailing" id="HCB-s3-GWt"/>
                 <constraint firstItem="Ram-bD-ktj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MZ9-Ht-u8e"/>
+                <constraint firstItem="Ram-bD-ktj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TGX-xA-4ZT"/>
                 <constraint firstItem="Ram-bD-ktj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Wg5-R4-prw"/>
+                <constraint firstAttribute="bottom" secondItem="Ram-bD-ktj" secondAttribute="bottom" id="ZXK-W9-esW"/>
                 <constraint firstAttribute="bottom" secondItem="Ram-bD-ktj" secondAttribute="bottom" id="Zng-KX-Vk2"/>
+                <constraint firstAttribute="centerX" secondItem="dqF-kG-N5E" secondAttribute="centerX" id="ek1-Lk-pzY"/>
                 <constraint firstAttribute="trailing" secondItem="Ram-bD-ktj" secondAttribute="trailing" id="iZc-Wy-jJn"/>
+                <constraint firstAttribute="centerY" secondItem="dqF-kG-N5E" secondAttribute="centerY" id="oM8-Cu-4o7"/>
+                <constraint firstItem="Ram-bD-ktj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uxp-zQ-Y7s"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
