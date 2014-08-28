@@ -71,16 +71,8 @@
     // colorir tabbar
     [[UITabBar appearance] setBarStyle: UIBarStyleBlack];
     [[UITabBar appearance] setBarTintColor: blueColor];
-    
-    // cores para fazer o verde
-    red = 255.0/divided;
-    green = 255.0/divided;
-    blue = 255.0/divided;
-   // UIColor *greenColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
-    
-    [[UITabBar appearance]setSelectedImageTintColor:[UIColor whiteColor]];
-    
-    
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+
 }
 
 -(void)normalInitializateOfYouSet {
@@ -99,21 +91,26 @@
     UITabBarController *tbc = [[UITabBarController alloc]init];
     tbc.viewControllers = @[navMe, navFriends];
     
-
-    
+    // cores para fazer o verde
+    CGFloat divided = 255.0;
+    CGFloat red = 255.0/divided;
+    CGFloat green = 255.0/divided;
+    CGFloat blue = 255.0/divided;
+    UIColor *greenColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
     
     NSString *imageUser = @"user.png";
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
     imageView.image = [UIImage imageNamed:imageUser];
     navMe.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Eu" image:imageView.image selectedImage:imageView.image];
     
-
-
     NSString *imageFriends = @"friends.png";
     UIImageView *imageViewFriends = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
     imageViewFriends.image = [UIImage imageNamed:imageFriends];
     navFriends.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Amigos" image:imageViewFriends.image selectedImage:imageViewFriends.image];
     
+//    for(UITabBarItem *item in nav.tabBar.items) {
+//        item.image = [[item.selectedImage imageWithColor:unselectedColor] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    }
 
     self.window.rootViewController = tbc;
 }
