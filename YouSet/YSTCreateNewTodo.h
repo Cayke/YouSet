@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "YSTToDo.h"
+#import "YSTFriendToDosViewController.h"
+
 @interface YSTCreateNewTodo : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic) NSArray *sectionOfRequiredFields;
@@ -15,6 +17,8 @@
 @property (nonatomic) NSArray *arrayOfSections;
 
 @property (nonatomic) YSTUser *userToDelegateTask;
+
+@property (weak, nonatomic) YSTFriendToDosViewController *friendToDoVC;
 
 // tableview
 @property (weak, nonatomic) IBOutlet UITableView *toDoTableView;

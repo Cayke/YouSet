@@ -24,6 +24,7 @@
     if (self) {
         // Custom initialization
         self.hidesBottomBarWhenPushed = YES;
+        _reloadView = NO;
     }
     return self;
 }
@@ -48,6 +49,23 @@
     //criar botao com a fotinha da pessoa
     self.navigationItem.rightBarButtonItem = [self createBarButtonWithPhoto];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (_reloadView) {
+        [self reloadViewMethod];
+    }
+}
+
+-(void) reloadViewMethod
+{
+    NSLog(@"recarregar o amigo");
+    [self getUserToDos];
+    
+    [_tableView reloadData];
+    
+    _reloadView = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -118,6 +136,7 @@
 {
     //chamar tela para criar novo todo
     YSTCreateNewTodo *friendToDo = [[YSTCreateNewTodo alloc]init];
+    friendToDo.friendToDoVC = self;
     friendToDo.userToDelegateTask = self.user;
     
     UINavigationController *navFriendToDo = [[UINavigationController alloc]initWithRootViewController:friendToDo];
@@ -126,6 +145,7 @@
 
 -(void) seguir
 {
+    self.friendsVC.reloadFriendsInfo = YES;
     [[YSTConnection sharedConnection] userDevice:[YSTUser sharedUser] willFollow:YES user:self.user];
     NSLog(@"agora vc segue tal pessoa");
 }

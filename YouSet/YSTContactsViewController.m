@@ -293,6 +293,7 @@
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         if (indexPath.row < [_searchResultsUSERS count]) {
             YSTFriendToDosViewController *personVC = [[YSTFriendToDosViewController alloc]init];
+            personVC.friendsVC = self.friendsVC;
             personVC.user = [_searchResultsUSERS objectAtIndex:indexPath.row];
             [self.navigationController pushViewController:personVC animated:YES];
         }
@@ -309,6 +310,7 @@
         if (indexPath.section == 0) //se for youset abre a tela da pessoa
         {
             YSTFriendToDosViewController *personVC = [[YSTFriendToDosViewController alloc]init];
+            personVC.friendsVC = self.friendsVC;
             personVC.user = [_youSetContacts objectAtIndex:indexPath.row];
             [self.navigationController pushViewController:personVC animated:YES];
         }
