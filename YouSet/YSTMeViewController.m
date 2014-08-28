@@ -122,36 +122,19 @@
 
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    YSTToDo *thisToDo = [_toDoMeArray objectAtIndex:indexPath.row];
-//    NSString *text = thisToDo.todo;
-////    YSTMeTableViewCell *cell = (YSTMeTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-//    
-//    CGSize constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
-//    
-//    CGREct textOfRect = [text boundingRectWithSize:constraint options:NSStringDrawingUsesLineFragmentOrigin attributes:<#(NSDictionary *)#> context:<#(NSStringDrawingContext *)#>]
-//    
-//    CGRect textRect = [text boundingRectWithSize:constraint
-//                                         options:NSStringDrawingUsesLineFragmentOrigin
-//                                      attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Myriad Pro"
-//                                                                                       size:18.0f]}
-//                                         context:nil];
-//    CGSize size = textRect.size;
-//    
-//    CGFloat height = MAX(size.height, 44.0f);
-//    
-//    
-//    float cellHeight = height + (CELL_CONTENT_MARGIN * 13);
-//    cellHeight = (cellHeight == 174) ? 165 : cellHeight;
-//    
-//    cellHeight = (cellHeight < 200 && cellHeight != 174) ? cellHeight - 20 : cellHeight;
-//    
-//    
-//    
-// 
-//
-//    return cellHeight;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    YSTMeTableViewCell *cell = (YSTMeTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    float cellHeight = 40.0f;
+    
+    if (cell.tag == 10) {
+        float cellHeight = 70.0f;
+        [cell.description sizeToFit];
+        return cellHeight;
+    }
+
+    return cellHeight;
+}
 
 
 
