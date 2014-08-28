@@ -53,6 +53,24 @@
 		92338289199421C000B199A9 /* YSTConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 92338288199421C000B199A9 /* YSTConnection.m */; };
 		9233828C199421D000B199A9 /* YSTGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9233828B199421D000B199A9 /* YSTGroup.m */; };
 		9233828F199421DC00B199A9 /* YSTGroupStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9233828E199421DC00B199A9 /* YSTGroupStore.m */; };
+		9238284F19AFA62400771CFC /* AppIcon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238283F19AFA62400771CFC /* AppIcon29x29.png */; };
+		9238285019AFA62400771CFC /* AppIcon29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284019AFA62400771CFC /* AppIcon29x29@2x.png */; };
+		9238285119AFA62400771CFC /* AppIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284119AFA62400771CFC /* AppIcon40x40.png */; };
+		9238285219AFA62400771CFC /* AppIcon40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284219AFA62400771CFC /* AppIcon40x40@2x.png */; };
+		9238285319AFA62400771CFC /* AppIcon50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284319AFA62400771CFC /* AppIcon50x50.png */; };
+		9238285419AFA62400771CFC /* AppIcon50x50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284419AFA62400771CFC /* AppIcon50x50@2x.png */; };
+		9238285519AFA62400771CFC /* AppIcon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284519AFA62400771CFC /* AppIcon57x57.png */; };
+		9238285619AFA62400771CFC /* AppIcon57x57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284619AFA62400771CFC /* AppIcon57x57@2x.png */; };
+		9238285719AFA62400771CFC /* AppIcon60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284719AFA62400771CFC /* AppIcon60x60.png */; };
+		9238285819AFA62400771CFC /* AppIcon60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284819AFA62400771CFC /* AppIcon60x60@2x.png */; };
+		9238285919AFA62400771CFC /* AppIcon72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284919AFA62400771CFC /* AppIcon72x72.png */; };
+		9238285A19AFA62400771CFC /* AppIcon72x72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284A19AFA62400771CFC /* AppIcon72x72@2x.png */; };
+		9238285B19AFA62400771CFC /* AppIcon76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284B19AFA62400771CFC /* AppIcon76x76.png */; };
+		9238285C19AFA62400771CFC /* AppIcon76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284C19AFA62400771CFC /* AppIcon76x76@2x.png */; };
+		9238285D19AFA62400771CFC /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284D19AFA62400771CFC /* iTunesArtwork.png */; };
+		9238285E19AFA62400771CFC /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284E19AFA62400771CFC /* iTunesArtwork@2x.png */; };
+		9238286119AFA87F00771CFC /* lauchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238285F19AFA87F00771CFC /* lauchImage@2x.png */; };
+		9238286219AFA87F00771CFC /* lauchImage@R4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238286019AFA87F00771CFC /* lauchImage@R4.png */; };
 		929EDD28199BE99400A909BD /* YSTMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 929EDD26199BE99400A909BD /* YSTMeTableViewCell.m */; };
 		929EDD29199BE99400A909BD /* YSTMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929EDD27199BE99400A909BD /* YSTMeTableViewCell.xib */; };
 		92A939D219AE91720001A468 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A939D119AE91720001A468 /* clock@2x.png */; };
@@ -69,7 +87,6 @@
 		92DB51EF19A7AE400011DBE4 /* YSTEditableTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DB51ED19A7AE400011DBE4 /* YSTEditableTableViewCell.xib */; };
 		92DB51FB19A7C3490011DBE4 /* YSTPickDateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB51F919A7C3490011DBE4 /* YSTPickDateTableViewCell.m */; };
 		92DB51FC19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DB51FA19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib */; };
-		B3329B7719AD134500E2EE6D /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3329B7619AD134500E2EE6D /* iTunesArtwork@2x.png */; };
 		B3329B7B19AD161B00E2EE6D /* YSTChoiceCountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B3329B7919AD161B00E2EE6D /* YSTChoiceCountryViewController.m */; };
 		B3329B7C19AD161B00E2EE6D /* YSTChoiceCountryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3329B7A19AD161B00E2EE6D /* YSTChoiceCountryViewController.xib */; };
 		B3329B8419AFA4FA00E2EE6D /* YSTImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B3329B8319AFA4FA00E2EE6D /* YSTImage.m */; };
@@ -162,6 +179,24 @@
 		9233828B199421D000B199A9 /* YSTGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTGroup.m; sourceTree = "<group>"; };
 		9233828D199421DC00B199A9 /* YSTGroupStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTGroupStore.h; sourceTree = "<group>"; };
 		9233828E199421DC00B199A9 /* YSTGroupStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTGroupStore.m; sourceTree = "<group>"; };
+		9238283F19AFA62400771CFC /* AppIcon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon29x29.png; sourceTree = "<group>"; };
+		9238284019AFA62400771CFC /* AppIcon29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon29x29@2x.png"; sourceTree = "<group>"; };
+		9238284119AFA62400771CFC /* AppIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon40x40.png; sourceTree = "<group>"; };
+		9238284219AFA62400771CFC /* AppIcon40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon40x40@2x.png"; sourceTree = "<group>"; };
+		9238284319AFA62400771CFC /* AppIcon50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon50x50.png; sourceTree = "<group>"; };
+		9238284419AFA62400771CFC /* AppIcon50x50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon50x50@2x.png"; sourceTree = "<group>"; };
+		9238284519AFA62400771CFC /* AppIcon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon57x57.png; sourceTree = "<group>"; };
+		9238284619AFA62400771CFC /* AppIcon57x57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon57x57@2x.png"; sourceTree = "<group>"; };
+		9238284719AFA62400771CFC /* AppIcon60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon60x60.png; sourceTree = "<group>"; };
+		9238284819AFA62400771CFC /* AppIcon60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon60x60@2x.png"; sourceTree = "<group>"; };
+		9238284919AFA62400771CFC /* AppIcon72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon72x72.png; sourceTree = "<group>"; };
+		9238284A19AFA62400771CFC /* AppIcon72x72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon72x72@2x.png"; sourceTree = "<group>"; };
+		9238284B19AFA62400771CFC /* AppIcon76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon76x76.png; sourceTree = "<group>"; };
+		9238284C19AFA62400771CFC /* AppIcon76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon76x76@2x.png"; sourceTree = "<group>"; };
+		9238284D19AFA62400771CFC /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		9238284E19AFA62400771CFC /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		9238285F19AFA87F00771CFC /* lauchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lauchImage@2x.png"; sourceTree = "<group>"; };
+		9238286019AFA87F00771CFC /* lauchImage@R4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lauchImage@R4.png"; sourceTree = "<group>"; };
 		929EDD25199BE99400A909BD /* YSTMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTMeTableViewCell.h; sourceTree = "<group>"; };
 		929EDD26199BE99400A909BD /* YSTMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTMeTableViewCell.m; sourceTree = "<group>"; };
 		929EDD27199BE99400A909BD /* YSTMeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTMeTableViewCell.xib; sourceTree = "<group>"; };
@@ -184,7 +219,6 @@
 		92DB51F819A7C3490011DBE4 /* YSTPickDateTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTPickDateTableViewCell.h; sourceTree = "<group>"; };
 		92DB51F919A7C3490011DBE4 /* YSTPickDateTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTPickDateTableViewCell.m; sourceTree = "<group>"; };
 		92DB51FA19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTPickDateTableViewCell.xib; sourceTree = "<group>"; };
-		B3329B7619AD134500E2EE6D /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		B3329B7819AD161B00E2EE6D /* YSTChoiceCountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTChoiceCountryViewController.h; sourceTree = "<group>"; };
 		B3329B7919AD161B00E2EE6D /* YSTChoiceCountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTChoiceCountryViewController.m; sourceTree = "<group>"; };
 		B3329B7A19AD161B00E2EE6D /* YSTChoiceCountryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTChoiceCountryViewController.xib; sourceTree = "<group>"; };
@@ -368,13 +402,38 @@
 		92CBD24D19AFA37A00E1EA63 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				B3329B7619AD134500E2EE6D /* iTunesArtwork@2x.png */,
+				92CBD24E19AFA52E00E1EA63 /* icons */,
 				92A939D119AE91720001A468 /* clock@2x.png */,
 				92A939D319AE98AD0001A468 /* none@2x.png */,
 				92A939D719AE9CBD0001A468 /* user@2x.png */,
 				92A939D519AE99220001A468 /* check@2x.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		92CBD24E19AFA52E00E1EA63 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				9238283F19AFA62400771CFC /* AppIcon29x29.png */,
+				9238284019AFA62400771CFC /* AppIcon29x29@2x.png */,
+				9238284119AFA62400771CFC /* AppIcon40x40.png */,
+				9238284219AFA62400771CFC /* AppIcon40x40@2x.png */,
+				9238284319AFA62400771CFC /* AppIcon50x50.png */,
+				9238284419AFA62400771CFC /* AppIcon50x50@2x.png */,
+				9238284519AFA62400771CFC /* AppIcon57x57.png */,
+				9238284619AFA62400771CFC /* AppIcon57x57@2x.png */,
+				9238284719AFA62400771CFC /* AppIcon60x60.png */,
+				9238284819AFA62400771CFC /* AppIcon60x60@2x.png */,
+				9238284919AFA62400771CFC /* AppIcon72x72.png */,
+				9238284A19AFA62400771CFC /* AppIcon72x72@2x.png */,
+				9238284B19AFA62400771CFC /* AppIcon76x76.png */,
+				9238284C19AFA62400771CFC /* AppIcon76x76@2x.png */,
+				9238284D19AFA62400771CFC /* iTunesArtwork.png */,
+				9238284E19AFA62400771CFC /* iTunesArtwork@2x.png */,
+				9238285F19AFA87F00771CFC /* lauchImage@2x.png */,
+				9238286019AFA87F00771CFC /* lauchImage@R4.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 		92DAD76E19954FBC0095FFCE /* views */ = {
@@ -491,12 +550,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9238285319AFA62400771CFC /* AppIcon50x50.png in Resources */,
 				92CBD24C19AFA26100E1EA63 /* none@2x.png in Resources */,
+				9238285A19AFA62400771CFC /* AppIcon72x72@2x.png in Resources */,
+				9238285B19AFA62400771CFC /* AppIcon76x76.png in Resources */,
 				92CBD24B19AFA25700E1EA63 /* check@2x.png in Resources */,
 				92A939D219AE91720001A468 /* clock@2x.png in Resources */,
 				9233824C19941DB800B199A9 /* InfoPlist.strings in Resources */,
 				920420D819ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.xib in Resources */,
 				2752A27B19ABF035000A547B /* YSTFriendToDosViewController.xib in Resources */,
+				9238285219AFA62400771CFC /* AppIcon40x40@2x.png in Resources */,
+				9238285619AFA62400771CFC /* AppIcon57x57@2x.png in Resources */,
+				9238285919AFA62400771CFC /* AppIcon72x72.png in Resources */,
+				9238285C19AFA62400771CFC /* AppIcon76x76@2x.png in Resources */,
+				9238285719AFA62400771CFC /* AppIcon60x60.png in Resources */,
+				9238286219AFA87F00771CFC /* lauchImage@R4.png in Resources */,
+				9238285819AFA62400771CFC /* AppIcon60x60@2x.png in Resources */,
+				9238285D19AFA62400771CFC /* iTunesArtwork.png in Resources */,
 				9233825419941DB800B199A9 /* Images.xcassets in Resources */,
 				92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */,
 				27512ABF19AEBB5A00992853 /* YSTRegisterNewViewController.xib in Resources */,
@@ -511,10 +581,16 @@
 				271DB79E19AD3AB2000405A4 /* YSTShowPhotoViewController.xib in Resources */,
 				929EDD29199BE99400A909BD /* YSTMeTableViewCell.xib in Resources */,
 				92B9362619956CA800F26A05 /* YSTGroupsViewController.xib in Resources */,
+				9238284F19AFA62400771CFC /* AppIcon29x29.png in Resources */,
+				9238285119AFA62400771CFC /* AppIcon40x40.png in Resources */,
 				B33B0A2B19A50F7600E86BFC /* YSTLoginViewController.xib in Resources */,
+				9238286119AFA87F00771CFC /* lauchImage@2x.png in Resources */,
 				2754E3EC19A2882C00861249 /* YSTFriendsViewController.xib in Resources */,
-				B3329B7719AD134500E2EE6D /* iTunesArtwork@2x.png in Resources */,
 				2752A26C19ABC154000A547B /* YSTUserTableViewCell.xib in Resources */,
+				9238285019AFA62400771CFC /* AppIcon29x29@2x.png in Resources */,
+				9238285519AFA62400771CFC /* AppIcon57x57.png in Resources */,
+				9238285E19AFA62400771CFC /* iTunesArtwork@2x.png in Resources */,
+				9238285419AFA62400771CFC /* AppIcon50x50@2x.png in Resources */,
 				B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */,
 				92DB51FC19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib in Resources */,
 				92DB51EF19A7AE400011DBE4 /* YSTEditableTableViewCell.xib in Resources */,

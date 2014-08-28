@@ -38,7 +38,7 @@
                        
                        if (!image) {
                            // se a imagem nao existir
-                           NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://104.131.134.10/default/download/%@", imageName]];
+                           NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://107.170.189.125/default/download/%@", imageName]];
                            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
                            
                            if (imageData) {
