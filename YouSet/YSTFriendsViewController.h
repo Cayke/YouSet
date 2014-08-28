@@ -13,6 +13,7 @@
 
 @property (nonatomic) NSArray *amigos;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *carregando;
 @property (nonatomic) BOOL reloadFriendsInfo;
 
 -(void) addContact;

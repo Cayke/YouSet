@@ -34,6 +34,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    //botar activity
+    [_carregando startAnimating];
+    _carregando.hidesWhenStopped = YES;
+    
     _amigos = [[YSTConnection sharedConnection] getFollowersFromDeviseUserWithError:nil];
     
     self.title = @"Amigos";
