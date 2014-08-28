@@ -14,7 +14,9 @@
 
 @property (nonatomic) NSArray *amigos;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) BOOL reloadFriendsInfo;
 
 -(void) addContact;
+-(void) reloadFriends;
 
 @end

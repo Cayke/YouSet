@@ -95,6 +95,10 @@
         self.auxTodo.isPublic = 0;
     }
     
+    if (_friendToDoVC) {
+        _friendToDoVC.reloadView = YES;
+    }
+    
 //    NSIndexPath *i = [[NSIndexPath alloc] initWithIndex:2];
 //    
 //    YSTSwitchTableViewCell *cell = (YSTSwitchTableViewCell *)[self.toDoTableView cellForRowAtIndexPath:i];
