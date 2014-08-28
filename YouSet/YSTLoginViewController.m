@@ -33,10 +33,25 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    UIColor *blueColor = [UIColor colorWithRed:0/255.0f green:122/255.0f blue:255/255.0f alpha:1.0f];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [ UIColor whiteColor]}];
+    self.inputCell.delegate = self;
+    self.inputCell.backgroundColor = [UIColor whiteColor];
+    self.inputCell.layer.cornerRadius = 2;
+    self.inputCell.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.inputCell.rightViewMode = UITextFieldViewModeUnlessEditing;
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    paddingView.backgroundColor = [UIColor clearColor];
+    self.inputCell.leftView = paddingView;
+    self.inputCell.leftViewMode = UITextFieldViewModeAlways;
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.barTintColor = blueColor;
+    self.view.backgroundColor = blueColor;
+    
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -117,6 +132,20 @@
     }
     return YES;
 }
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    [UIView animateWithDuration:0.30 animations:^{
+        self.view.frame = CGRectMake(0, -200, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    [UIView animateWithDuration:0.30 animations:^{
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+}
+
+
 
 
 @end
