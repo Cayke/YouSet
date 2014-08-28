@@ -78,14 +78,9 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
-    // Return the number of sections.
-    NSUInteger completed = [_arrayOfCompletedTodos count];
-    NSUInteger incompleted = [_arrayOfIncompleteTodos count];
-    NSUInteger inProgress = [_arrayOfInProgressTodos count];
-    
-    if ( completed > 0 && incompleted > 0 && inProgress > 0) {
+    if ( _nCompleted > 0 && _nIncompleted > 0 && _nInProgress > 0) {
         return 3;
-    } else if ( (completed>0 && incompleted>0) || (completed>0 && inProgress>0) || (incompleted>0 && inProgress>0) ) {
+    } else if ( (_nCompleted>0 && _nIncompleted>0) || (_nCompleted>0 && _nInProgress>0) || (_nIncompleted>0 && _nInProgress>0) ) {
         return 2;
     }
     
@@ -94,18 +89,41 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    // preservar a ordem da tabela que eh:
+    // 1: INCOMPLETOS
+    // 2: EM PROGRESSO
+    // 3: COMPLETADOS
+    
     if (section == 0) {
-        // todos incompletos
-        return [_arrayOfIncompleteTodos count];
+        // sessao numero 1
+        if (_nIncompleted>0) {
+            return _nIncompleted;
+            
+        } else if (_nInProgress>0) {
+            return _nInProgress;
+            
+        } else if (_nCompleted>0) {
+            return _nCompleted;
+
+        }
         
     } else if (section == 1) {
-        // todos em progresso
-        return [_arrayOfInProgressTodos count];
+        // sessao de numero 2
+        if (_nInProgress>0 && _nIncompleted>0) {
+            return _nInProgress;
+            
+        } else if (_nCompleted>0) {
+            return _nCompleted;
+            
+        }
         
     } else if (section == 2) {
-        // todos que estao completos
-        return [_arrayOfCompletedTodos count];
+        // sessao de numero 3
+        // so pode cair aqui quando exister todos em todos os estados
+        // ou seja, retorna todos completados
+        return _nCompleted;
     }
+    
     return 0;
 }
 
@@ -116,13 +134,45 @@
     YSTMeTableViewCell  *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     YSTToDo *thisToDo;
     
+    // preservar a ordem da tabela que eh:
+    // 1: INCOMPLETOS
+    // 2: EM PROGRESSO
+    // 3: COMPLETADOS
     
     if (indexPath.section == 0) {
-        thisToDo = [_arrayOfIncompleteTodos objectAtIndex:indexPath.row];
+        // sessao numero 1
+        if (_nIncompleted>0) {
+            // pegar do array dos todos que estao incompletos
+            thisToDo = [_arrayOfIncompleteTodos objectAtIndex:indexPath.row];
+            
+        } else if (_nInProgress>0) {
+            // pegar do array dos todos em progresso
+            thisToDo = [_arrayOfInProgressTodos objectAtIndex:indexPath.row];
+            
+        } else if (_nCompleted>0) {
+            // pegar do array dos todos completados
+            thisToDo = [_arrayOfCompletedTodos objectAtIndex:indexPath.row];
+            
+        }
+        
     } else if (indexPath.section == 1) {
-        thisToDo = [_arrayOfInProgressTodos objectAtIndex:indexPath.row];
-    } else {
+        // sessao de numero 2
+        if (_nInProgress>0 && _nIncompleted>0) {
+            // pegar do array dos todos em progresso
+            thisToDo = [_arrayOfInProgressTodos objectAtIndex:indexPath.row];
+            
+        } else if (_nCompleted>0) {
+            // pegar do array dos todos completados
+            thisToDo = [_arrayOfCompletedTodos objectAtIndex:indexPath.row];
+
+        }
+        
+    } else if (indexPath.section == 2) {
+        // sessao de numero 3
+        // so pode cair aqui quando exister todos em todos os estados
+        // ou seja, retorna todos completados
         thisToDo = [_arrayOfCompletedTodos objectAtIndex:indexPath.row];
+        
     }
     
     
@@ -151,17 +201,42 @@
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    switch (section) {
-        case 0:
+    
+    // preservar a ordem da tabela que eh:
+    // 1: INCOMPLETOS
+    // 2: EM PROGRESSO
+    // 3: COMPLETADOS
+    
+    if (section == 0) {
+        // sessao numero 1
+        if (_nIncompleted>0) {
             return @"Incompletas";
-            break;
-        case 1:
+            
+        } else if (_nInProgress>0) {
             return @"Em Progresso";
-            break;
-        case 2:
+            
+        } else if (_nCompleted>0) {
             return @"Terminadas";
-            break;
+            
+        }
+        
+    } else if (section == 1) {
+        // sessao de numero 2
+        if (_nInProgress>0 && _nIncompleted>0) {
+            return @"Em Progresso";
+            
+        } else if (_nCompleted>0) {
+            return @"Terminadas";
+            
+        }
+        
+    } else if (section == 2) {
+        // sessao de numero 3
+        // so pode cair aqui quando exister todos em todos os estados
+        // ou seja, retorna todos completados
+        return @"Terminadas";
     }
+   
     return @"";
 }
 
@@ -173,12 +248,45 @@
     
     YSTToDo *tappedToDO;
     
+    // preservar a ordem da tabela que eh:
+    // 1: INCOMPLETOS
+    // 2: EM PROGRESSO
+    // 3: COMPLETADOS
+    
     if (indexPath.section == 0) {
-        tappedToDO = [_arrayOfIncompleteTodos objectAtIndex:indexPath.row];
+        // sessao numero 1
+        if (_nIncompleted>0) {
+            // pegar do array dos todos que estao incompletos
+            tappedToDO = [_arrayOfIncompleteTodos objectAtIndex:indexPath.row];
+            
+        } else if (_nInProgress>0) {
+            // pegar do array dos todos em progresso
+            tappedToDO = [_arrayOfInProgressTodos objectAtIndex:indexPath.row];
+            
+        } else if (_nCompleted>0) {
+            // pegar do array dos todos completados
+            tappedToDO = [_arrayOfCompletedTodos objectAtIndex:indexPath.row];
+            
+        }
+        
     } else if (indexPath.section == 1) {
-        tappedToDO = [_arrayOfInProgressTodos objectAtIndex:indexPath.row];
-    } else {
+        // sessao de numero 2
+        if (_nInProgress>0 && _nIncompleted>0) {
+            // pegar do array dos todos em progresso
+            tappedToDO = [_arrayOfInProgressTodos objectAtIndex:indexPath.row];
+            
+        } else if (_nCompleted>0) {
+            // pegar do array dos todos completados
+            tappedToDO = [_arrayOfCompletedTodos objectAtIndex:indexPath.row];
+            
+        }
+        
+    } else if (indexPath.section == 2) {
+        // sessao de numero 3
+        // so pode cair aqui quando exister todos em todos os estados
+        // ou seja, retorna todos completados
         tappedToDO = [_arrayOfCompletedTodos objectAtIndex:indexPath.row];
+        
     }
     
     
@@ -217,6 +325,11 @@
     _arrayOfIncompleteTodos = incompletedTodos;
     _arrayOfInProgressTodos = inProgressTodos;
     
+    // Return the number of sections.
+    _nCompleted = [_arrayOfCompletedTodos count];
+    _nIncompleted = [_arrayOfIncompleteTodos count];
+    _nInProgress = [_arrayOfInProgressTodos count];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -232,7 +345,6 @@
 
     return cellHeight;
 }
-
 
 
 @end

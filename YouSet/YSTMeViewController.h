@@ -15,8 +15,12 @@
 @property (strong,nonatomic) NSArray *toDoMeArray;
 
 // array of competed/incompleted todos
-@property (nonatomic) NSArray *arrayOfCompletedTodos;
-@property (nonatomic) NSArray *arrayOfIncompleteTodos;
-@property (nonatomic) NSArray *arrayOfInProgressTodos;
+@property (nonatomic, readonly) NSArray *arrayOfCompletedTodos;
+@property (nonatomic, readonly) NSArray *arrayOfIncompleteTodos;
+@property (nonatomic, readonly) NSArray *arrayOfInProgressTodos;
+
+@property (nonatomic, readonly) NSInteger nCompleted;
+@property (nonatomic, readonly) NSInteger nInProgress;
+@property (nonatomic, readonly) NSInteger nIncompleted;
 
 @end
