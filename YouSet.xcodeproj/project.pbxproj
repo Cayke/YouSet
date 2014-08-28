@@ -71,6 +71,9 @@
 		9238285E19AFA62400771CFC /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238284E19AFA62400771CFC /* iTunesArtwork@2x.png */; };
 		9238286119AFA87F00771CFC /* lauchImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238285F19AFA87F00771CFC /* lauchImage@2x.png */; };
 		9238286219AFA87F00771CFC /* lauchImage@R4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238286019AFA87F00771CFC /* lauchImage@R4.png */; };
+		9238286619AFB03E00771CFC /* friends@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238286519AFB03E00771CFC /* friends@2x.png */; };
+		9238286919AFB98900771CFC /* launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238286719AFB98900771CFC /* launch@2x.png */; };
+		9238286A19AFB98900771CFC /* launch@R4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9238286819AFB98900771CFC /* launch@R4.png */; };
 		929EDD28199BE99400A909BD /* YSTMeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 929EDD26199BE99400A909BD /* YSTMeTableViewCell.m */; };
 		929EDD29199BE99400A909BD /* YSTMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 929EDD27199BE99400A909BD /* YSTMeTableViewCell.xib */; };
 		92A939D219AE91720001A468 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A939D119AE91720001A468 /* clock@2x.png */; };
@@ -197,6 +200,9 @@
 		9238284E19AFA62400771CFC /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		9238285F19AFA87F00771CFC /* lauchImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lauchImage@2x.png"; sourceTree = "<group>"; };
 		9238286019AFA87F00771CFC /* lauchImage@R4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lauchImage@R4.png"; sourceTree = "<group>"; };
+		9238286519AFB03E00771CFC /* friends@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friends@2x.png"; sourceTree = "<group>"; };
+		9238286719AFB98900771CFC /* launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch@2x.png"; sourceTree = "<group>"; };
+		9238286819AFB98900771CFC /* launch@R4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch@R4.png"; sourceTree = "<group>"; };
 		929EDD25199BE99400A909BD /* YSTMeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTMeTableViewCell.h; sourceTree = "<group>"; };
 		929EDD26199BE99400A909BD /* YSTMeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTMeTableViewCell.m; sourceTree = "<group>"; };
 		929EDD27199BE99400A909BD /* YSTMeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTMeTableViewCell.xib; sourceTree = "<group>"; };
@@ -405,7 +411,10 @@
 				92CBD24E19AFA52E00E1EA63 /* icons */,
 				92A939D119AE91720001A468 /* clock@2x.png */,
 				92A939D319AE98AD0001A468 /* none@2x.png */,
+				9238286719AFB98900771CFC /* launch@2x.png */,
+				9238286819AFB98900771CFC /* launch@R4.png */,
 				92A939D719AE9CBD0001A468 /* user@2x.png */,
+				9238286519AFB03E00771CFC /* friends@2x.png */,
 				92A939D519AE99220001A468 /* check@2x.png */,
 			);
 			name = images;
@@ -557,6 +566,7 @@
 				92CBD24B19AFA25700E1EA63 /* check@2x.png in Resources */,
 				92A939D219AE91720001A468 /* clock@2x.png in Resources */,
 				9233824C19941DB800B199A9 /* InfoPlist.strings in Resources */,
+				9238286619AFB03E00771CFC /* friends@2x.png in Resources */,
 				920420D819ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.xib in Resources */,
 				2752A27B19ABF035000A547B /* YSTFriendToDosViewController.xib in Resources */,
 				9238285219AFA62400771CFC /* AppIcon40x40@2x.png in Resources */,
@@ -574,10 +584,12 @@
 				275DE5CA19AE537F00022660 /* YSTNonUserTableViewCell.xib in Resources */,
 				B3329B7C19AD161B00E2EE6D /* YSTChoiceCountryViewController.xib in Resources */,
 				2752A26219ABAFCF000A547B /* YSTInviteTableViewCell.xib in Resources */,
+				9238286919AFB98900771CFC /* launch@2x.png in Resources */,
 				2752A27619ABE774000A547B /* YSTFriendTableViewCell.xib in Resources */,
 				276C877D19A7D02F00BE8E98 /* YSTInviteViewController.xib in Resources */,
 				92B9362119956C8D00F26A05 /* YSTMeViewController.xib in Resources */,
 				2752A27019ABE4E6000A547B /* user91.png in Resources */,
+				9238286A19AFB98900771CFC /* launch@R4.png in Resources */,
 				271DB79E19AD3AB2000405A4 /* YSTShowPhotoViewController.xib in Resources */,
 				929EDD29199BE99400A909BD /* YSTMeTableViewCell.xib in Resources */,
 				92B9362619956CA800F26A05 /* YSTGroupsViewController.xib in Resources */,

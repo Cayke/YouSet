@@ -95,10 +95,18 @@
     
     UITabBarController *tbc = [[UITabBarController alloc]init];
     tbc.viewControllers = [NSArray  arrayWithObjects:navMe,navFriends, nil];
-    NSString *image = @"user.png";
+    
+    NSString *imageUser = @"user.png";
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
-    imageView.image = [UIImage imageNamed:image];
+    imageView.image = [UIImage imageNamed:imageUser];
     navMe.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Eu" image:imageView.image selectedImage:imageView.image];
+    
+    NSString *imageFriends = @"friends.png";
+    UIImageView *imageViewFriends = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
+    imageView.image = [UIImage imageNamed:imageFriends];
+    navFriends.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Amigos" image:imageViewFriends.image selectedImage:imageViewFriends.image];
+    
+    
     self.window.rootViewController = tbc;
 }
 
