@@ -18,5 +18,5 @@
 @property (nonatomic) NSArray *arrayOfCompletedTodos;
 @property (nonatomic) NSArray *arrayOfIncompleteTodos;
 @property (nonatomic) NSArray *arrayOfInProgressTodos;
- 
+
 @end
