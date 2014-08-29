@@ -137,12 +137,16 @@
     [UIView animateWithDuration:0.30 animations:^{
         self.view.frame = CGRectMake(0, -200, self.view.frame.size.width, self.view.frame.size.height);
     }];
+    NSString *code = [self.country objectForKey:@"code"];
+    self.inputCell.text = code;
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     [UIView animateWithDuration:0.30 animations:^{
         self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     }];
+    
+    
 }
 
 
