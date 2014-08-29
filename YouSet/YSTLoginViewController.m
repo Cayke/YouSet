@@ -14,7 +14,7 @@
 #import "YSTToDoStore.h"
 
 @interface YSTLoginViewController ()
-
+@property (nonatomic) BOOL canEdit;
 @end
 
 @implementation YSTLoginViewController
@@ -25,6 +25,7 @@
     if (self) {
         // Custom initialization
         self.title = @"Login";
+        self.canEdit =YES;
     }
     return self;
 }
@@ -49,6 +50,7 @@
     self.navigationController.navigationBar.barTintColor = blueColor;
     self.view.backgroundColor = blueColor;
     
+    self.title = @"YouSet";
 
     
     
@@ -92,6 +94,7 @@
 - (IBAction)choiceCountry:(id)sender {
     YSTChoiceCountryViewController *choiceCountry = [[YSTChoiceCountryViewController alloc]init];
     choiceCountry.loginVC = self;
+    self.canEdit = NO;
     [self.navigationController pushViewController:choiceCountry animated:YES];
 }
 
@@ -109,7 +112,10 @@
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     NSString *code = [self.country objectForKey:@"code"];
     if (code) {
-        return NO;
+        if (!self.canEdit) {
+            self.canEdit = YES;
+            return NO;
+        }
     }
     return YES;
 }
