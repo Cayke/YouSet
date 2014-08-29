@@ -10,6 +10,13 @@
 #import "YSTToDo.h"
 #import "YSTFriendToDosViewController.h"
 
+#import "YSTEditableTableViewCell.h"
+#import "YSTToDoStore.h"
+#import "YSTPickDateTableViewCell.h"
+#import "YSTSwitchTableViewCell.h"
+
+@class YSTEditableTableViewCell;
+
 @interface YSTCreateNewTodo : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic) NSArray *sectionOfRequiredFields;
@@ -26,6 +33,5 @@
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 @property (nonatomic) YSTToDo *auxTodo;
 
-
-@property (nonatomic) NSString *todo;
+@property (nonatomic, weak) YSTEditableTableViewCell *edtTVCell;
 @end

@@ -7,11 +7,6 @@
 //
 
 #import "YSTCreateNewTodo.h"
-#import "YSTEditableTableViewCell.h"
-#import "YSTToDoStore.h"
-#import "YSTPickDateTableViewCell.h"
-#import "YSTSwitchTableViewCell.h"
-
 
 #define FONT_SIZE 14.0f
 #define CELL_CONTENT_WIDTH 320.0f
@@ -85,34 +80,35 @@
 }
 
 -(void)createToDo{
-    YSTAssignee *a = [[YSTAssignee alloc]init];
-    a.status = 0;
-    a.idUser = _userToDelegateTask.ID;
-    [self.auxTodo includeAssign:a];
-    
-    NSDate *date = [[NSDate alloc]init];
-    self.auxTodo.dateCreated = date;
-    self.auxTodo.idCreatedBy = [YSTUser sharedUser].ID;
-    
-    if (self.switchPrivacy.isOn) {
-        self.auxTodo.isPublic = 1;
+    if ( [self canCreateTodo] ) {
+        YSTAssignee *a = [[YSTAssignee alloc]init];
+        a.status = 0;
+        a.idUser = _userToDelegateTask.ID;
+        [self.auxTodo includeAssign:a];
+        
+        self.auxTodo.todo = _edtTVCell.contentTF.text;
+        
+        NSDate *date = [[NSDate alloc]init];
+        self.auxTodo.dateCreated = date;
+        self.auxTodo.idCreatedBy = [YSTUser sharedUser].ID;
+        
+        if (self.switchPrivacy.isOn) {
+            self.auxTodo.isPublic = 1;
+        } else {
+            self.auxTodo.isPublic = 0;
+        }
+        
+        if (_friendToDoVC) {
+            _friendToDoVC.reloadView = YES;
+        }
+        
+        [[YSTToDoStore sharedToDoStore]createTodo:self.auxTodo];
+        NSLog(@"created");
+        [self dismissViewControllerAnimated:YES completion:nil];
     } else {
-        self.auxTodo.isPublic = 0;
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Ops.." message:@"Existe campo não preenchido." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
     }
-    
-    if (_friendToDoVC) {
-        _friendToDoVC.reloadView = YES;
-    }
-    
-//    NSIndexPath *i = [[NSIndexPath alloc] initWithIndex:2];
-//    
-//    YSTSwitchTableViewCell *cell = (YSTSwitchTableViewCell *)[self.toDoTableView cellForRowAtIndexPath:i];
-//    
-//    //cell.switchOfCell....
-    
-    [[YSTToDoStore sharedToDoStore]createTodo:self.auxTodo];
-    NSLog(@"created");
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -125,7 +121,7 @@
     if (section == 0) {
         return @"Campos Obrigatórios";
     } else {
-        return @"Campos OPicionais";
+        return @"";
     }
     
 }
@@ -152,6 +148,8 @@
                 cell.contentTF.placeholder = @"Todo";
                 [cell.contentTF sizeToFit];
                 cell.auxTodo = self.auxTodo;
+                
+                _edtTVCell = cell;
                 
                 return cell;
             } else if ([item isEqualToString:@"Date Schedule"]) {
@@ -194,13 +192,22 @@
     [self.view endEditing:YES];
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            [_edtTVCell.contentTF becomeFirstResponder];
+        }
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-
-
-
+-(BOOL)canCreateTodo{
+    if (![_edtTVCell.contentTF.text isEqualToString:@""]) {
+        return YES;
+    }
+    return NO;
+}
 
 
 @end

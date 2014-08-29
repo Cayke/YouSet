@@ -24,20 +24,6 @@
     
 }
 
-- (NSString *) sendContentTF {
-    NSString *content;
-    
-    content = self.contentTF.text;
-    
-    return content;
-}
-
-
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    _auxTodo.todo = textField.text;
-    return YES;
-}
-
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];

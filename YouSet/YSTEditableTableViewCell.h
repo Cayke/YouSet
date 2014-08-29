@@ -18,6 +18,4 @@
 
 @property (weak, nonatomic) YSTToDo *auxTodo;
 
-- (NSString *) sendContentTF;
-
 @end
