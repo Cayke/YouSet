@@ -14,7 +14,7 @@
 #import "YSTToDoStore.h"
 
 @interface YSTLoginViewController ()
-
+@property (nonatomic) BOOL canEdit;
 @end
 
 @implementation YSTLoginViewController
@@ -25,6 +25,7 @@
     if (self) {
         // Custom initialization
         self.title = @"Login";
+        self.canEdit =YES;
     }
     return self;
 }
@@ -48,6 +49,9 @@
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.barTintColor = blueColor;
     self.view.backgroundColor = blueColor;
+    
+    self.title = @"YouSet";
+
     
     
 }
@@ -90,6 +94,7 @@
 - (IBAction)choiceCountry:(id)sender {
     YSTChoiceCountryViewController *choiceCountry = [[YSTChoiceCountryViewController alloc]init];
     choiceCountry.loginVC = self;
+    self.canEdit = NO;
     [self.navigationController pushViewController:choiceCountry animated:YES];
 }
 
@@ -102,6 +107,17 @@
     _country = country;
     _inputCell.text = [[country objectForKey:@"code"] stringByAppendingString:@" ("];
     [_inputCell becomeFirstResponder];
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    NSString *code = [self.country objectForKey:@"code"];
+    if (code) {
+        if (!self.canEdit) {
+            self.canEdit = YES;
+            return NO;
+        }
+    }
+    return YES;
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -145,10 +161,11 @@
     [UIView animateWithDuration:0.30 animations:^{
         self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     }];
-    
-    
+    [textField resignFirstResponder];
 }
+-(void)viewWillAppear:(BOOL)animated{
 
+}
 
 
 
