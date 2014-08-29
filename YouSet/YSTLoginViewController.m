@@ -49,6 +49,8 @@
     self.navigationController.navigationBar.barTintColor = blueColor;
     self.view.backgroundColor = blueColor;
     
+
+    
     
 }
 
@@ -104,6 +106,14 @@
     [_inputCell becomeFirstResponder];
 }
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    NSString *code = [self.country objectForKey:@"code"];
+    if (code) {
+        return NO;
+    }
+    return YES;
+}
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     if (textField == _inputCell) {
         
@@ -145,10 +155,11 @@
     [UIView animateWithDuration:0.30 animations:^{
         self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     }];
-    
-    
+    [textField resignFirstResponder];
 }
+-(void)viewWillAppear:(BOOL)animated{
 
+}
 
 
 
