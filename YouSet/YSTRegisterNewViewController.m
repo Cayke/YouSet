@@ -31,6 +31,14 @@
     // Do any additional setup after loading the view from its nib.
     
     _labelPhone.text = _phone;
+    self.inputName.backgroundColor = [UIColor whiteColor];
+    self.inputName.layer.cornerRadius = 2;
+    self.inputName.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.inputName.rightViewMode = UITextFieldViewModeUnlessEditing;
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    paddingView.backgroundColor = [UIColor clearColor];
+    self.inputName.leftView = paddingView;
+    self.inputName.leftViewMode = UITextFieldViewModeAlways;
 }
 
 - (void)didReceiveMemoryWarning
