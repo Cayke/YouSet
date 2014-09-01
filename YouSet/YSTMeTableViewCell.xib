@@ -35,6 +35,7 @@
                     <constraint firstAttribute="trailing" secondItem="bOp-bA-IuR" secondAttribute="trailing" constant="50" id="gDM-Wd-zkB"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="description" destination="bOp-bA-IuR" id="wED-3z-1sh"/>
                 <outlet property="usersOfTask" destination="hSb-Y6-Pcj" id="dFv-h7-YNa"/>
