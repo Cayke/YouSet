@@ -96,6 +96,7 @@
 		B33B0A2B19A50F7600E86BFC /* YSTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33B0A2919A50F7600E86BFC /* YSTLoginViewController.xib */; };
 		B35D9725199AB308004826D1 /* YSTCreateNewTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */; };
 		B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */; };
+		B3D72F0519B4EFEE00DB0C00 /* YSTIndicatorOfActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D72F0419B4EFEE00DB0C00 /* YSTIndicatorOfActivity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +235,8 @@
 		B35D9722199AB308004826D1 /* YSTCreateNewTodo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTCreateNewTodo.h; sourceTree = "<group>"; };
 		B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTCreateNewTodo.m; sourceTree = "<group>"; };
 		B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTCreateNewTodo.xib; sourceTree = "<group>"; };
+		B3D72F0319B4EFEE00DB0C00 /* YSTIndicatorOfActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTIndicatorOfActivity.h; sourceTree = "<group>"; };
+		B3D72F0419B4EFEE00DB0C00 /* YSTIndicatorOfActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTIndicatorOfActivity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +366,8 @@
 				9233828E199421DC00B199A9 /* YSTGroupStore.m */,
 				B3329B8219AFA4FA00E2EE6D /* YSTImage.h */,
 				B3329B8319AFA4FA00E2EE6D /* YSTImage.m */,
+				B3D72F0319B4EFEE00DB0C00 /* YSTIndicatorOfActivity.h */,
+				B3D72F0419B4EFEE00DB0C00 /* YSTIndicatorOfActivity.m */,
 				92338287199421C000B199A9 /* YSTConnection.h */,
 				92338288199421C000B199A9 /* YSTConnection.m */,
 				92CBD24D19AFA37A00E1EA63 /* images */,
@@ -645,6 +650,7 @@
 				920420D719ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.m in Sources */,
 				9233824E19941DB800B199A9 /* main.m in Sources */,
 				2752A27519ABE774000A547B /* YSTFriendTableViewCell.m in Sources */,
+				B3D72F0519B4EFEE00DB0C00 /* YSTIndicatorOfActivity.m in Sources */,
 				929EDD28199BE99400A909BD /* YSTMeTableViewCell.m in Sources */,
 				92DB51FB19A7C3490011DBE4 /* YSTPickDateTableViewCell.m in Sources */,
 				9233828F199421DC00B199A9 /* YSTGroupStore.m in Sources */,

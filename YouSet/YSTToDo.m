@@ -110,7 +110,7 @@
         [reloadAss setWithDictionary:a];
         [self includeAssign:reloadAss];
     }
-    
+    _createdByName = [dict objectForKey:@"userName"];
     _idCreatedBy = [[dict objectForKey:@"createdBy"]intValue];
     _dateCreated = [dict objectForKey:@"dateCreated"];
     _dateFinished = [dict objectForKey:@"dateFinished"];

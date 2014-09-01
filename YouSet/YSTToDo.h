@@ -27,6 +27,8 @@
 @property (nonatomic) NSArray *assignee;
 @property (nonatomic) int idCreatedBy;
 
+@property (nonatomic) NSString *createdByName;
+
 @property (nonatomic) NSDate *dateCreated;
 @property (nonatomic) NSDate *dateFinished;
 @property (nonatomic) NSDate *dateExpire;

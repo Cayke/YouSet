@@ -13,6 +13,9 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *description;
+@property (weak, nonatomic) IBOutlet UILabel *usersOfTask;
+
+@property (weak, nonatomic) YSTToDo *todo;
 
 -(void)setCellWithTodo:(YSTToDo*)todo;
 - (CGFloat)cellHeightForContentWidth:(CGFloat)contentWidth;

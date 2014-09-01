@@ -34,33 +34,34 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //botar activity
-    [_carregando setColor:[UIColor blueColor]];
-    [_carregando startAnimating];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    _carregando.hidesWhenStopped = YES;
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        //Call your function or whatever work that needs to be done
-        //Code in this part is run on a background thread
-        _amigos = [[YSTConnection sharedConnection] getFollowersFromDeviseUserWithError:nil];
-        
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            //Stop your activity indicator or anything else with the GUI
-            //Code here is run on the main thread
-            [_carregando stopAnimating];
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-            if (_amigos)
-            {
-                [_tableView reloadData];
-            }
-            else
-            {
-                UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Atencao" message:@"Voce ainda nao segue ninguem. Para seguir um amigo novo clique no botao + a cima" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-                [alerta show];
-            }
-        });
-    });
+    [self reloadFriends];
+//    //botar activity
+//    [_carregando setColor:[UIColor blueColor]];
+//    [_carregando startAnimating];
+//    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+//    _carregando.hidesWhenStopped = YES;
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        //Call your function or whatever work that needs to be done
+//        //Code in this part is run on a background thread
+//        _amigos = [[YSTConnection sharedConnection] getFollowersFromDeviseUserWithError:nil];
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^(void) {
+//            //Stop your activity indicator or anything else with the GUI
+//            //Code here is run on the main thread
+//            [_carregando stopAnimating];
+//            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+//            if (_amigos)
+//            {
+//                [_tableView reloadData];
+//            }
+//            else
+//            {
+//                UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Atencao" message:@"Voce ainda nao segue ninguem. Para seguir um amigo novo clique no botao + a cima" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+//                [alerta show];
+//            }
+//        });
+//    });
     
     
     self.title = @"Amigos";

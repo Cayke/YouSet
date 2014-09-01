@@ -14,6 +14,7 @@
 
 @property (atomic) int ID;
 @property (atomic) int idUser;
+@property (nonatomic) NSString *nameOfUser;
 @property (atomic) int status;
 
 // incrementa o status

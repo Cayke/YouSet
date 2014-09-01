@@ -20,6 +20,13 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSb-Y6-Pcj">
+                        <rect key="frame" x="20" y="50" width="280" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="bOp-bA-IuR" secondAttribute="bottom" constant="11" id="3aG-2Z-3uE"/>
@@ -30,6 +37,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="description" destination="bOp-bA-IuR" id="wED-3z-1sh"/>
+                <outlet property="usersOfTask" destination="hSb-Y6-Pcj" id="dFv-h7-YNa"/>
             </connections>
         </tableViewCell>
     </objects>

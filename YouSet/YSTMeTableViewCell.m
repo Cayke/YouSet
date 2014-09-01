@@ -31,8 +31,31 @@
 }
 
 -(void)setCellWithTodo:(YSTToDo *)todo{
-//    self.idToDo.text = [NSString stringWithFormat:@"%d",todo.ID];
+    _todo = todo;
     self.description.text = todo.todo;
+    
+    NSString *s = @"";
+    BOOL todoOfAnotherUser = NO;
+    for (YSTAssignee *a in todo.assignee) {
+        if (a.nameOfUser) {
+            s = [s stringByAppendingFormat:@"%@. ",a.nameOfUser];
+            todoOfAnotherUser = YES;
+        }
+    }
+    
+    _usersOfTask.hidden = NO;
+    _usersOfTask.text = [NSString stringWithFormat:@"To %@",s];
+    
+    if (!todoOfAnotherUser) {
+        _usersOfTask.hidden = YES;
+        
+        if (todo.idCreatedBy != [YSTUser sharedUser].ID) {
+            if (![todo.createdByName isEqualToString:@""]) {
+                _usersOfTask.hidden = NO;
+                _usersOfTask.text = [NSString stringWithFormat:@"From %@",todo.createdByName];
+            }
+        }
+    }
 }
 
 - (CGFloat)cellHeightForContentWidth:(CGFloat)contentWidth {

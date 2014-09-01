@@ -43,6 +43,9 @@
     self.meTableView.dataSource = self;
     [self reloadArraysOfTodos];
     
+    _refreshControl = [[UIRefreshControl alloc]init];
+    [self.meTableView addSubview:_refreshControl];
+    [_refreshControl addTarget:self action:@selector(refreshTable) forControlEvents: UIControlEventValueChanged];
     
     self.title = @"Eu";
     
@@ -58,6 +61,24 @@
     [self reloadArraysOfTodos];
     [_meTableView reloadData];
 }
+
+- (void)refreshTable {
+    //TODO: refresh your data
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSError *error = nil;
+        _toDoMeArray = [[YSTConnection sharedConnection] getTodosFromUser: [YSTUser sharedUser] withError:error];
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            if (!error) {
+                [_refreshControl endRefreshing];
+                [self reloadArraysOfTodos];
+                [_meTableView reloadData];
+            }
+        });
+    });
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

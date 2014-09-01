@@ -14,6 +14,8 @@
 
 @property (strong,nonatomic) NSArray *toDoMeArray;
 
+@property (nonatomic) UIRefreshControl *refreshControl;
+
 // array of competed/incompleted todos
 @property (nonatomic, readonly) NSArray *arrayOfCompletedTodos;
 @property (nonatomic, readonly) NSArray *arrayOfIncompleteTodos;
