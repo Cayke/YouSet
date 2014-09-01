@@ -98,15 +98,28 @@
     CGFloat blue = 255.0/divided;
     UIColor *greenColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
     
+    NSString *userNoFill = @"user_nofill.png";
+    UIImageView *userNoFillView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+    userNoFillView.image = [UIImage imageNamed:userNoFill];
     NSString *imageUser = @"user.png";
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
-    imageView.image = [UIImage imageNamed:imageUser];
-    navMe.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Eu" image:imageView.image selectedImage:imageView.image];
+    UIImageView *imageUserView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+    imageUserView.image = [UIImage imageNamed:imageUser];
+    navMe.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Eu" image:userNoFillView.image selectedImage:imageUserView.image];
+    
+    
+    NSString *contactsFilled = @"contactsFilled.png";
+    UIImageView *contactsFilledView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+    contactsFilledView.image = [UIImage imageNamed:contactsFilled];
+    
+    NSString *contactsUnFilled = @"contactsUnFilled.png";
+    UIImageView *contactsUnFilledView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+    contactsUnFilledView.image = [UIImage imageNamed:contactsUnFilled];
     
     NSString *imageFriends = @"friends.png";
     UIImageView *imageViewFriends = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
     imageViewFriends.image = [UIImage imageNamed:imageFriends];
-    navFriends.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Amigos" image:imageViewFriends.image selectedImage:imageViewFriends.image];
+    
+    navFriends.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Amigos" image:contactsUnFilledView.image selectedImage:contactsFilledView.image];
     
 //    for(UITabBarItem *item in nav.tabBar.items) {
 //        item.image = [[item.selectedImage imageWithColor:unselectedColor] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

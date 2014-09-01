@@ -83,6 +83,9 @@
 		92B9362619956CA800F26A05 /* YSTGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B9362419956CA800F26A05 /* YSTGroupsViewController.xib */; };
 		92B9362A19956CBC00F26A05 /* YSTContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B9362819956CBC00F26A05 /* YSTContactsViewController.m */; };
 		92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92B9362919956CBC00F26A05 /* YSTContactsViewController.xib */; };
+		92BE356C19B50745005B0DD2 /* user_nofill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92BE356B19B50745005B0DD2 /* user_nofill@2x.png */; };
+		92BE356F19B50B91005B0DD2 /* contactsFilled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92BE356D19B50B91005B0DD2 /* contactsFilled@2x.png */; };
+		92BE357019B50B91005B0DD2 /* contactsUnFilled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92BE356E19B50B91005B0DD2 /* contactsUnFilled@2x.png */; };
 		92CBD24B19AFA25700E1EA63 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A939D519AE99220001A468 /* check@2x.png */; };
 		92CBD24C19AFA26100E1EA63 /* none@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 92A939D319AE98AD0001A468 /* none@2x.png */; };
 		92DB51EE19A7AE400011DBE4 /* YSTEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DB51EC19A7AE400011DBE4 /* YSTEditableTableViewCell.m */; };
@@ -218,6 +221,9 @@
 		92B9362719956CBC00F26A05 /* YSTContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTContactsViewController.h; sourceTree = "<group>"; };
 		92B9362819956CBC00F26A05 /* YSTContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTContactsViewController.m; sourceTree = "<group>"; };
 		92B9362919956CBC00F26A05 /* YSTContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTContactsViewController.xib; sourceTree = "<group>"; };
+		92BE356B19B50745005B0DD2 /* user_nofill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_nofill@2x.png"; sourceTree = "<group>"; };
+		92BE356D19B50B91005B0DD2 /* contactsFilled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactsFilled@2x.png"; sourceTree = "<group>"; };
+		92BE356E19B50B91005B0DD2 /* contactsUnFilled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactsUnFilled@2x.png"; sourceTree = "<group>"; };
 		92DB51EB19A7AE400011DBE4 /* YSTEditableTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTEditableTableViewCell.h; sourceTree = "<group>"; };
 		92DB51EC19A7AE400011DBE4 /* YSTEditableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTEditableTableViewCell.m; sourceTree = "<group>"; };
 		92DB51ED19A7AE400011DBE4 /* YSTEditableTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTEditableTableViewCell.xib; sourceTree = "<group>"; };
@@ -416,7 +422,10 @@
 				9238286719AFB98900771CFC /* launch@2x.png */,
 				9238286819AFB98900771CFC /* launch@R4.png */,
 				92A939D719AE9CBD0001A468 /* user@2x.png */,
+				92BE356B19B50745005B0DD2 /* user_nofill@2x.png */,
 				9238286519AFB03E00771CFC /* friends@2x.png */,
+				92BE356D19B50B91005B0DD2 /* contactsFilled@2x.png */,
+				92BE356E19B50B91005B0DD2 /* contactsUnFilled@2x.png */,
 				92A939D519AE99220001A468 /* check@2x.png */,
 			);
 			name = images;
@@ -578,12 +587,14 @@
 				9238285719AFA62400771CFC /* AppIcon60x60.png in Resources */,
 				9238286219AFA87F00771CFC /* lauchImage@R4.png in Resources */,
 				9238285819AFA62400771CFC /* AppIcon60x60@2x.png in Resources */,
+				92BE356F19B50B91005B0DD2 /* contactsFilled@2x.png in Resources */,
 				9238285D19AFA62400771CFC /* iTunesArtwork.png in Resources */,
 				9233825419941DB800B199A9 /* Images.xcassets in Resources */,
 				92B9362B19956CBC00F26A05 /* YSTContactsViewController.xib in Resources */,
 				27512ABF19AEBB5A00992853 /* YSTRegisterNewViewController.xib in Resources */,
 				92A939D819AE9CBD0001A468 /* user@2x.png in Resources */,
 				275DE5CA19AE537F00022660 /* YSTNonUserTableViewCell.xib in Resources */,
+				92BE356C19B50745005B0DD2 /* user_nofill@2x.png in Resources */,
 				B3329B7C19AD161B00E2EE6D /* YSTChoiceCountryViewController.xib in Resources */,
 				2752A26219ABAFCF000A547B /* YSTInviteTableViewCell.xib in Resources */,
 				9238286919AFB98900771CFC /* launch@2x.png in Resources */,
@@ -606,6 +617,7 @@
 				9238285419AFA62400771CFC /* AppIcon50x50@2x.png in Resources */,
 				B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */,
 				92DB51FC19A7C3490011DBE4 /* YSTPickDateTableViewCell.xib in Resources */,
+				92BE357019B50B91005B0DD2 /* contactsUnFilled@2x.png in Resources */,
 				92DB51EF19A7AE400011DBE4 /* YSTEditableTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
