@@ -14,6 +14,10 @@
 
 @interface YSTToDo : NSObject
 
+// construir celula na tableview
+@property (nonatomic) CGFloat height;
+// construir celula na tableview
+
 ////// DEFINIR NUMEROS DOS STATUS
 // 0 incompleto
 // 1 iniciada

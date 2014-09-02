@@ -318,6 +318,64 @@
     [self.meTableView reloadData];
 }
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    YSTToDo *todoCell;
+    
+    // preservar a ordem da tabela que eh:
+    // 1: INCOMPLETOS
+    // 2: EM PROGRESSO
+    // 3: COMPLETADOS
+    
+    if (indexPath.section == 0) {
+        // sessao numero 1
+        if (_nIncompleted>0) {
+            // pegar do array dos todos que estao incompletos
+            todoCell = [_arrayOfIncompleteTodos objectAtIndex:indexPath.row];
+            
+        } else if (_nInProgress>0) {
+            // pegar do array dos todos em progresso
+            todoCell = [_arrayOfInProgressTodos objectAtIndex:indexPath.row];
+            
+        } else if (_nCompleted>0) {
+            // pegar do array dos todos completados
+            todoCell = [_arrayOfCompletedTodos objectAtIndex:indexPath.row];
+            
+        }
+        
+    } else if (indexPath.section == 1) {
+        // sessao de numero 2
+        if (_nInProgress>0 && _nIncompleted>0) {
+            // pegar do array dos todos em progresso
+            todoCell = [_arrayOfInProgressTodos objectAtIndex:indexPath.row];
+            
+        } else if (_nCompleted>0) {
+            // pegar do array dos todos completados
+            todoCell = [_arrayOfCompletedTodos objectAtIndex:indexPath.row];
+            
+        }
+        
+    } else if (indexPath.section == 2) {
+        // sessao de numero 3
+        // so pode cair aqui quando exister todos em todos os estados
+        // ou seja, retorna todos completados
+        todoCell = [_arrayOfCompletedTodos objectAtIndex:indexPath.row];
+        
+    }
+    
+    // altura do label = ??
+    // mais o rodape = 12
+    // mais especao de respiro = 16
+    
+    UILabel *label = [[UILabel alloc]init];
+    label.text = todoCell.todo;
+    label.numberOfLines = 6;
+    
+    CGSize size = [label sizeThatFits:CGSizeMake(280, FLT_MAX)];
+    
+    return size.height + 12 + 14;
+}
+
 -(void)reloadArraysOfTodos{
     
     NSMutableArray *completedTodos, *incompletedTodos, *inProgressTodos;
@@ -350,20 +408,6 @@
     _nIncompleted = [_arrayOfIncompleteTodos count];
     _nInProgress = [_arrayOfInProgressTodos count];
     
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    YSTMeTableViewCell *cell = (YSTMeTableViewCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-    float cellHeight = 40.0f;
-    
-    if (cell.tag == 10) {
-        float cellHeight = 70.0f;
-        [cell.description sizeToFit];
-        return cellHeight;
-    }
-
-    return cellHeight;
 }
 
 

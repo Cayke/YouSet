@@ -364,7 +364,6 @@
     
 }
 
-
 -(void) getUserToDos
 {
     _arrayToDos = [[YSTConnection sharedConnection]getTodosFromUser:self.user withError:nil];

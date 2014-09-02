@@ -20,7 +20,7 @@
 - (void)awakeFromNib
 {
     // Initialization code
-
+    _description.textAlignment = NSTextAlignmentJustified;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -61,8 +61,6 @@
 - (CGFloat)cellHeightForContentWidth:(CGFloat)contentWidth {
     return [self.textLabel sizeThatFits:CGSizeMake(contentWidth, CGFLOAT_MAX)].height;
 }
-
-
 
 
 @end
