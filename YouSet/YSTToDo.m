@@ -35,6 +35,21 @@
     }
 }
 
+-(int)status{
+    int sum = 0;
+    int qtd = 0;
+    for (YSTAssignee *a in _assignee) {
+        sum += a.status;
+        qtd++;
+    }
+    
+    if (qtd==1) {
+        return sum;
+    } else {
+        return sum/qtd;
+    }
+}
+
 -(NSDictionary *)getDictionary {
     NSNumber *ID = [[NSNumber alloc]initWithInt:_ID];
     NSNumber *idCreatedBy = [[NSNumber alloc]initWithInt:_idCreatedBy];

@@ -99,6 +99,7 @@
 		B33B0A2B19A50F7600E86BFC /* YSTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33B0A2919A50F7600E86BFC /* YSTLoginViewController.xib */; };
 		B35D9725199AB308004826D1 /* YSTCreateNewTodo.m in Sources */ = {isa = PBXBuildFile; fileRef = B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */; };
 		B35D9726199AB308004826D1 /* YSTCreateNewTodo.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */; };
+		B3A92F8719B78191008DA0C6 /* YSTTodosTableRule.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A92F8619B78191008DA0C6 /* YSTTodosTableRule.m */; };
 		B3D72F0519B4EFEE00DB0C00 /* YSTIndicatorOfActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D72F0419B4EFEE00DB0C00 /* YSTIndicatorOfActivity.m */; };
 /* End PBXBuildFile section */
 
@@ -241,6 +242,8 @@
 		B35D9722199AB308004826D1 /* YSTCreateNewTodo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTCreateNewTodo.h; sourceTree = "<group>"; };
 		B35D9723199AB308004826D1 /* YSTCreateNewTodo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTCreateNewTodo.m; sourceTree = "<group>"; };
 		B35D9724199AB308004826D1 /* YSTCreateNewTodo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTCreateNewTodo.xib; sourceTree = "<group>"; };
+		B3A92F8519B78191008DA0C6 /* YSTTodosTableRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTTodosTableRule.h; sourceTree = "<group>"; };
+		B3A92F8619B78191008DA0C6 /* YSTTodosTableRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTTodosTableRule.m; sourceTree = "<group>"; };
 		B3D72F0319B4EFEE00DB0C00 /* YSTIndicatorOfActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTIndicatorOfActivity.h; sourceTree = "<group>"; };
 		B3D72F0419B4EFEE00DB0C00 /* YSTIndicatorOfActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTIndicatorOfActivity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -354,6 +357,8 @@
 				9233825019941DB800B199A9 /* YSTAppDelegate.h */,
 				9233825119941DB800B199A9 /* YSTAppDelegate.m */,
 				92DAD76E19954FBC0095FFCE /* views */,
+				B3A92F8519B78191008DA0C6 /* YSTTodosTableRule.h */,
+				B3A92F8619B78191008DA0C6 /* YSTTodosTableRule.m */,
 				923382751994213F00B199A9 /* YSTToDo.h */,
 				923382761994213F00B199A9 /* YSTToDo.m */,
 				923382781994214E00B199A9 /* YSTToDoStore.h */,
@@ -646,6 +651,7 @@
 				9233827A1994214E00B199A9 /* YSTToDoStore.m in Sources */,
 				9233827D1994217C00B199A9 /* YSTAssignee.m in Sources */,
 				276C877419A67BBD00BE8E98 /* YSTPhone.m in Sources */,
+				B3A92F8719B78191008DA0C6 /* YSTTodosTableRule.m in Sources */,
 				B33B0A2A19A50F7600E86BFC /* YSTLoginViewController.m in Sources */,
 				923382831994219200B199A9 /* YSTUser.m in Sources */,
 				2754E3EF19A28B2200861249 /* CPStub.m in Sources */,

@@ -30,9 +30,12 @@
     // Configure the view for the selected state
 }
 
--(void)setCellWithTodo:(YSTToDo *)todo{
+-(void)setCellWithTodo:(YSTToDo *)todo andUserRepresentation:(YSTUser*)userRep{
+    _userRepresentation = userRep;
     _todo = todo;
+    
     self.description.text = todo.todo;
+    
     
     NSString *s = @"";
     BOOL todoOfAnotherUser = NO;
@@ -43,18 +46,18 @@
         }
     }
     
-    _usersOfTask.hidden = NO;
+    _usersOfTask.hidden = !todoOfAnotherUser;
     _usersOfTask.text = [NSString stringWithFormat:@"To %@",s];
     
-    if (!todoOfAnotherUser) {
-        _usersOfTask.hidden = YES;
-        
-        if (todo.idCreatedBy != [YSTUser sharedUser].ID) {
-            if (![todo.createdByName isEqualToString:@""]) {
-                _usersOfTask.hidden = NO;
-                _usersOfTask.text = [NSString stringWithFormat:@"From %@",todo.createdByName];
-            }
+    if (todo.idCreatedBy != [YSTUser sharedUser].ID) {
+        if (![todo.createdByName isEqualToString:@""]) {
+            _usersOfTask.hidden = NO;
+            _usersOfTask.text = [NSString stringWithFormat:@"From %@",todo.createdByName];
         }
+    }
+    
+    if (todo.idCreatedBy == userRep.ID && !todoOfAnotherUser) {
+        _usersOfTask.hidden = YES;
     }
 }
 

@@ -8,15 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "YSTToDo.h"
+#import "YSTUser.h"
 
 @interface YSTMeTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) YSTUser *userRepresentation;
 
 @property (weak, nonatomic) IBOutlet UILabel *description;
 @property (weak, nonatomic) IBOutlet UILabel *usersOfTask;
 
 @property (weak, nonatomic) YSTToDo *todo;
 
--(void)setCellWithTodo:(YSTToDo*)todo;
+-(void)setCellWithTodo:(YSTToDo*)todo andUserRepresentation:(YSTUser*)userRep;
 - (CGFloat)cellHeightForContentWidth:(CGFloat)contentWidth;
 @end

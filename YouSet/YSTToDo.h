@@ -59,4 +59,6 @@
 
 -(void)setFromServer:(NSDictionary*)dict;
 
+-(int)status;
+
 @end
