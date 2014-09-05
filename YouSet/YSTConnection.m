@@ -66,7 +66,7 @@
         //This is your completion handler
         dispatch_sync(dispatch_get_main_queue(), ^{
             
-            if (!error) {
+            if (!error && dataFromConnection) {
                 // nao deu erro e o server retornou alguma coisa, completar a tarefa
                 
                 NSError *error2 = nil;
