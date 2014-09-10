@@ -45,7 +45,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSError *error = nil;
-        _todosArray = [[YSTConnection sharedConnection] getTodosFromUser: [YSTUser sharedUser] withError:error];
+        _todosArray = [[YSTConnection sharedConnection] getTodosFromUser:_todosFromUser withError:error];
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             if (!error) {
