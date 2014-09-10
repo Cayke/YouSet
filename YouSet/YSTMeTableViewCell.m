@@ -61,9 +61,4 @@
     }
 }
 
-- (CGFloat)cellHeightForContentWidth:(CGFloat)contentWidth {
-    return [self.textLabel sizeThatFits:CGSizeMake(contentWidth, CGFLOAT_MAX)].height;
-}
-
-
 @end

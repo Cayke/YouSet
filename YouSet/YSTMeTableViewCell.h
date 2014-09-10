@@ -20,5 +20,5 @@
 @property (weak, nonatomic) YSTToDo *todo;
 
 -(void)setCellWithTodo:(YSTToDo*)todo andUserRepresentation:(YSTUser*)userRep;
-- (CGFloat)cellHeightForContentWidth:(CGFloat)contentWidth;
+
 @end

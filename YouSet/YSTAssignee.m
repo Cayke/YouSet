@@ -54,7 +54,7 @@
     _ID = [[dict objectForKey:@"id"]intValue];
     _idUser = [[dict objectForKey:@"idUser"]intValue];
     _status = [[dict objectForKey:@"status"]intValue];
-    _nameOfUser = [dict objectForKey:@"nameOfUser"];
+    _nameOfUser = [dict objectForKey:@"nameUser"];
 }
 
 @end
