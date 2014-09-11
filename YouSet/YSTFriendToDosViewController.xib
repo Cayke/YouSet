@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YSTFriendToDosViewController">
             <connections>
+                <outlet property="activityIndicator" destination="LAk-tt-gWg" id="EvQ-Oy-Ng7"/>
                 <outlet property="tableView" destination="WsL-wU-Z3e" id="fWo-bW-IcN"/>
                 <outlet property="toolBar" destination="U1R-Li-88l" id="w1s-29-ouO"/>
                 <outlet property="toolBarItemMais" destination="FOz-1m-snk" id="MdQ-Y2-oT2"/>
@@ -36,12 +37,19 @@
                         <barButtonItem systemItem="add" id="FOz-1m-snk"/>
                     </items>
                 </toolbar>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LAk-tt-gWg">
+                    <rect key="frame" x="142" y="266" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="U1R-Li-88l" secondAttribute="bottom" id="5CE-xv-KRf"/>
                 <constraint firstItem="WsL-wU-Z3e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Jfk-iK-biz"/>
+                <constraint firstAttribute="centerX" secondItem="LAk-tt-gWg" secondAttribute="centerX" id="OPg-Ht-Lvl"/>
                 <constraint firstItem="U1R-Li-88l" firstAttribute="top" secondItem="WsL-wU-Z3e" secondAttribute="bottom" id="Zbd-XU-qAc"/>
+                <constraint firstAttribute="centerY" secondItem="LAk-tt-gWg" secondAttribute="centerY" id="aSb-UB-C6G"/>
                 <constraint firstAttribute="trailing" secondItem="WsL-wU-Z3e" secondAttribute="trailing" id="c02-PT-iaj"/>
                 <constraint firstItem="U1R-Li-88l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dCN-6L-uf9"/>
                 <constraint firstItem="U1R-Li-88l" firstAttribute="top" secondItem="WsL-wU-Z3e" secondAttribute="bottom" id="kHd-6O-3h9"/>

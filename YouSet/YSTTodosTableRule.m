@@ -22,8 +22,9 @@
     return self;
 }
 
--(void)loadTable{
+-(void)loadTableWithActivity:(UIActivityIndicatorView * ) carregando{
     // ler celula da tabela
+    [carregando startAnimating];
     UINib *nib = [UINib nibWithNibName:@"YSTMeTableViewCell" bundle:nil];
     [_tableView registerNib:nib forCellReuseIdentifier:@"YSTMeTableViewCell"];
     
@@ -32,26 +33,83 @@
     [_tableView addSubview:_refreshControl];
     [_refreshControl addTarget:self action:@selector(refreshTable) forControlEvents: UIControlEventValueChanged];
     
-    // carregar do server
-    _todosArray = [[YSTConnection sharedConnection]getTodosFromUser:_todosFromUser withError:nil];
-    
-    // atualizar tabela
-    [self reloadArraysOfTodos];
-    [_tableView reloadData];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        // carregar do server
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        NSError *error = nil;
+        _todosArray = [[YSTConnection sharedConnection]getTodosFromUser:_todosFromUser withError:&error];
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [carregando stopAnimating];
+            
+            if (error) {
+                //criar alerta
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:
+                                   NSLocalizedString(@"Erro de conexāo", nil)
+                                                             message:NSLocalizedString(@"Nāo foi possível conectar ao servidor. Confira sua conexāo de internet.", nil) delegate:self
+                                                   cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [av show];
+                
+            }
+            
+            
+            // atualizar tabela
+            [self reloadArraysOfTodos];
+            [_tableView reloadData];
+        });
+    });
 }
 
 - (void)refreshTable {
     //TODO: refresh your data
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         NSError *error = nil;
-        _todosArray = [[YSTConnection sharedConnection] getTodosFromUser:_todosFromUser withError:error];
+        _todosArray = [[YSTConnection sharedConnection] getTodosFromUser:_todosFromUser withError:&error];
         
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             if (!error) {
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                 [_refreshControl endRefreshing];
                 [self reloadArraysOfTodos];
                 [_tableView reloadData];
+            }
+            else
+            {
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                [_refreshControl endRefreshing];
+                
+                //criar alerta
+                NSString *errorMsg;
+                
+                if ([[error domain] isEqualToString:NSURLErrorDomain]) {
+                    switch ([error code]) {
+                        case NSURLErrorCannotFindHost:
+                            errorMsg = NSLocalizedString(@"Cannot find specified host. Retype URL.", nil);
+                            break;
+                        case NSURLErrorCannotConnectToHost:
+                            errorMsg = NSLocalizedString(@"Cannot connect to specified host. Server may be down.", nil);
+                            break;
+                        case NSURLErrorNotConnectedToInternet:
+                            errorMsg = NSLocalizedString(@"Cannot connect to the internet. Service may not be available.", nil);
+                            break;
+                        default:
+                            errorMsg = [error localizedDescription];
+                            break;
+                    }
+                } else {
+                    errorMsg = [error localizedDescription];
+                }
+                
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:
+                                   NSLocalizedString(@"Error Loading Page", nil)
+                                                             message:errorMsg delegate:self
+                                                   cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+                [av show];
+                
             }
         });
     });

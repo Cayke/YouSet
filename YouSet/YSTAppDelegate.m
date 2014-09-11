@@ -69,22 +69,22 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     // colorir tabbar
-  //  [[UITabBar appearance] setBarStyle: UIBarStyleBlack];
- //   [[UITabBar appearance] setBarTintColor: blueColor];
+    //  [[UITabBar appearance] setBarStyle: UIBarStyleBlack];
+    //   [[UITabBar appearance] setBarTintColor: blueColor];
     [[UITabBar appearance] setTintColor:blueColor];
-
+    
 }
 
 -(void)normalInitializateOfYouSet {
     [[YSTToDoStore sharedToDoStore]reloadTodos];
     // Override point for customization after application launch.
     YSTMeViewController *mvc = [[YSTMeViewController alloc]init];
-//    YSTGroupsViewController *gvc = [[YSTGroupsViewController alloc]init];
+    //    YSTGroupsViewController *gvc = [[YSTGroupsViewController alloc]init];
     YSTFriendsViewController *fvc = [[YSTFriendsViewController alloc]init];
-
+    
     // criar navigations
     UINavigationController *navMe = [[UINavigationController alloc]initWithRootViewController:mvc];
-//    UINavigationController *navGroups = [[UINavigationController alloc]initWithRootViewController:gvc];
+    //    UINavigationController *navGroups = [[UINavigationController alloc]initWithRootViewController:gvc];
     UINavigationController *navFriends = [[UINavigationController alloc]initWithRootViewController:fvc];
     
     
@@ -122,10 +122,10 @@
     
     navFriends.tabBarItem = [[UITabBarItem alloc]initWithTitle:NSLocalizedString(@"Amigos", nil) image:contactsUnFilledView.image selectedImage:contactsFilledView.image];
     
-//    for(UITabBarItem *item in nav.tabBar.items) {
-//        item.image = [[item.selectedImage imageWithColor:unselectedColor] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//    }
-
+    //    for(UITabBarItem *item in nav.tabBar.items) {
+    //        item.image = [[item.selectedImage imageWithColor:unselectedColor] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    //    }
+    
     self.window.rootViewController = tbc;
 }
 
@@ -137,7 +137,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     // salvar todos
