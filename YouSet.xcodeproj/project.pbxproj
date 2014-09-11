@@ -10,6 +10,7 @@
 		271DB79D19AD3AB2000405A4 /* YSTShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 271DB79B19AD3AB2000405A4 /* YSTShowPhotoViewController.m */; };
 		271DB79E19AD3AB2000405A4 /* YSTShowPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 271DB79C19AD3AB2000405A4 /* YSTShowPhotoViewController.xib */; };
 		273530EA19A3D00F00677422 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 273530E919A3D00F00677422 /* MessageUI.framework */; };
+		2745F17719C23F760037250A /* userNotFound.png in Resources */ = {isa = PBXBuildFile; fileRef = 2745F17619C23F760037250A /* userNotFound.png */; };
 		27512ABE19AEBB5A00992853 /* YSTRegisterNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27512ABC19AEBB5A00992853 /* YSTRegisterNewViewController.m */; };
 		27512ABF19AEBB5A00992853 /* YSTRegisterNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27512ABD19AEBB5A00992853 /* YSTRegisterNewViewController.xib */; };
 		2752A26119ABAFCF000A547B /* YSTInviteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2752A25F19ABAFCF000A547B /* YSTInviteTableViewCell.m */; };
@@ -119,6 +120,7 @@
 		271DB79B19AD3AB2000405A4 /* YSTShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTShowPhotoViewController.m; sourceTree = "<group>"; };
 		271DB79C19AD3AB2000405A4 /* YSTShowPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTShowPhotoViewController.xib; sourceTree = "<group>"; };
 		273530E919A3D00F00677422 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		2745F17619C23F760037250A /* userNotFound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userNotFound.png; sourceTree = "<group>"; };
 		27512ABB19AEBB5A00992853 /* YSTRegisterNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTRegisterNewViewController.h; sourceTree = "<group>"; };
 		27512ABC19AEBB5A00992853 /* YSTRegisterNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTRegisterNewViewController.m; sourceTree = "<group>"; };
 		27512ABD19AEBB5A00992853 /* YSTRegisterNewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSTRegisterNewViewController.xib; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 			children = (
 				92CBD24E19AFA52E00E1EA63 /* icons */,
 				92A939D119AE91720001A468 /* clock@2x.png */,
+				2745F17619C23F760037250A /* userNotFound.png */,
 				92A939D319AE98AD0001A468 /* none@2x.png */,
 				9238286719AFB98900771CFC /* launch@2x.png */,
 				9238286819AFB98900771CFC /* launch@R4.png */,
@@ -593,6 +596,7 @@
 				920420D819ABCE8F00A0A1B8 /* YSTSwitchTableViewCell.xib in Resources */,
 				2752A27B19ABF035000A547B /* YSTFriendToDosViewController.xib in Resources */,
 				9238285219AFA62400771CFC /* AppIcon40x40@2x.png in Resources */,
+				2745F17719C23F760037250A /* userNotFound.png in Resources */,
 				9238285619AFA62400771CFC /* AppIcon57x57@2x.png in Resources */,
 				9238285919AFA62400771CFC /* AppIcon72x72.png in Resources */,
 				9238285C19AFA62400771CFC /* AppIcon76x76@2x.png in Resources */,
