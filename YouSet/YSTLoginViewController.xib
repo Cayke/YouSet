@@ -41,7 +41,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="GWF-hU-Ng7"/>
                     </constraints>
-                    <state key="normal" title="Enviar">
+                    <state key="normal" title="Cadastrar">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

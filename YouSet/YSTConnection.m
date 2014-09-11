@@ -60,7 +60,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // fazer algum request para o servidor
         NSError *error = nil;
-        NSData *dataFromConnection = [self makePostRequest:request post:post withError:error];
+        NSData *dataFromConnection = [self makePostRequest:request post:post withError:&error];
         
         
         //This is your completion handler
@@ -106,7 +106,7 @@
 }
 
 // login do usuario, cria o usuario, ou retorna os todos do usuario caso o usuario exista
--(YSTUser*)login:(YSTUser*)user withError:(NSError*)error {
+-(YSTUser*)login:(YSTUser*)user withError:(NSError**)error {
     // definir url da area de login
     NSURL *url = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"login"]];
     
@@ -119,10 +119,10 @@
     
     NSData *dataFromConnection = [self makePostRequest:request post: post withError:error];
     
-    if (!error && dataFromConnection) {
+    if (!*error && dataFromConnection) {
         
-        NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error];
-        if (!error) {
+        NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:error];
+        if (!*error) {
             if ([[a objectForKey:@"userStatus"]isEqualToString:@"notFounded"]) {
                 return nil;
             } else {
@@ -136,7 +136,7 @@
 }
 
 // vai fazer uma requisicao dos todos do usuario passado
--(NSArray*)getTodosFromUser:(YSTUser*)user withError:(NSError*)error {
+-(NSArray*)getTodosFromUser:(YSTUser*)user withError:(NSError**)error {
     // definir url da area de login
     NSURL *url = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"getTodosFromUser"]];
     
@@ -149,10 +149,10 @@
     
     NSData *dataFromConnection = [self makePostRequest:request post: post withError:error];
     
-    if (!error && dataFromConnection) {
-        
-        NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error];
-        if (!error) {
+    if (!*error && dataFromConnection) {
+        NSError *error2 = nil;
+        NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error2];
+        if (!error2) {
             NSMutableArray *todos = [[NSMutableArray alloc]init];
             YSTToDo *newTodo = nil;
             for (NSDictionary *d in a) {
@@ -184,7 +184,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // fazer algum request para o servidor
         NSError *error = nil;
-        NSData *dataFromConnection = [self makePostRequest:request post: post withError:error];
+        NSData *dataFromConnection = [self makePostRequest:request post: post withError:&error];
         
         
         //This is your completion handler
@@ -209,7 +209,7 @@
 }
 
 // pegar os seguidores de um user dado
--(NSArray*)getFollowersFromUser:(YSTUser*)user withError:(NSError*)error {
+-(NSArray*)getFollowersFromUser:(YSTUser*)user withError:(NSError**)error {
     // definir url da area de login
     NSURL *url = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"getFollowersFromUser"]];
     
@@ -222,10 +222,10 @@
     
     NSData *dataFromConnection = [self makePostRequest:request post: post withError:error];
     
-    if (!error && dataFromConnection) {
-        
-        NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error];
-        if (!error) {
+    if (!*error && dataFromConnection) {
+        NSError *error2;
+        NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error2];
+        if (!error2) {
             if ([a count]) {
                 NSMutableArray *users = [[NSMutableArray alloc]init];
                 YSTUser *user = nil;
@@ -244,12 +244,12 @@
 }
 
 // pegar seguidores do usuario do dispositivo
--(NSArray*)getFollowersFromDeviseUserWithError:(NSError*)error{
+-(NSArray*)getFollowersFromDeviseUserWithError:(NSError**)error{
     return [self getFollowersFromUser:[YSTUser sharedUser] withError:error];
 }
 
 // envia a lista de contatos do usuario do dispositivo e retorna os usuarios que sao do yst
--(NSArray*)verifyUserOfYST:(NSArray*)contacts withError:(NSError*)error{
+-(NSArray*)verifyUserOfYST:(NSArray*)contacts withError:(NSError**)error{
     // definir url da area de login
     NSURL *url = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"verifyUsersOfYST"]];
     
@@ -267,10 +267,10 @@
     
     NSData *dataFromConnection = [self makePostRequest:request post: post withError:error];
     
-    if (!error && dataFromConnection) {
-        
-        NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error];
-        if (!error) {
+    if (!*error && dataFromConnection) {
+        NSError *error2= nil;
+        NSDictionary *a = [NSJSONSerialization JSONObjectWithData:dataFromConnection options:0 error:&error2];
+        if (!error2) {
             YSTUser *user = nil;
             NSMutableArray *users = [[NSMutableArray alloc]init];
             for (NSDictionary *d in a) {
@@ -286,7 +286,7 @@
     return nil;
 }
 
--(NSData*)makePostRequest:(NSMutableURLRequest*)request post:(NSString*)post withError:(NSError*)error{
+-(NSData*)makePostRequest:(NSMutableURLRequest*)request post:(NSString*)post withError:(NSError**)error{
     [request setTimeoutInterval:20];
     
     // Encode the post string using NSASCIIStringEncoding and also the post string you need to send in NSData format.
@@ -305,7 +305,9 @@
     
     NSURLResponse *response;
     
-    return [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
+    
+    return data;
 }
 
 -(NSString*)codeOfServer{

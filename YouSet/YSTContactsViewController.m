@@ -33,8 +33,6 @@
     if (self) {
         // Custom initialization
         _allContacts = [[NSMutableArray alloc]init];
-        // _youSetContacts = [[NSMutableArray alloc]init];
-        // _nonYouSetContacts = [[NSMutableArray alloc]init];
         
     }
     return self;
@@ -137,8 +135,6 @@
     [self createUsableContacts:allContacts];
     
     //ver quais contatos tem youset (chamar o server passando allContacts
-    // NSError *error;
-    //[[YSTConnection sharedConnection]verifyUserOfYST:_allContacts withError:error];
     [self usersOfYoutSet];
     
 }
@@ -260,41 +256,40 @@
 -(void)usersOfYoutSet
 {
     NSError *error = nil;
-    NSArray *array =     [[YSTConnection sharedConnection]verifyUserOfYST:_allContacts withError:error];
+    NSArray *array = [[YSTConnection sharedConnection]verifyUserOfYST:_allContacts withError:&error];
     _youSetContacts = [[NSMutableArray alloc]initWithArray:array];
     _nonYouSetContacts = [[NSMutableArray alloc]initWithArray:_allContacts];
     
-    //    for (int i = 0; i < [_allContacts count]; i++)
-    //    {
-    //        //pegar pessoa
-    //        YSTContact *contact = [_allContacts objectAtIndex:i];
-    //        BOOL isMember = NO;
-    //
-    //        //pegar telefones
-    //        for (int j=0; j < [contact.phones count]; j++)
-    //        {
-    //            YSTPhone *phone = [contact.phones objectAtIndex:j];
-    //            NSString *numeroString = phone.phone;
-    //
-    //            //usar predicado para transformar numero para apenas numeros
-    //            NSString *numeros = [[numeroString componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"1234567890"]invertedSet]] componentsJoinedByString:@""];
-    //
-    //            //perguntar para server se e usuario YouSet
-    //            BOOL isUSer = [CPStub isYouSetUser:numeros];
-    //
-    //            //se for poe contato no arrayUsuarios e sai do for
-    //            if (isUSer) {
-    //                [_youSetContacts addObject:[_allContacts objectAtIndex:i]];
-    //                isMember = YES;
-    //                break;
-    //            }
-    //        }
-    //        if (!isMember)
-    //        {
-    //            //por no arrayNotUser
-    //            [_nonYouSetContacts addObject:[_allContacts objectAtIndex:i]];
-    //        }
-    //    }
+//    if (error) {
+//        //criar alerta
+//        NSString *errorMsg;
+//        
+//        if ([[error domain] isEqualToString:NSURLErrorDomain]) {
+//            switch ([error code]) {
+//                case NSURLErrorCannotFindHost:
+//                    errorMsg = NSLocalizedString(@"Cannot find specified host. Retype URL.", nil);
+//                    break;
+//                case NSURLErrorCannotConnectToHost:
+//                    errorMsg = NSLocalizedString(@"Cannot connect to specified host. Server may be down.", nil);
+//                    break;
+//                case NSURLErrorNotConnectedToInternet:
+//                    errorMsg = NSLocalizedString(@"Cannot connect to the internet. Service may not be available.", nil);
+//                    break;
+//                default:
+//                    errorMsg = [error localizedDescription];
+//                    break;
+//            }
+//        } else {
+//            errorMsg = [error localizedDescription];
+//        }
+//        
+//        UIAlertView *av = [[UIAlertView alloc] initWithTitle:
+//                           NSLocalizedString(@"Erro de conexao", nil)
+//                                                     message:errorMsg delegate:self
+//                                           cancelButtonTitle:@"Cancelar" otherButtonTitles:nil];
+//        [av show];
+//
+//    }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

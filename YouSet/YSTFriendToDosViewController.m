@@ -53,7 +53,7 @@
     _tableRule = [[YSTTodosTableRule alloc]initWithTable:_tableView andUser:_user];
     _tableView.delegate = _tableRule;
     _tableView.dataSource = _tableRule;
-    [_tableRule loadTable];
+    [_tableRule loadTableWithActivity:_activityIndicator];
     
     //criar botao com a fotinha da pessoa
     self.navigationItem.rightBarButtonItem = [self createBarButtonWithPhoto];

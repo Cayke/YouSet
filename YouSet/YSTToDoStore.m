@@ -137,7 +137,7 @@
 -(void)pullTodosFromServer{
     // se usuario existe, vamos puxar os todos dele do servidor
     NSError *error = nil;
-    NSArray *todosFromUser = [[YSTConnection sharedConnection]getTodosFromUser:[YSTUser sharedUser] withError:error];
+    NSArray *todosFromUser = [[YSTConnection sharedConnection]getTodosFromUser:[YSTUser sharedUser] withError:&error];
     if (todosFromUser) {
         self.toDos = [[NSMutableArray alloc]initWithArray:todosFromUser];
     }

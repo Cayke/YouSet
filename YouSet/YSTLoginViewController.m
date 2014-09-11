@@ -72,7 +72,7 @@
     YSTUser *u = [[YSTUser alloc]init];
     u.phone = _inputCell.text;
     NSError *error = nil;
-    u = [[YSTConnection sharedConnection]login:u withError:error];
+    u = [[YSTConnection sharedConnection]login:u withError:&error];
     if (u) {
         // usuario existe
         [YSTUser sharedUser].phone = u.phone;
@@ -81,8 +81,18 @@
         [[YSTUser sharedUser] save];
         
         [_appDelegate normalInitializateOfYouSet];
+    }
+    else if (error)
+    {
+        //criar alerta
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:
+                           NSLocalizedString(@"Erro de conexāo", nil)
+                                                     message:NSLocalizedString(@"Nāo foi possível conectar ao servidor. Confira sua conexāo de internet.", nil) delegate:self
+                                           cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [av show];
         
-    } else {
+    }
+    else {
         // usuario nao existe
         YSTRegisterNewViewController *registerVC = [[YSTRegisterNewViewController alloc]init];
         registerVC.phone = _inputCell.text;
