@@ -45,6 +45,8 @@
     //sumir com a tabbar e colocar a toolbar
     self.tabBarController.tabBar.hidden = YES;
     
+    self.toolBarItemSeguir.title = NSLocalizedString(@"Seguir", nil);
+    
     //botar as actions dos tabbaritens
     [self.toolBarItemSeguir setAction:@selector(seguir)];
     [self.toolBarItemMais setAction:@selector(addTodo)];
@@ -53,7 +55,7 @@
     _tableRule = [[YSTTodosTableRule alloc]initWithTable:_tableView andUser:_user];
     _tableView.delegate = _tableRule;
     _tableView.dataSource = _tableRule;
-    [_tableRule loadTable];
+    [_tableRule loadTableWithActivity:_activityIndicator];
     
     //criar botao com a fotinha da pessoa
     self.navigationItem.rightBarButtonItem = [self createBarButtonWithPhoto];

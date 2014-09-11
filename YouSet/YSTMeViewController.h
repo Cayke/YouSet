@@ -13,6 +13,7 @@
 //<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *meTableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic) YSTTodosTableRule *tableRule;
 
 @property (strong,nonatomic) NSArray *toDoMeArray;

@@ -34,6 +34,6 @@
 
 -(id)initWithTable:(UITableView*)tableView andUser:(YSTUser*)user;
 
--(void)loadTable;
+-(void)loadTableWithActivity:(UIActivityIndicatorView * ) carregando;
 
 @end

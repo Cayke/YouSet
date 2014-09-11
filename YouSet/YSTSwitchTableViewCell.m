@@ -14,7 +14,7 @@
 {
     // Initialization code
     
-    self.title.text = @"Público";
+    self.title.text = NSLocalizedString(@"Público", nil);
     self.accessoryView = self.switchOfCell;
     [self.switchOfCell addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
 

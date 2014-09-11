@@ -41,14 +41,14 @@
     
 //    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelToDo)];
     
-    self.title = @"Criar todo";
+    self.title = NSLocalizedString(@"Criar Todo", nil);
  
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelToDo)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Cancelar", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(cancelToDo)];
     self.navigationItem.leftBarButtonItem = cancelButton;
     cancelButton.tintColor = [UIColor whiteColor];
     
 //    UIBarButtonItem *createButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(createToDo)];
-    UIBarButtonItem *createButton = [[UIBarButtonItem alloc]initWithTitle:@"Criar" style:UIBarButtonItemStyleBordered target:self action:@selector(createToDo)];
+    UIBarButtonItem *createButton = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Criar", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(createToDo)];
     self.navigationItem.rightBarButtonItem = createButton;
     createButton.tintColor = [UIColor whiteColor];
     
@@ -106,7 +106,7 @@
         NSLog(@"created");
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Ops.." message:@"Existe campo não preenchido." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Ops.." message:NSLocalizedString(@"Existem campos não preenchidos.", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
 }
@@ -119,7 +119,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"Campos Obrigatórios";
+        return NSLocalizedString(@"Campos Obrigatórios", nil);
     } else {
         return @"";
     }

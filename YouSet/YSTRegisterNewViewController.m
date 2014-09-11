@@ -58,7 +58,7 @@
     
     NSError *error = nil;
     
-    newUser = [[YSTConnection sharedConnection]login:newUser withError:error];
+    newUser = [[YSTConnection sharedConnection]login:newUser withError:&error];
     
     if (newUser) {
         [YSTUser sharedUser].ID = newUser.ID;
@@ -67,6 +67,20 @@
         [YSTUser sharedUser].photo = newUser.photo;
         [[YSTUser sharedUser] save];
         [_login.appDelegate normalInitializateOfYouSet];
+    }
+    else if (error)
+    {
+        //criar alerta
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:
+                           NSLocalizedString(@"Erro de conexāo", nil)
+                                                     message:NSLocalizedString(@"Nāo foi possível conectar ao servidor. Confira sua conexāo de internet.", nil) delegate:self
+                                           cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [av show];
+    }
+    else
+    {
+        UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Erro" message:@"Tente novamente mais tarde" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles: nil];
+        [alerta show];
     }
 }
 @end

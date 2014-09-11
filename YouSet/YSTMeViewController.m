@@ -38,10 +38,10 @@
     _tableRule = [[YSTTodosTableRule alloc]initWithTable:_meTableView andUser:[YSTUser sharedUser]];
     self.meTableView.delegate = _tableRule;
     self.meTableView.dataSource = _tableRule;
-    [_tableRule loadTable];
+    [_tableRule loadTableWithActivity:_activityIndicator];
     
     
-    self.title = @"Eu";
+    self.title = NSLocalizedString(@"Eu", nil);
     
     
     UIBarButtonItem *btnAddToDO = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newToDo:)];

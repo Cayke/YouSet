@@ -1,0 +1,86 @@
+/* 
+  Localizable.strings
+  YouSet
+
+  Created by Willian Pinho on 9/11/14.
+  Copyright (c) 2014 YouSet. All rights reserved.
+*/
+
+//MeTableViewController
+
+"Eu" = "Me";
+
+
+
+//TodosTableRule
+
+"Incompletas" = "Incomplete";
+
+"Em Progresso" = "In Progress";
+
+"Terminadas" = "Done";
+
+
+
+//MeTableViewCell
+
+"De " = "From ";
+
+"Para %@" = "To %@";
+
+
+
+//CreateNewTodo
+
+"Criar Todo" = "Create Todo";
+
+"Cancelar" = "Cancel";
+
+"Criar" = "Create";
+
+"Existem campos não preenchidos." = "There are empty fields.";
+
+"Campos Obrigatórios" = "Required Fields";
+
+
+
+//SwitchTableViewCell
+
+"Público" = "Public";
+
+
+
+//FriendsViewController
+
+"Amigos" = "Friends";
+
+
+
+//FriendsTableViewCell
+
+"%d pendente(s)" = "%d pending";
+
+
+
+//InviteViewController
+
+"     Convidar para o YouSet" = "     Invite to YouSet";
+
+"Erro" = "Error";
+
+"Nao foi possivel enviar SMS!" = "Unable to send SMS!";
+
+"Seu dispositivo nao suporta SMS!" = "Your device does not support SMS!";
+
+"Acabei de baixar um app chamado YouSet, sensacional hahaha. Baixe agora para usarmos juntos. Segue o link www.youset.com.br/download" = "I downloaded YouSet, this is a great app. Download now for use togheter www.youset.com.br/download";
+
+//FriendToDosViewController
+"Seguir" = "Follow";
+
+//ContactsViewController
+"Atenção" = "Attention";
+"O aplicativo precisa da permissão. Não funcionará corretamente. Libere nos ajustes." = "The app need permission. Not work properly. Release in the settings.";
+"O aplicativo precisa de permissão. Libere nos ajustes" = "The app requires permission. Release the adjustment";
+"Procurar" = "Search";
+"YouSet" = "YouSet";
+"Contatos" = "Contacts";

@@ -71,7 +71,7 @@
     else
     {
         UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"hue"];
-        cell.textLabel.text = @"     Invite to YouSet";
+        cell.textLabel.text = NSLocalizedString(@"     Convidar para o YouSet", nil);
         
         // COR VERDE
         // R: 184
@@ -120,13 +120,13 @@
 - (void)showSMS:(NSString*)number {
     
     if(![MFMessageComposeViewController canSendText]) {
-        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Erro" message:@"Seu device nao suporta SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Erro", nil) message:NSLocalizedString(@"Seu dispositivo nao suporta SMS!", nil) delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [warningAlert show];
         return;
     }
     
     NSArray *recipents = @[number];
-    NSString *message = [NSString stringWithFormat:@"Acabei de baixar um app chamado YouSet, sensacional hahaha. Baixe agora para usarmos juntos. Segue o link www.youset.com.br/download"];
+    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Acabei de baixar um app chamado YouSet, sensacional hahaha. Baixe agora para usarmos juntos. Segue o link www.youset.com.br/download", nil)];
     
     MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
     messageController.messageComposeDelegate = self;
@@ -156,7 +156,7 @@
         contador++;
     }
     
-    [_actionSheet addButtonWithTitle:@"Cancelar"];
+    [_actionSheet addButtonWithTitle:NSLocalizedString(@"Cancelar", nil)];
     _actionSheet.cancelButtonIndex = contador;
     [_actionSheet showInView:self.view];
 }
