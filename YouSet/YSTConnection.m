@@ -293,20 +293,8 @@
     [request setTimeoutInterval:30];
     [request setHTTPMethod:@"POST"];
     
-    // boundary
-//    NSString *boundary = @"nameImage";
-//    NSString *FileParamConstant = @"imageName";
-    
-    // set Content-Type in HTTP header
-//    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-//    [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
-    
     // post body
     NSMutableData *body = [NSMutableData data];
-    
-//    NSString *param = [user getDescriptionToPost];
-//    NSString *BoundaryConstant = @"user";
-    
     
     // just some random text that will never occur in the body
     NSString *stringBoundary = @"0xKhTmLbOuNdArY---boundry_of_YouSetPicture---pqo";
@@ -347,33 +335,6 @@
     // add body to post
     [request setHTTPBody:body];
     
-    
-//    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[@"Content-Disposition: form-data; name=\"user\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[[NSString stringWithFormat:@"%@\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    
-    // add image data
-//    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
-//    if (imageData) {
-//        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-//        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"image.jpg\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-//        [body appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-//        [body appendData:imageData];
-//        [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-//    }
-//    
-//    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    // setting the body of the post to the reqeust
-//    [request setHTTPBody:body];
-//    
-//    // set the content-length
-//    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[body length]];
-//    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    
-    
-    
     // set URL
     NSURL *requestURL = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"image"]];
     [request setURL:requestURL];
@@ -382,7 +343,9 @@
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
 }
 
--(NSData*)makePostRequest:(NSMutableURLRequest*)request post:(NSString*)post withError:(NSError*)error{
+
+
+-(NSData*)makePostRequest:(NSMutableURLRequest*)request post:(NSString*)post withError:(NSError**)error{
     [request setTimeoutInterval:20];
     
     // Encode the post string using NSASCIIStringEncoding and also the post string you need to send in NSData format.
