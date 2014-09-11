@@ -26,7 +26,7 @@
 -(void)mount
 {
     _labelContato.text = _user.name;
-    _labelPendent.text = [NSString stringWithFormat:@"%d pendente(s)", _user.pendentTodos];
+    _labelPendent.text = [NSString stringWithFormat:NSLocalizedString(@"%d pendente(s)", nil), _user.pendentTodos];
     
     if (_viewOfImage == nil)
     {

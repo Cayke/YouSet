@@ -45,6 +45,8 @@
     //sumir com a tabbar e colocar a toolbar
     self.tabBarController.tabBar.hidden = YES;
     
+    self.toolBarItemSeguir.title = NSLocalizedString(@"Seguir", nil);
+    
     //botar as actions dos tabbaritens
     [self.toolBarItemSeguir setAction:@selector(seguir)];
     [self.toolBarItemMais setAction:@selector(addTodo)];

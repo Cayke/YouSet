@@ -71,7 +71,7 @@
             } else {
                 // User denied access
                 // Display an alert telling user the contact could not be added
-                UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Atenção" message:@"O aplicativo precisa da permissao. Nao funcionara corretamente. Libere nos ajustes." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Atenção", nil) message:NSLocalizedString(@"O aplicativo precisa da permissão. Não funcionará corretamente. Libere nos ajustes.", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
                 [alerta show];
             }
         });
@@ -98,7 +98,7 @@
     else {
         // The user has previously denied access
         // Send an alert telling user to change privacy setting in settings app
-        UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Atenção" message:@"O aplicativo precisa de permissao. Libere nos ajustes" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Atenção",nil) message:NSLocalizedString(@"O aplicativo precisa de permissão. Libere nos ajustes", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alerta show];
     }
     
@@ -115,6 +115,7 @@
     [self.searchController setDelegate:self];
     
     [self.tableView setTableHeaderView:self.searchController.searchBar];
+    searchBar.placeholder = NSLocalizedString(@"Procurar", nil);
     
     //tablebiew
     UINib *nib = [UINib nibWithNibName:@"YSTUserTableViewCell" bundle:nil];
@@ -305,10 +306,10 @@
         switch (section)
         {
             case 0:
-                sectionName = @"YouSet";
+                sectionName = NSLocalizedString(@"YouSet", nil);
                 break;
             case 1:
-                sectionName = @"Contacts";
+                sectionName = NSLocalizedString(@"Contatos", nil);
                 break;
             default:
                 sectionName = @"";

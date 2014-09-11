@@ -41,7 +41,7 @@
     [_tableRule loadTable];
     
     
-    self.title = @"Eu";
+    self.title = NSLocalizedString(@"Eu", nil);
     
     
     UIBarButtonItem *btnAddToDO = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newToDo:)];

@@ -64,7 +64,7 @@
 //    });
     
     
-    self.title = @"Amigos";
+    self.title = NSLocalizedString(@"Amigos", nil);
     
     UINib *nib = [UINib nibWithNibName:@"YSTFriendTableViewCell" bundle:nil];
     [_tableView registerNib:nib forCellReuseIdentifier:@"YSTFriendTableViewCell"];

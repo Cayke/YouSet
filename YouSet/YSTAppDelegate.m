@@ -92,11 +92,11 @@
     tbc.viewControllers = @[navMe, navFriends];
     
     // cores para fazer o verde
-    CGFloat divided = 255.0;
-    CGFloat red = 255.0/divided;
-    CGFloat green = 255.0/divided;
-    CGFloat blue = 255.0/divided;
-    UIColor *greenColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+//    CGFloat divided = 255.0;
+//    CGFloat red = 255.0/divided;
+//    CGFloat green = 255.0/divided;
+//    CGFloat blue = 255.0/divided;
+// UIColor *greenColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
     
     NSString *userNoFill = @"user_nofill.png";
     UIImageView *userNoFillView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
@@ -104,7 +104,8 @@
     NSString *imageUser = @"user.png";
     UIImageView *imageUserView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
     imageUserView.image = [UIImage imageNamed:imageUser];
-    navMe.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Eu" image:userNoFillView.image selectedImage:imageUserView.image];
+    
+    navMe.tabBarItem = [[UITabBarItem alloc]initWithTitle:NSLocalizedString(@"Eu", nil) image:userNoFillView.image selectedImage:imageUserView.image];
     
     
     NSString *contactsFilled = @"contactsFilled.png";
@@ -119,7 +120,7 @@
     UIImageView *imageViewFriends = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
     imageViewFriends.image = [UIImage imageNamed:imageFriends];
     
-    navFriends.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Amigos" image:contactsUnFilledView.image selectedImage:contactsFilledView.image];
+    navFriends.tabBarItem = [[UITabBarItem alloc]initWithTitle:NSLocalizedString(@"Amigos", nil) image:contactsUnFilledView.image selectedImage:contactsFilledView.image];
     
 //    for(UITabBarItem *item in nav.tabBar.items) {
 //        item.image = [[item.selectedImage imageWithColor:unselectedColor] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

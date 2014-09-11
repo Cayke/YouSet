@@ -1,0 +1,88 @@
+/* 
+  Localizable.strings
+  YouSet
+
+  Created by Willian Pinho on 9/11/14.
+  Copyright (c) 2014 YouSet. All rights reserved.
+*/
+
+//MeTableViewController
+
+"Eu" = "Eu";
+
+
+
+//TodosTableRule
+
+"Incompletas" = "Incompletas";
+
+"Em Progresso" = "Em Progresso";
+
+"Terminadas" = "Terminadas";
+
+
+
+//MeTableViewCell
+
+"De " = "De ";
+
+"Para %@" = "Para %@";
+
+
+
+//CreateNewTodo
+
+"Criar Todo" = "Criar Todo";
+
+"Cancelar" = "Cancelar";
+
+"Criar" = "Criar";
+
+"Existem campos não preenchidos." = "Existem campos não preenchidos.";
+
+"Campos Obrigatórios" = "Campos Obrigatórios";
+
+
+
+//SwitchTableViewCell
+
+"Público" = "Público";
+
+
+
+//FriendsViewController
+
+"Amigos" = "Amigos";
+
+
+
+//FriendsTableViewCell
+
+"%d pendente(s)" = "%d pendente(s)";
+
+
+
+//InviteViewController
+
+"     Convidar para o YouSet" = "     Convidar para o YouSet";
+
+"Erro" = "Erro";
+
+"Nao foi possivel enviar SMS!" = "Nao foi possivel enviar SMS!";
+
+"Seu dispositivo nao suporta SMS!" = "Seu dispositivo nao suporta SMS!";
+
+"Acabei de baixar um app chamado YouSet, sensacional hahaha. Baixe agora para usarmos juntos. Segue o link www.youset.com.br/download" = "Acabei de baixar um app chamado YouSet, sensacional hahaha. Baixe agora para usarmos juntos. Segue o link www.youset.com.br/download";
+
+//FriendToDosViewController
+"Seguir" = "Seguir";
+
+//ContactsViewController
+"Atenção" = "Atenção";
+"O aplicativo precisa da permissão. Não funcionará corretamente. Libere nos ajustes." = "O aplicativo precisa da permissão. Não funcionará corretamente. Libere nos ajustes.";
+"O aplicativo precisa de permissão. Libere nos ajustes" = "O aplicativo precisa de permissão. Libere nos ajustes";
+"Procurar" = "Procurar";
+"YouSet" = "YouSet";
+"Contatos" = "Contatos";
+
+

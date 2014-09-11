@@ -192,23 +192,23 @@
     if (section == 0) {
         // sessao numero 1
         if (_nIncompleted>0) {
-            return @"Incompletas";
+            return NSLocalizedString(@"Incompletas", nil);
             
         } else if (_nInProgress>0) {
-            return @"Em Progresso";
+            return NSLocalizedString(@"Em Progresso", nil);
             
         } else if (_nCompleted>0) {
-            return @"Terminadas";
+            return NSLocalizedString(@"Terminadas", nil);
             
         }
         
     } else if (section == 1) {
         // sessao de numero 2
         if (_nInProgress>0 && _nIncompleted>0) {
-            return @"Em Progresso";
+            return NSLocalizedString(@"Em Progresso", nil);
             
         } else if (_nCompleted>0) {
-            return @"Terminadas";
+            return NSLocalizedString(@"Terminadas", nil);
             
         }
         
@@ -216,7 +216,7 @@
         // sessao de numero 3
         // so pode cair aqui quando exister todos em todos os estados
         // ou seja, retorna todos completados
-        return @"Terminadas";
+        return NSLocalizedString(@"Terminadas", nil);
     }
     
     return @"";
