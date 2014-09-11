@@ -14,6 +14,7 @@
 #import "YSTLoginViewController.h"
 #import "YSTUser.h"
 #import "YSTToDoStore.h"
+#import "YSTConnection.h"
 
 @implementation YSTAppDelegate
 

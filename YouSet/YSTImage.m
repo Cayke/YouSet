@@ -60,7 +60,7 @@
                                [imageView setImage: image];
                                
                            } else {
-                               [imageView setImage:[UIImage imageNamed:@"imageNotFound.png"]];
+                               //[imageView setImage:[UIImage imageNamed:@"imageNotFound.png"]];
                            }
                            [activityIndicator stopAnimating];
                        });

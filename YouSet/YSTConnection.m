@@ -286,6 +286,102 @@
     return nil;
 }
 
+-(void)uploadPhoto:(UIImage *)image ofUser:(YSTUser *)user withError:(NSError**)error{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    [request setHTTPShouldHandleCookies:NO];
+    [request setTimeoutInterval:30];
+    [request setHTTPMethod:@"POST"];
+    
+    // boundary
+//    NSString *boundary = @"nameImage";
+//    NSString *FileParamConstant = @"imageName";
+    
+    // set Content-Type in HTTP header
+//    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+//    [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    // post body
+    NSMutableData *body = [NSMutableData data];
+    
+//    NSString *param = [user getDescriptionToPost];
+//    NSString *BoundaryConstant = @"user";
+    
+    
+    // just some random text that will never occur in the body
+    NSString *stringBoundary = @"0xKhTmLbOuNdArY---boundry_of_YouSetPicture---pqo";
+    // header value
+    NSString *headerBoundary = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",
+                                stringBoundary];
+    
+    // set header
+    [request addValue:headerBoundary forHTTPHeaderField:@"Content-Type"];
+    
+    //codigo para acessar a funcao no webserver
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Disposition: form-data; name=\"code\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[self codeOfServer] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    //client id
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Disposition: form-data; name=\"userID\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"%d", user.ID] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    //image
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Disposition: form-data; name=\"youset_item_image\"; filename=\"item.jpg\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Type: image/jpeg\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Transfer-Encoding: binary\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // get the image data from main bundle directly into NSData object
+    NSData *imgData = UIImageJPEGRepresentation(image, 1.0);
+    // add it to body
+    [body appendData:imgData];
+    [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    NSLog(@"message added");
+    // final boundary
+    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // add body to post
+    [request setHTTPBody:body];
+    
+    
+//    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[@"Content-Disposition: form-data; name=\"user\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[[NSString stringWithFormat:@"%@\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    // add image data
+//    NSData *imageData = UIImageJPEGRepresentation(image, 1.0);
+//    if (imageData) {
+//        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+//        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"image.jpg\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+//        [body appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+//        [body appendData:imageData];
+//        [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+//    }
+//    
+//    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    // setting the body of the post to the reqeust
+//    [request setHTTPBody:body];
+//    
+//    // set the content-length
+//    NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[body length]];
+//    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    
+    
+    
+    // set URL
+    NSURL *requestURL = [[NSURL alloc]initWithString: [_site stringByAppendingString:@"image"]];
+    [request setURL:requestURL];
+    
+    NSURLResponse *response;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:error];
+}
+
 -(NSData*)makePostRequest:(NSMutableURLRequest*)request post:(NSString*)post withError:(NSError*)error{
     [request setTimeoutInterval:20];
     
@@ -307,6 +403,7 @@
     
     return [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 }
+
 
 -(NSString*)codeOfServer{
     return @"TRDFyluihijIt76UILUHgTYDeTSD7adokIUHplOU7tdRTyojikbG7y9";

@@ -37,4 +37,7 @@
 // envia a lista de contatos do usuario do dispositivo e retorna os usuarios que sao do yst
 -(NSArray*)verifyUserOfYST:(NSArray*)contacts withError:(NSError*)error;
 
+// enviar imagem para server
+-(void)uploadPhoto:(UIImage*)image ofUser:(YSTUser*)user withError:(NSError**)error;
+
 @end
