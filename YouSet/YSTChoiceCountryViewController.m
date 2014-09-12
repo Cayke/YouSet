@@ -31,7 +31,7 @@
                    @{@"pais": @"Brasil", @"code": @"+55"}
                    ];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationItem setTitle:@"Selecione seu País"];
+    [self.navigationItem setTitle:NSLocalizedString(@"Selecione seu País", nil)];
 }
 
 - (void)didReceiveMemoryWarning

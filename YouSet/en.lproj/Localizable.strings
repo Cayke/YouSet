@@ -84,3 +84,15 @@
 "Procurar" = "Search";
 "YouSet" = "YouSet";
 "Contatos" = "Contacts";
+
+//LoginViewController
+
+"Entrar" = "Sign In";
+"Erro de conexāo" = "Connection Error";
+"Nāo foi possível conectar ao servidor. Confira sua conexāo de internet." = "Could not connect to server. Check your Internet connection.";
+"Cadastrar" = "Sign In";
+"País" = "Country";
+"Telefone" = "Phone";
+
+//ChoiceCountryViewController
+"Selecione seu País" = "Select your country";

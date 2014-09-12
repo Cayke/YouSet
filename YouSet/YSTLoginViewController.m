@@ -24,7 +24,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"Login";
+        self.title = NSLocalizedString(@"Entrar", nil);
         self.canEdit =YES;
     }
     return self;
@@ -50,7 +50,14 @@
     self.navigationController.navigationBar.barTintColor = blueColor;
     self.view.backgroundColor = blueColor;
     
-    self.title = @"YouSet";
+    
+    self.title = NSLocalizedString(@"YouSet", nil);
+    self.btnCadastrar.titleLabel.text = NSLocalizedString(@"Cadastrar", nil);
+    self.btnCountry.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.btnCountry.titleLabel.minimumScaleFactor = .6;
+    self.btnCountry.titleLabel.text = NSLocalizedString(@"País", nil);
+    self.inputCell.placeholder = NSLocalizedString(@"Telefone", nil);
+
 
     
     

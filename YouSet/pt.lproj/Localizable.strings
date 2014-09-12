@@ -85,3 +85,14 @@
 "YouSet" = "YouSet";
 "Contatos" = "Contatos";
 
+//LoginViewController
+
+"Entrar" = "Entrar";
+"Erro de conexāo" = "Erro de conexāo";
+"Nāo foi possível conectar ao servidor. Confira sua conexāo de internet." = "Nāo foi possível conectar ao servidor. Confira sua conexāo de internet.";
+"Cadastrar" = "Cadastrar";
+"País" = "País";
+"Telefone" = "Telefone";
+
+//ChoiceCountryViewController
+"Selecione seu País" = "Selecione seu País";

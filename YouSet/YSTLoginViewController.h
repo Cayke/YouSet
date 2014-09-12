@@ -21,6 +21,7 @@
 // pais
 @property (nonatomic) NSDictionary *country;
 @property (weak, nonatomic) IBOutlet UIButton *btnCountry;
+@property (weak, nonatomic) IBOutlet UIButton *btnCadastrar;
 
 // botao para cadastrar
 - (IBAction)cadastrar:(id)sender;
