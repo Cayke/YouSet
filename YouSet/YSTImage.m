@@ -47,6 +47,10 @@
                                
                                [self saveImage:imageData withName:imageName];
                            }
+                           else
+                           {
+                               image = [UIImage imageNamed:@"userNotFound.png"];
+                           }
                        }
                        
                        //This is your completion handler
