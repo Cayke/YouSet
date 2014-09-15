@@ -84,6 +84,7 @@
 "Procurar" = "Search";
 "YouSet" = "YouSet";
 "Contatos" = "Contacts";
+"Você ainda não segue ninguém. Para seguir um novo amigo clique no botao + a cima" = "You are not following anyone . To follow a new friend click the + button above";
 
 //LoginViewController
 
@@ -99,3 +100,6 @@
 
 //RegisterViewController
 "Nome" = "Name";
+
+//InviteViewController
+"Não foi possível enviar SMS!" = "Unable to send SMS!";
