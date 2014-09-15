@@ -96,3 +96,6 @@
 
 //ChoiceCountryViewController
 "Selecione seu País" = "Selecione seu País";
+
+//RegisterViewController
+"Nome" = "Nome";

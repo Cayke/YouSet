@@ -6,8 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YSTRegisterNewViewController">
             <connections>
+                <outlet property="btnCadastrar" destination="w06-sy-yTE" id="bGQ-Sa-4O2"/>
                 <outlet property="inputName" destination="HZG-o9-rLz" id="SiN-ym-JIO"/>
+                <outlet property="labelNome" destination="BLw-Ig-WZS" id="ZCC-Z4-bod"/>
                 <outlet property="labelPhone" destination="FxU-7X-tmQ" id="hPD-lX-pcA"/>
+                <outlet property="labelTelefone" destination="OGW-L9-LYn" id="dmJ-VD-RqK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

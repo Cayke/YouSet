@@ -17,7 +17,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *labelPhone;
 @property (weak, nonatomic) IBOutlet UITextField *inputName;
+@property (weak, nonatomic) IBOutlet UILabel *labelNome;
+@property (weak, nonatomic) IBOutlet UIButton *btnCadastrar;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelTelefone;
 
 - (IBAction)registerNEwUser:(id)sender;
 

@@ -39,8 +39,10 @@
     paddingView.backgroundColor = [UIColor clearColor];
     self.inputName.leftView = paddingView;
     self.inputName.leftViewMode = UITextFieldViewModeAlways;
-    
-    self.labelPhone.text = NSLocalizedString(@"Telefone", nil);
+    self.btnCadastrar.titleLabel.text = NSLocalizedString(@"Cadastrar", nil);
+    self.labelTelefone.text = NSLocalizedString(@"Telefone", nil);
+    self.labelNome.text = NSLocalizedString(@"Nome", nil);
+    //self.labelPhone.text = NSLocalizedString(@"Telefone", nil);
 }
 
 - (void)didReceiveMemoryWarning
