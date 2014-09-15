@@ -83,7 +83,7 @@
             }
             else if (!_amigos && !error)
             {
-                                UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Atencao" message:@"Voce ainda nao segue ninguem. Para seguir um amigo novo clique no botao + a cima" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+                                UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Atenção",nil) message:NSLocalizedString(@"Você ainda não segue ninguém. Para seguir um novo amigo clique no botao + a cima", nil) delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
                                 [alerta show];
             }
             else if (error)
