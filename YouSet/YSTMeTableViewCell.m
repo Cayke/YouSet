@@ -52,7 +52,7 @@
             if (todoToAnotherUser) {
                 // todo feito para outro usuario
                 _usersOfTask.hidden = NO;
-                _usersOfTask.text = [NSLocalizedString(@"De ", nil) stringByAppendingString:s];
+                _usersOfTask.text = [NSLocalizedString(@"Para ", nil) stringByAppendingString:s];
                 
             } else {
                 // esconder label
@@ -62,7 +62,7 @@
         } else {
             // todo nao foi criado pelo usuario, veio de outra pessoa
             _usersOfTask.hidden = NO;
-            _usersOfTask.text = [NSString stringWithFormat:NSLocalizedString(@"Para %@", nil),todo.createdByName];
+            _usersOfTask.text = [NSString stringWithFormat:NSLocalizedString(@"De %@", nil),todo.createdByName];
         }
         
         
@@ -86,7 +86,7 @@
             if (todoToAnotherUser) {
                 // todo feito para outro usuario
                 _usersOfTask.hidden = NO;
-                _usersOfTask.text = [NSLocalizedString(@"De ", nil) stringByAppendingString:s];
+                _usersOfTask.text = [NSLocalizedString(@"Para ", nil) stringByAppendingString:s];
                 
             } else {
                 // esconder label
@@ -96,7 +96,7 @@
         } else {
             // mostrar quando for criado por outros usuarios, e quando o usuario cria pelo o usuario
             _usersOfTask.hidden = NO;
-            _usersOfTask.text = [NSString stringWithFormat:NSLocalizedString(@"Para %@", nil),todo.createdByName];
+            _usersOfTask.text = [NSString stringWithFormat:NSLocalizedString(@"De %@", nil),todo.createdByName];
         }
     }
     
