@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "YSTLoginViewController.h"
 
-@interface YSTRegisterNewViewController : UIViewController
+@interface YSTRegisterNewViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) YSTLoginViewController *login;
 
+@property (weak, nonatomic, readonly) UIImageView *viewOfImage;
 @property (nonatomic) NSString *phone;
 
 @property (weak, nonatomic) IBOutlet UILabel *labelPhone;

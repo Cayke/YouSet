@@ -22,10 +22,10 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Telefone" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edh-4S-kae">
-                    <rect key="frame" x="87" y="419" width="213" height="49"/>
+                    <rect key="frame" x="154" y="419" width="146" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="213" id="MHs-CM-mxd"/>
+                        <constraint firstAttribute="width" constant="146" id="MHs-CM-mxd"/>
                         <constraint firstAttribute="height" constant="49" id="tBJ-1S-szX"/>
                     </constraints>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,12 +51,12 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5R8-Db-PsA">
-                    <rect key="frame" x="20" y="419" width="59" height="49"/>
+                    <rect key="frame" x="20" y="419" width="126" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.44313728810000003" green="0.83921575550000005" blue="0.49803924560000001" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="Nxy-9Y-RC1"/>
-                        <constraint firstAttribute="width" constant="59" id="cdL-8h-Nag"/>
+                        <constraint firstAttribute="width" constant="126" id="cdL-8h-Nag"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

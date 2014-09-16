@@ -75,37 +75,57 @@
 }
 
 - (IBAction)cadastrar:(id)sender {
-    // perguntar o telefone
-    YSTUser *u = [[YSTUser alloc]init];
-    u.phone = _inputCell.text;
-    NSError *error = nil;
-    u = [[YSTConnection sharedConnection]login:u withError:&error];
-    if (u) {
-        // usuario existe
-        [YSTUser sharedUser].phone = u.phone;
-        [YSTUser sharedUser].name = u.name;
-        [YSTUser sharedUser].ID = u.ID;
-        [[YSTUser sharedUser] save];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        [_appDelegate normalInitializateOfYouSet];
-    }
-    else if (error)
-    {
-        //criar alerta
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:
-                           NSLocalizedString(@"Erro de conexāo", nil)
-                                                     message:NSLocalizedString(@"Nāo foi possível conectar ao servidor. Confira sua conexāo de internet.", nil) delegate:self
-                                           cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [av show];
+        //Call your function or whatever work that needs to be done
         
-    }
-    else {
-        // usuario nao existe
-        YSTRegisterNewViewController *registerVC = [[YSTRegisterNewViewController alloc]init];
-        registerVC.phone = _inputCell.text;
-        registerVC.login = self;
-        [self.navigationController pushViewController:registerVC animated:YES];
-    }
+        //Code in this part is run on a background thread
+        // perguntar o telefone
+        YSTUser *u = [[YSTUser alloc]init];
+        u.phone = _inputCell.text;
+        NSError *error = nil;
+        u = [[YSTConnection sharedConnection]login:u withError:&error];
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            
+            //Stop your activity indicator or anything else with the GUI
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            //Code here is run on the main thread
+            if (u) {
+                // usuario existe
+                [YSTUser sharedUser].phone = u.phone;
+                [YSTUser sharedUser].name = u.name;
+                [YSTUser sharedUser].ID = u.ID;
+                [[YSTUser sharedUser] save];
+                
+                [_appDelegate normalInitializateOfYouSet];
+            }
+            else if (error)
+            {
+                //criar alerta
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:
+                                   NSLocalizedString(@"Erro de conexāo", nil)
+                                                             message:NSLocalizedString(@"Nāo foi possível conectar ao servidor. Confira sua conexāo de internet.", nil) delegate:self
+                                                   cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [av show];
+                
+            }
+            else {
+                // usuario nao existe
+                YSTRegisterNewViewController *registerVC = [[YSTRegisterNewViewController alloc]init];
+                registerVC.phone = _inputCell.text;
+                registerVC.login = self;
+                [self.navigationController pushViewController:registerVC animated:YES];
+            }
+
+            
+            
+        });
+        
+    });
 }
 
 - (IBAction)choiceCountry:(id)sender {

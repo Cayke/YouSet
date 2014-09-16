@@ -30,6 +30,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    //criar botao na navigation para add foto
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(addPhoto)];
+    
     _labelPhone.text = _phone;
     self.inputName.backgroundColor = [UIColor whiteColor];
     self.inputName.layer.cornerRadius = 2;
@@ -43,6 +46,25 @@
     self.labelTelefone.text = NSLocalizedString(@"Telefone", nil);
     self.labelNome.text = NSLocalizedString(@"Nome", nil);
     //self.labelPhone.text = NSLocalizedString(@"Telefone", nil);
+    
+    
+    //criar o espaco para foto
+    //x = 80, y = 80 , size = 160
+    CGRect frame = CGRectMake(80, 80, 160, 160);
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame: frame];
+    imageView.layer.cornerRadius = imageView.bounds.size.width/2;
+    imageView.clipsToBounds = YES;
+    imageView.layer.masksToBounds = YES;
+    imageView.backgroundColor = [UIColor whiteColor];
+
+    
+    //colocar image view como property da classe
+    _viewOfImage = imageView;
+    
+    [self.view addSubview:imageView];
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,40 +73,117 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) addPhoto
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancelar", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Tirar Foto", nil),NSLocalizedString(@"Escolher Existente", nil), nil];
+    [actionSheet showInView:self.view];
+    
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex != actionSheet.cancelButtonIndex)
+    {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    if (buttonIndex == 0) // tirar foto
+    {
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }
+        else
+        {
+            UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Ops" message:@"Seu device nao suporta esta opcao" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alerta show];
+        }
+    }
+    else if (buttonIndex == 1)
+    {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    imagePicker.delegate = self;
+    
+    //habilita edicaoUIips
+    imagePicker.allowsEditing = YES;
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *imagem = info[UIImagePickerControllerEditedImage];
+    
+    self.viewOfImage.image = imagem;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [_inputName resignFirstResponder];
 }
 
 - (IBAction)registerNEwUser:(id)sender {
-    YSTUser *newUser = [[YSTUser alloc]init];
-    newUser.name = _inputName.text;
-    newUser.phone = _phone;
+    [self registerUser];
+}
+
+-(void) registerUser
+{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
-    NSError *error = nil;
-    
-    newUser = [[YSTConnection sharedConnection]login:newUser withError:&error];
-    
-    if (newUser) {
-        [YSTUser sharedUser].ID = newUser.ID;
-        [YSTUser sharedUser].phone = newUser.phone;
-        [YSTUser sharedUser].name = newUser.name;
-        [YSTUser sharedUser].photo = newUser.photo;
-        [[YSTUser sharedUser] save];
-        [_login.appDelegate normalInitializateOfYouSet];
-    }
-    else if (error)
-    {
-        //criar alerta
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:
-                           NSLocalizedString(@"Erro de conexāo", nil)
-                                                     message:NSLocalizedString(@"Nāo foi possível conectar ao servidor. Confira sua conexāo de internet.", nil) delegate:self
-                                           cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [av show];
-    }
-    else
-    {
-        UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Erro" message:@"Tente novamente mais tarde" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles: nil];
-        [alerta show];
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        //Call your function or whatever work that needs to be done
+        
+        //Code in this part is run on a background thread
+        YSTUser *newUser = [[YSTUser alloc]init];
+        newUser.name = _inputName.text;
+        newUser.phone = _phone;
+        
+        NSError *error = nil;
+        
+        newUser = [[YSTConnection sharedConnection]login:newUser withError:&error];
+        [[YSTConnection sharedConnection]uploadPhoto:_viewOfImage.image ofUser:newUser withError:&error];
+        
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            
+            //Stop your activity indicator or anything else with the GUI
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            //Code here is run on the main thread
+            
+            if (newUser) {
+                [YSTUser sharedUser].ID = newUser.ID;
+                [YSTUser sharedUser].phone = newUser.phone;
+                [YSTUser sharedUser].name = newUser.name;
+                [YSTUser sharedUser].photo = newUser.photo;
+                [[YSTUser sharedUser] save];
+                [_login.appDelegate normalInitializateOfYouSet];
+            }
+            else if (error)
+            {
+                //criar alerta
+                UIAlertView *av = [[UIAlertView alloc] initWithTitle:
+                                   NSLocalizedString(@"Erro de conexāo", nil)
+                                                             message:NSLocalizedString(@"Nāo foi possível conectar ao servidor. Confira sua conexāo de internet.", nil) delegate:self
+                                                   cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [av show];
+            }
+            else
+            {
+                UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Erro" message:@"Tente novamente mais tarde" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles: nil];
+                [alerta show];
+            }
+            
+            
+        });
+        
+    });
+}
+
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    [self registerUser];
+    return YES;
 }
 @end
