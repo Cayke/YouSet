@@ -100,6 +100,7 @@
 
 //RegisterViewController
 "Nome" = "Nome";
+"Parece que o campo nome está em branco, digite seu nome por favor" = "Parece que o campo nome está em branco, digite seu nome por favor";
 
 //InviteViewController
 "Não foi possível enviar SMS!" = "Não foi possível enviar SMS!";

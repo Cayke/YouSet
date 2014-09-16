@@ -52,9 +52,8 @@
     
     
     self.title = NSLocalizedString(@"YouSet", nil);
-    self.btnCadastrar.titleLabel.text = NSLocalizedString(@"Cadastrar", nil);
-    self.btnCountry.titleLabel.adjustsFontSizeToFitWidth = YES;
-    self.btnCountry.titleLabel.minimumScaleFactor = .6;
+    [self.btnCadastrar setTitle:NSLocalizedString(@"Cadastrar", nil) forState:UIControlStateNormal ];
+    [self.btnCountry setTitle:NSLocalizedString(@"País", nil) forState:UIControlStateNormal];
     self.btnCountry.titleLabel.text = NSLocalizedString(@"País", nil);
     self.inputCell.placeholder = NSLocalizedString(@"Telefone", nil);
 
