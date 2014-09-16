@@ -57,14 +57,14 @@
     imageView.clipsToBounds = YES;
     imageView.layer.masksToBounds = YES;
     imageView.backgroundColor = [UIColor whiteColor];
-
+    
     
     //colocar image view como property da classe
     _viewOfImage = imageView;
     
     [self.view addSubview:imageView];
     
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,31 +82,38 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    BOOL showImagePicker = NO;
     if (buttonIndex != actionSheet.cancelButtonIndex)
     {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
-    if (buttonIndex == 0) // tirar foto
-    {
-        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-            imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        }
-        else
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+        if (buttonIndex == 0) // tirar foto
         {
-            UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Ops" message:@"Seu device nao suporta esta opcao" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alerta show];
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                showImagePicker = YES;
+            }
+            else
+            {
+                UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Ops" message:@"Seu device nao suporta esta opcao" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alerta show];
+            }
         }
-    }
-    else if (buttonIndex == 1)
-    {
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
-    
-    imagePicker.delegate = self;
-    
-    //habilita edicaoUIips
-    imagePicker.allowsEditing = YES;
-    
-    [self presentViewController:imagePicker animated:YES completion:nil];
+        else if (buttonIndex == 1)
+        {
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            showImagePicker = YES;
+        }
+        
+        if (showImagePicker) {
+            
+            
+            imagePicker.delegate = self;
+            
+            //habilita edicaoUIips
+            imagePicker.allowsEditing = YES;
+            
+            [self presentViewController:imagePicker animated:YES completion:nil];
+        }
     }
 }
 
