@@ -20,7 +20,7 @@
 - (void)awakeFromNib
 {
     // Initialization code
-    _description.textAlignment = NSTextAlignmentJustified;
+   // _description.textAlignment = NSTextAlignmentJustified;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
