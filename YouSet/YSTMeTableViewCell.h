@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) YSTUser *userRepresentation;
 
-@property (weak, nonatomic) IBOutlet UILabel *description;
+@property (weak, nonatomic) IBOutlet UILabel *desciption;
 @property (weak, nonatomic) IBOutlet UILabel *usersOfTask;
 
 @property (weak, nonatomic) YSTToDo *todo;

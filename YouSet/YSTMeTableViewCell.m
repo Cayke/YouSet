@@ -31,7 +31,7 @@
 }
 
 -(void)setCellWithTodo:(YSTToDo *)todo andUserRepresentation:(YSTUser*)userRep{
-    self.description.text = todo.todo;
+    self.desciption.text = todo.todo;
     _userRepresentation = userRep;
     _todo = todo;
     
