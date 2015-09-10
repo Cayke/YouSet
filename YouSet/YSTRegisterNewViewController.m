@@ -42,7 +42,7 @@
     paddingView.backgroundColor = [UIColor clearColor];
     self.inputName.leftView = paddingView;
     self.inputName.leftViewMode = UITextFieldViewModeAlways;
-    [self.btnCadastrar setTitle:NSLocalizedString(@"Cadastrar", nil) forState:UIControlStateNormal ];
+    self.btnCadastrar.titleLabel.text = NSLocalizedString(@"Cadastrar", nil);
     self.labelTelefone.text = NSLocalizedString(@"Telefone", nil);
     self.labelNome.text = NSLocalizedString(@"Nome", nil);
     //self.labelPhone.text = NSLocalizedString(@"Telefone", nil);
@@ -177,7 +177,7 @@
             }
             else
             {
-                UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Erro",nil) message:NSLocalizedString(@"Parece que o campo nome está em branco, digite seu nome por favor", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancelar",nil) otherButtonTitles: nil];
+                UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Erro" message:@"Tente novamente mais tarde" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles: nil];
                 [alerta show];
             }
             
@@ -193,27 +193,4 @@
     [self registerUser];
     return YES;
 }
-
--(void)textFieldDidBeginEditing:(UITextField *)textField{
-    [UIView animateWithDuration:0.30 animations:^{
-        if ([UIScreen mainScreen].bounds.size.height == 568) {
-            self.view.frame = CGRectMake(0, -50, self.view.frame.size.width, self.view.frame.size.height);
-        } else {
-            self.view.frame = CGRectMake(0, -120, self.view.frame.size.width, self.view.frame.size.height);
-        }
-        
-        
-    }];
-}
-
--(void)textFieldDidEndEditing:(UITextField *)textField{
-    [UIView animateWithDuration:0.30 animations:^{
-        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    }];
-    [textField resignFirstResponder];
-}
--(void)viewWillAppear:(BOOL)animated{
-    
-}
-
 @end
